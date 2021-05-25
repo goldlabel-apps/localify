@@ -1,0 +1,8 @@
+#!/bin/bash
+# chmod ug+x build
+clear
+
+echo 'Building React' $1
+cd ./$1
+yarn
+yarn build
