@@ -1,9 +1,10 @@
-_DEV_
-
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 .env.production
 .env.development
+
+# Firebase
+.firebase
 
 # dependencies
 /node_modules
