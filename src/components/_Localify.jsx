@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core/'
 import {
   RightMenu,
+  Main,
 } from './'
 
 
@@ -113,22 +114,16 @@ export default function Localify() {
         </Toolbar>
       </AppBar>
       
-      <main
+      <div
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt
-        </Typography>
-      </main>
+        <Main />
+      </div>
+
+      
 
       <Drawer
         open={ open }
