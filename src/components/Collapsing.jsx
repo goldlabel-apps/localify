@@ -36,7 +36,7 @@ const useStyles = makeStyles( theme => ({
 		marginRight: theme.spacing( 2 ),
 	},
 	hTag: {
-		fontWeight: 'lighter',
+		// fontWeight: 'lighter',
 	},
 	root: {
     	width: '100%',
@@ -56,22 +56,23 @@ export default function Collapsing( props ) {
 	if ( !children ) return null
 	const {
 		title,
-		// icon, 
+		icon, 
+		iconColor,
 	} = options 
-
-	let alreadyOpen = true
 
 	return	<div className={clsx( classes.collapsing )}>
 				<Accordion 
-					defaultExpanded={ alreadyOpen }
+					defaultExpanded={ false }
 					className={clsx( classes.plainAccordion )}>
 					<AccordionSummary
-			          expandIcon={ <Icon icon={`panel-toggle`} color={ `primary` }/> }
+			          expandIcon={ <Icon icon={`panel-toggle`} /> }
 			          aria-controls={ `wordpress` }
 			          id={ `help` } >
-			          
+			          <div className={ clsx( classes.icon )}>
+			          	<Icon icon={ icon } color={ iconColor } />
+			          </div>
 			          <Typography 
-			          	variant={ `button` }
+			          	variant={ `body2` }
 			          	className={clsx( classes.hTag )}
 			          >
 			          	{ title }
@@ -85,7 +86,5 @@ export default function Collapsing( props ) {
 }
 
 /*
-<div className={ clsx( classes.icon )}>
-			          	<Icon icon={ icon } />
-			          </div>
+
 */
