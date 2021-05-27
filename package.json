@@ -1,14 +1,14 @@
 {
-  "name": "localify",
   "version": "3.0.0",
-  "description": "Everything you need to know about WHERE",
+  "name": "localify",
+  "description": "Everything you need to work out where",
   "repository": "https://github.com/listingslab-software/localify",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "setup": "$PWD/unix/setup",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "deploy": "yarn build && firebase deploy"
   },
   "dependencies": {
@@ -19,18 +19,13 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@reduxjs/toolkit": "^1.5.0",
-    "algoliasearch": "^4.8.5",
     "axios": "^0.21.1",
-    "fast-xml-parser": "^3.17.6",
     "history": "^5.0.0",
     "mapbox-gl": "^2.1.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-instantsearch-dom": "6.8.3",
     "react-redux": "^7.2.2",
     "react-scripts": "2.1.1",
-    "react-swipeable-views": "^0.13.9",
-    "redux-persist": "^6.0.0",
     "ua-parser-js": "^0.7.23"
   },
   "devDependencies": {
