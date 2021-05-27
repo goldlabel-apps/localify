@@ -1,13 +1,10 @@
+import Localify from './_Localify'
 import Collapsing from './Collapsing'
-import SettingsMenu from './SettingsMenu'
-import Localify from './Localify'
 import Overlay from './Overlay'
-import GithubMenu from './GithubMenu'
-
+import RightMenu from './RightMenu'
 export {
-	Collapsing, 
-	SettingsMenu, 
 	Localify,
-	GithubMenu,
+	Collapsing,
 	Overlay,
+	RightMenu,
 }
