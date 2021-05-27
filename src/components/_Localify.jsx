@@ -8,7 +8,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Divider,
   IconButton,
 } from '@material-ui/core/'
 import {
@@ -23,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   appBar: {
+    background: 'none',
+    border: 'none',
+    boxShadow: 'none',
+    color: theme.palette.primary.main,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -88,17 +91,15 @@ export default function Localify() {
     setOpen( false )
   }
 
-  return (
-    <div className={classes.localify}>
+  return <div className={classes.localify}>
       <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
+        position={ `fixed` }
+        className={ clsx( classes.appBar, {
           [classes.appBarShift]: open,
-        })}
-      >
+        })}>
         <Toolbar>
           <Typography variant="h6" noWrap className={classes.title}>
-            Persistent drawer
+            @localify
           </Typography>
           <IconButton
             color="inherit"
@@ -111,6 +112,7 @@ export default function Localify() {
           </IconButton>
         </Toolbar>
       </AppBar>
+      
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
@@ -119,33 +121,21 @@ export default function Localify() {
         <div className={classes.drawerHeader} />
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
+          ut labore et dolore magna aliqua
         </Typography>
         <Typography paragraph>
           Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
           facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+          tincidunt
         </Typography>
       </main>
+
       <Drawer
-        className={classes.drawer}
+        open={ open }
+        className={ clsx( classes.drawer )}
         variant="persistent"
-        anchor="right"
-        open={open}
+        anchor={ `right` }
+        
         classes={{
           paper: classes.drawerPaper,
         }}
@@ -155,9 +145,9 @@ export default function Localify() {
             {theme.direction === 'rtl' ? <Icon icon={ `left`} /> : <Icon icon={ `right`} /> }
           </IconButton>
         </div>
-        <Divider />
+        
         <RightMenu />
       </Drawer>
+
     </div>
-  )
 }

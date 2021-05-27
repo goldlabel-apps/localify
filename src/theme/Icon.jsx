@@ -271,7 +271,7 @@ class Icon extends Component {
             case `product`:
                 return (<IconProduct color={iconColor} />)
 
-            case `stop`:
+            case `hand`:
                 return (<IconHand color={iconColor} />)
 
             case `leveldown`:

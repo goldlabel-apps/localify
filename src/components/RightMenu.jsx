@@ -13,32 +13,60 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   rightMenu: {
-    border: '1px solid gold',
+    // borderBottom: '1px solid rgba(0,0,0,0.1)',
   },
 }))
 
 export default function RightMenu() {
+
   const classes = useStyles()
+  
   const appSlice = useSelector(state => state.app)
   const {
     open,
   } = appSlice
   if ( open ) console.log ('open', open)
+
   return <div className={clsx( classes.rightMenu )}>
-          <List dense>
+          <List>
 
             <ListItem 
               button
               onClick={( e ) => {
                 e.preventDefault()
-                console.log ( 'dalsjd' )
+                navigateTo( `https://github.com/listingslab-software/localify`, `_blank`)
               }}>
-
               <ListItemIcon>
-                <Icon icon={`github`} color={`black`} />
+                <Icon icon={ `code` } color={ `inherit` } />
               </ListItemIcon>
-              <ListItemText primary={`GitHub Repository`} />
+              <ListItemText primary={`Code`} />
             </ListItem>
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+                navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
+              }}>
+              <ListItemIcon>
+                <Icon icon={`hand`} color={`inherit`} />
+              </ListItemIcon>
+              <ListItemText primary={`Kanban Board` } />
+            </ListItem>
+
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+                navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
+              }}>
+              <ListItemIcon>
+                <Icon icon={`add`} color={`inherit`} />
+              </ListItemIcon>
+              <ListItemText primary={`New Issue` } />
+            </ListItem>
+
           </List>
         </div>
 }
