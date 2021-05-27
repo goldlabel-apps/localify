@@ -1,13 +1,20 @@
+// import { getHistory } from '../../'
 import { createReducer } from '@reduxjs/toolkit'
 import {
   open,
   overlay,
 } from "./actions"
 
+
+// const history = getHistory()
+// console.log ( 'history', history )
 export const appSlice = {
   open: false,
   overlay: false,
+  path: ``,
 }
+
+
 
 const appReducer = createReducer( appSlice, {
 

@@ -9,11 +9,17 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
+    Divider,
+    Typography,
 } from '@material-ui/core/'
 
 const useStyles = makeStyles((theme) => ({
   rightMenu: {
-    // borderBottom: '1px solid rgba(0,0,0,0.1)',
+    // 
+  },
+  rightMenuTitle:{
+        padding: theme.spacing(2),
+        flexGrow: 1,
   },
 }))
 
@@ -28,6 +34,52 @@ export default function RightMenu() {
   if ( open ) console.log ('open', open)
 
   return <div className={clsx( classes.rightMenu )}>
+
+          <Typography variant={ `button` } className={clsx( classes.rightMenuTitle )} >
+            Navigation
+          </Typography>
+
+          <List>
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+              }}>
+              <ListItemIcon>
+                <Icon icon={ `home` } color={ `secondary` } />
+              </ListItemIcon>
+              <ListItemText primary={`Home`} />
+            </ListItem>
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+              }}>
+              <ListItemIcon>
+                <Icon icon={ `user` } color={ `secondary` } />
+              </ListItemIcon>
+              <ListItemText primary={`User`} />
+            </ListItem>
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+              }}>
+              <ListItemIcon>
+                <Icon icon={ `map` } color={ `secondary` } />
+              </ListItemIcon>
+              <ListItemText primary={`Map`} />
+            </ListItem>
+
+          </List>
+
+          <Typography variant={ `button` } className={clsx( classes.rightMenuTitle )} >
+            Open Source
+          </Typography>
+
           <List>
 
             <ListItem 
@@ -37,7 +89,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/localify`, `_blank`)
               }}>
               <ListItemIcon>
-                <Icon icon={ `code` } color={ `inherit` } />
+                <Icon icon={ `code` } color={ `primary` } />
               </ListItemIcon>
               <ListItemText primary={`Code`} />
             </ListItem>
@@ -49,7 +101,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
               }}>
               <ListItemIcon>
-                <Icon icon={`hand`} color={`inherit`} />
+                <Icon icon={`hand`} color={`primary`} />
               </ListItemIcon>
               <ListItemText primary={`Kanban Board` } />
             </ListItem>
@@ -62,11 +114,12 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
               }}>
               <ListItemIcon>
-                <Icon icon={`add`} color={`inherit`} />
+                <Icon icon={`add`} color={`primary`} />
               </ListItemIcon>
               <ListItemText primary={`New Issue` } />
             </ListItem>
 
           </List>
+          <Divider />
         </div>
 }

@@ -43,6 +43,7 @@ import IconUser from '@material-ui/icons/Person'
 import IconGames from '@material-ui/icons/Casino'
 import IconOpen from '@material-ui/icons/Add'
 import IconDelete from '@material-ui/icons/DeleteOutlined'
+import IconMap from '@material-ui/icons/Streetview'
 import IconPlay from '@material-ui/icons/PlayArrow'
 import IconSave from '@material-ui/icons/Save'
 import IconBroadcast from '@material-ui/icons/KeyboardVoice'
@@ -370,6 +371,10 @@ class Icon extends Component {
 
             case `localify`:
                 return (<IconLocalify color={iconColor} />)
+
+            case `map`:
+                return (<IconMap color={iconColor} />)
+
 
             default: {
                 return (<IconDefault color={iconColor} />)

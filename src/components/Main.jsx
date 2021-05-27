@@ -2,13 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Backdrop,
-    CircularProgress,
+    Typography,
 } from '@material-ui/core/'
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    border: '1px solid red',
+    // border: '1px solid red',
   },
 }))
 
@@ -19,8 +18,11 @@ export default function Main() {
   const {
     open,
   } = appSlice
+  if ( open ) console.log( 'open', open )
 
   return <div className={ classes.main }>
-            <CircularProgress color={ `inherit` } />
+          <Typography variant={ `h2` }>
+            Typography
+          </Typography>
         </div>
 }
