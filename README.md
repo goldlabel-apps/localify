@@ -1,4 +1,4 @@
 
 ## @localify
 
-Everything you need to know about WHERE
+Everything you need to work out where

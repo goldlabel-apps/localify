@@ -1,19 +1,23 @@
 
 /*
-	#2075d0 dark blue
-	#57b3f2 light blue
-	#9726bc purple
-	#dedede light grey
-	#70e751 lime green
-  #3c8c27 green
-  #1c2327 dark grey
+  see /public/png/palette.png
+
+  tealy #bbc9dd
+  bluey #c3dde6
+  whitey #e4e8f0
+  purpley #421c5d
+  orangey #e05717
+  greeny #ccd31f
+
 */
 let widgetSettings = {
-  primaryColor: `#1c2327`,
+  primaryColor: `#421c5d`,
+  secondaryColor: `#ccd31f`,
 }
 if ( window.widgetSettings ) widgetSettings = window.widgetSettings
 const {
-  primaryColor
+  primaryColor,
+  secondaryColor,
 } = widgetSettings
 
 // window.location.host
@@ -22,11 +26,16 @@ const {
 export const theme = { 
   palette: {
     type: 'light',
+    background: {
+      default: `#fff`,
+      paper: `#fff`,
+
+    },
     primary: {
       main: primaryColor,
     },
     secondary: {
-      main: '#1c2327',
+      main: secondaryColor,
     },
   }
 }

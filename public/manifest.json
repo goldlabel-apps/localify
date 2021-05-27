@@ -1,6 +1,8 @@
 {
-  "short_name": "Docs",
-  "name": "Docs",
+  "short_name": "@localify",
+  "name": "@localify",
+  "theme_color": "#ccd31f",
+  "background_color": "#ccd31f",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +21,5 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#ff4555",
-  "background_color": "#ff4555"
+  "display": "standalone"
 }

@@ -1,14 +1,18 @@
+
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
-import { docsReducer, docsSlice } from './docs/reducer'
+import { appReducer, appSlice } from './app/reducer'
+import { wordpressReducer, wordpressSlice } from './wordpress/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
-    docs: docsReducer,
+    app: appReducer,
+    wordpress: wordpressReducer,
   })
 
   const preloadedState = {
-    docs: docsSlice,
+    app: appSlice,
+    wordpress: wordpressSlice,
   }
   
   const middleware = [
