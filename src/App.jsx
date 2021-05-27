@@ -9,10 +9,9 @@ import {
   createMuiTheme, 
   CssBaseline,
 } from '@material-ui/core/'
-import { 
-  WordpressMenu, 
+import {
   Overlay,
-  GithubMenu,
+  Localify,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -25,12 +24,11 @@ export default function App() {
 
     const classes = useStyles()
 
-    return <MuiThemeProvider theme={ createMuiTheme(theme) }>
+    return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
               <CssBaseline />
               <Overlay />
               <div className={ clsx( classes.appWrap ) }>
-                <WordpressMenu />
-                <GithubMenu />
+                <Localify />
               </div>
             </MuiThemeProvider> 
 }

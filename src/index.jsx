@@ -3,10 +3,10 @@ import React from 'react'
 import firebase from '@firebase/app'
 import '@firebase/firestore'
 import ReactDOM from 'react-dom'
-import App from './App'
 import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux'
 import reduxStore from './redux'
+import App from './App'
 
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
@@ -37,5 +37,5 @@ ReactDOM.render(
 	<Provider store={store}>
 		<App />
 	</Provider>, 
-	document.getElementById( 'docsify' )
+	document.getElementById( 'localify' )
 )

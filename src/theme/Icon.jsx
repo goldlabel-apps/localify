@@ -9,6 +9,7 @@ import IconPlugins from '@material-ui/icons/Extension'
 import IconGDPR from '@material-ui/icons/Security'
 import IconDocs from '@material-ui/icons/Description'
 import IconSend from '@material-ui/icons/Send'
+import IconLocalify from '@material-ui/icons/PersonPin'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
@@ -354,7 +355,6 @@ class Icon extends Component {
 
             case `mail`:
                 return (<IconMail color={iconColor} />)
-                
 
             case `docs`:
                 return (<IconDocs color={iconColor} />)
@@ -368,6 +368,8 @@ class Icon extends Component {
             case `download`:
                 return (<IconDownload color={iconColor} />)
 
+            case `localify`:
+                return (<IconLocalify color={iconColor} />)
 
             default: {
                 return (<IconDefault color={iconColor} />)
