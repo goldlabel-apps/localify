@@ -5,7 +5,7 @@ import RightMenu from './RightMenu'
 import Trips from './Trips'
 import Mapbox from './Mapbox'
 import Trip from './Trip'
-
+import AddNew from './AddNew'
 
 export {
 	Localify,
@@ -15,4 +15,5 @@ export {
 	Trips,
 	Mapbox,
 	Trip,
+	AddNew,
 }

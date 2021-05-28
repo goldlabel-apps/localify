@@ -17,6 +17,7 @@ import {
 import {
   RightMenu,
   Trips,
+  AddNew,
 } from './'
 
 const drawerWidth = 240
@@ -131,6 +132,10 @@ export default function Localify() {
             className={clsx(open && classes.hide)}>
             <Icon icon={ `left` } />
           </IconButton>
+
+          <AddNew />
+
+
         </Toolbar>
       </AppBar>
       
