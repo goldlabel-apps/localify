@@ -1,9 +1,20 @@
 import { createAction } from '@reduxjs/toolkit'
 import { 
 	getStore,
+	getHistory,
 } from '../../'
 export const open = createAction(`APP/OPEN`) 
 export const overlay = createAction(`APP/OVERLAY`) 
+export const path = createAction(`APP/PATH`) 
+
+export const goTo = path => {
+	const history = getHistory()
+	// const { location } = history
+	history.push( path )
+	const store = getStore()
+	store.dispatch({type: `APP/PATH`, path })
+	return true
+}
 
 export const navigateTo = ( url, target ) => {
 	window.open( url, target )

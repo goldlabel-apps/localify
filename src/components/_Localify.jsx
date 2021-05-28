@@ -15,7 +15,6 @@ import {
   Trips,
 } from './'
 
-
 const drawerWidth = 240
 
 const useStyles = makeStyles((theme) => ({
@@ -103,29 +102,16 @@ export default function Localify() {
           [classes.appBarShift]: open,
         })}>
         <Toolbar>
-
-          <IconButton  
-            className={ classes.homeBtn }
-            aria-label={ `home` }
-            edge={`end`}
-            onClick={ ( e ) => {
-              e.preventDefault()
-            }}>
-            <Icon icon={ `localify` } color={ `secondary` } />
-          </IconButton>
-
           <Typography variant="h6" noWrap className={classes.title}>
             @localify
           </Typography>
-
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="end"
             onClick={handleDrawerOpen}
-            className={clsx(open && classes.hide)}
-          >
-            <Icon icon={ `menu` } />
+            className={clsx(open && classes.hide)}>
+            <Icon icon={ `pwa` } />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -159,3 +145,15 @@ export default function Localify() {
 
     </div>
 }
+
+/*
+<IconButton  
+            className={ classes.homeBtn }
+            aria-label={ `home` }
+            edge={`end`}
+            onClick={ ( e ) => {
+              e.preventDefault()
+            }}>
+            <Icon icon={ `localify` } color={ `secondary` } />
+          </IconButton>
+*/

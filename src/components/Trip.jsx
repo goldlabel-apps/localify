@@ -1,24 +1,25 @@
 import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
+import { goTo } from '../redux/app/actions'
+import moment from 'moment'
 import {
     makeStyles,
+    Avatar,
     Button,
     Card,
     CardHeader,
     CardMedia,
-    CardContent,
     CardActions,
-    IconButton,
-    Typography,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+// import { Icon } from '../theme'
+
 const useStyles = makeStyles((theme) => ({
   cardKML: {
     margin: theme.spacing(),
   },
   card: {
-    maxWidth: 500,
+    width: 300,
   },
   media: {
     height: 140,
@@ -36,68 +37,59 @@ export default function Trip( props ) {
     open,
   } = appSlice
   if ( open ) console.log( 'open', open )
-
   const { trip } = props
-  // console.log( 'trip', trip )
-
   const {
     id,
+    title,
+    image,
+    time,
+    flag,
   } = trip
 
   return <div className={ clsx ( classes.cardKML ) }>
             <Card className={ clsx ( classes.card ) }>
               <CardHeader 
-                avatar={ <IconButton 
-                          color={ `primary` }
-                          onClick={ (e) => {
-                            e.preventDefault()
-                            console.log ('kml click ')
-                          }}>
-                            <Icon icon={ `settings` } color={ `secondary` } />
-                          </IconButton> }
-                title={ id }
-                subheader={ `KML Card` }
-                action={ <IconButton 
-                          color={ `primary` }
-                          onClick={ (e) => {
-                            e.preventDefault()
-                            console.log ('kml click ')
-                          }}>
-                          <Icon icon={ `expand` } color={ `secondary` } />
-                        </IconButton> }
+                avatar={ <Avatar src={ flag } /> }
+                title={ title }
+                subheader={ moment( time ).fromNow() }
               />
-
-              <CardMedia
+              { image ? <CardMedia
                 className={classes.media}
-                image="/kmz/sunshine_coast_surfing/sunshine_coast_surfing.jpg"
-                title={ `Sunshine Coast Surfing, Coolum Beach` }
-              />
-
-
-              <CardContent>
-                fwf
-              </CardContent>
-              
+                image={ image }
+                title={ title }
+              /> : null }
               <CardActions>
-
-                <Typography variant={ `body2` } className={ clsx ( classes.none ) }>
-                  Choose one of these actions
-                </Typography>
-
-
                 <Button
                   color={ `secondary` }
                   variant={ `outlined` }
-                >
-                  Cancel
-                </Button>
-                <Button
-                  color={ `secondary` }
-                  variant={ `contained` }
-                >
-                  OK
+                  onClick={ (e) => {
+                    e.preventDefault()
+                    goTo(`/trip/${ id }`)
+                  }}>
+                  View
                 </Button>
               </CardActions>
           </Card>
         </div>
 }
+
+
+
+
+
+
+/*
+
+
+
+
+
+                action={ <IconButton 
+                          color={ `primary` }
+                          onClick={ (e) => {
+                            e.preventDefault()
+                            console.log ('expand id ', id)
+                          }}>
+                          <Icon icon={ `expand` } color={ `inherit` } />
+                        </IconButton> }
+*/

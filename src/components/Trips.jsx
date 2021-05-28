@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   lighter:{
     fontWeight: 'lighter',
   },
+  padded:{
+    padding: theme.spacing(),
+  }
 }))
 
 export default function Trips() {
@@ -36,8 +39,8 @@ export default function Trips() {
           <Grid container>
             <Grid item xs={ 12 }>
               <Typography 
-                variant={ `h4` }
-                className={ clsx( classes.lighter ) }>
+                variant={ `body1` }
+                className={ clsx( classes.lighter, classes.padded ) }>
                 Showing { trips.length } trips
               </Typography>
             </Grid>
