@@ -1,16 +1,21 @@
 import React from 'react'
+import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
+    Grid,
 } from '@material-ui/core/'
 import {
-  Mapbox
+  CardKML,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    // border: '1px solid red',
+    display: 'flex',
   },
+  item:{
+    border: '1px solid orange',
+  }
 }))
 
 export default function Main() {
@@ -22,7 +27,14 @@ export default function Main() {
   } = appSlice
   if ( open ) console.log( 'open', open )
 
-  return <div className={ classes.main }>
-          <Mapbox />
+  return <div className={ clsx( classes.main ) }>
+          <Grid container>
+            
+            <Grid item xs={ 12 }>
+              <CardKML />
+            </Grid>
+
+          </Grid>
+          
         </div>
 }

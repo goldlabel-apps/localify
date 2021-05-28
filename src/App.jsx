@@ -16,7 +16,6 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   appWrap: {
-    display: 'flex',
   },
 }))
 

@@ -4,6 +4,8 @@ import Overlay from './Overlay'
 import RightMenu from './RightMenu'
 import Main from './Main'
 import Mapbox from './Mapbox'
+import CardKML from './CardKML'
+
 
 export {
 	Localify,
@@ -12,4 +14,5 @@ export {
 	RightMenu,
 	Main,
 	Mapbox,
+	CardKML,
 }
