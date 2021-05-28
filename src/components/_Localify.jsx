@@ -102,17 +102,8 @@ export default function Localify() {
       subscribing,
       subscribed,
     } = localifySlice
-    if (!subscribing && !subscribed) {
-      console.log ('SUBSCRIBE ONCE')
-      subscribe()
-    }
-
-
-
-
+    if (!subscribing && !subscribed) subscribe()  
   }, [localifySlice])
-
-
 
   const handleDrawerOpen = () => {
     setOpen( true )
