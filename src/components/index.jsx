@@ -2,9 +2,9 @@ import Localify from './_Localify'
 import Collapsing from './Collapsing'
 import Overlay from './Overlay'
 import RightMenu from './RightMenu'
-import Main from './Main'
+import Trips from './Trips'
 import Mapbox from './Mapbox'
-import CardKML from './CardKML'
+import Trip from './Trip'
 
 
 export {
@@ -12,7 +12,7 @@ export {
 	Collapsing,
 	Overlay,
 	RightMenu,
-	Main,
+	Trips,
 	Mapbox,
-	CardKML,
+	Trip,
 }

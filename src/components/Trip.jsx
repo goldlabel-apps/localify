@@ -15,9 +15,10 @@ import {
 import { Icon } from '../theme'
 const useStyles = makeStyles((theme) => ({
   cardKML: {
+    margin: theme.spacing(),
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 500,
   },
   media: {
     height: 140,
@@ -27,15 +28,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function CardKML() {
+export default function Trip( props ) {
   
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
   const {
     open,
   } = appSlice
-
   if ( open ) console.log( 'open', open )
+
+  const { trip } = props
+  // console.log( 'trip', trip )
+
+  const {
+    id,
+  } = trip
 
   return <div className={ clsx ( classes.cardKML ) }>
             <Card className={ clsx ( classes.card ) }>
@@ -48,7 +55,7 @@ export default function CardKML() {
                           }}>
                             <Icon icon={ `settings` } color={ `secondary` } />
                           </IconButton> }
-                title={ `KML Card` }
+                title={ id }
                 subheader={ `KML Card` }
                 action={ <IconButton 
                           color={ `primary` }
@@ -62,7 +69,7 @@ export default function CardKML() {
 
               <CardMedia
                 className={classes.media}
-                image="/kmz/sunshine_coast_surfing/sunshine_coast_surfing.png"
+                image="/kmz/sunshine_coast_surfing/sunshine_coast_surfing.jpg"
                 title={ `Sunshine Coast Surfing, Coolum Beach` }
               />
 

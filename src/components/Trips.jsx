@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Grid,
+    Typography,
 } from '@material-ui/core/'
 import {
-  CardKML,
+  Trip,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
@@ -15,26 +16,36 @@ const useStyles = makeStyles((theme) => ({
   },
   item:{
     border: '1px solid orange',
-  }
+  },
+  lighter:{
+    fontWeight: 'lighter',
+  },
 }))
 
-export default function Main() {
+export default function Trips() {
   
   const classes = useStyles()
-  const appSlice = useSelector(state => state.app)
+  const localifySlice = useSelector(state => state.localify)
   const {
-    open,
-  } = appSlice
-  if ( open ) console.log( 'open', open )
+    trips,
+  } = localifySlice
+
 
   return <div className={ clsx( classes.main ) }>
-          <Grid container>
-            
-            <Grid item xs={ 12 }>
-              <CardKML />
-            </Grid>
 
+          <Grid container>
+            <Grid item xs={ 12 }>
+              <Typography 
+                variant={ `h4` }
+                className={ clsx( classes.lighter ) }>
+                Showing { trips.length } trips
+              </Typography>
+            </Grid>
+            { trips.map ( (item, i) => {
+                return <Trip trip={ item } key={ `trip_${i}` } />
+            })}
           </Grid>
           
         </div>
 }
+

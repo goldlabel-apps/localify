@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core/'
 import {
   RightMenu,
-  Main,
+  Trips,
 } from './'
 
 
@@ -136,7 +136,7 @@ export default function Localify() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Main />
+        <Trips />
       </div>
 
       
