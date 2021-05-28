@@ -3,16 +3,18 @@ import {
 	getStore,
 	getHistory,
 } from '../../'
-export const open = createAction(`APP/OPEN`) 
+
 export const overlay = createAction(`APP/OVERLAY`) 
 export const path = createAction(`APP/PATH`) 
+export const title = createAction(`APP/TITLE`) 
 
-export const goTo = path => {
+export const goTo = ( path, title ) => {
 	const history = getHistory()
 	// const { location } = history
 	history.push( path )
 	const store = getStore()
 	store.dispatch({type: `APP/PATH`, path })
+	store.dispatch({type: `APP/TITLE`, title })
 	return true
 }
 
@@ -21,12 +23,6 @@ export const navigateTo = ( url, target ) => {
 	if ( target === `_self`){
 		toggleOverlay( true )
 	}
-	return true
-}
-
-export const toggleOpen = open => {
-	const store = getStore()
-	store.dispatch({type: `APP/OPEN`, open })
 	return true
 }
 

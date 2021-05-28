@@ -41,7 +41,7 @@ export default function Trips() {
               <Typography 
                 variant={ `body1` }
                 className={ clsx( classes.lighter, classes.padded ) }>
-                Showing { trips.length } trips
+                Showing all { trips.length } trips
               </Typography>
             </Grid>
             { trips.map ( (item, i) => {

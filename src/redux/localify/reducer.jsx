@@ -1,18 +1,19 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { trips } from './trips'
+// import { trips } from './trips'
 import {
-  error,
+  trips,
 } from "./actions"
 
 export const localifySlice = {
-  error: null,
-  trips,
+  trips: [],
+  subscribing: false,
+  subscribed: false,
 }
 
 const localifyReducer = createReducer( localifySlice, {
 
-  [error]: (state, action) => {
-    state.overlay = action.overlay
+  [trips]: (state, action) => {
+    state.trips = action.trips
     return state
   },
 

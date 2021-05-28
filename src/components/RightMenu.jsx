@@ -2,16 +2,21 @@ import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import { Icon } from '../theme'
-import { navigateTo } from '../redux/app/actions'
+import { 
+  navigateTo,
+  goTo,
+} from '../redux/app/actions'
 import {
     makeStyles,
+    useTheme,
     List,
     ListItem,
     ListItemIcon,
     ListItemText,
-    Divider,
-    Typography,
 } from '@material-ui/core/'
+import { 
+  Collapsing,
+} from './'
 
 const useStyles = makeStyles((theme) => ({
   rightMenu: {
@@ -26,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 export default function RightMenu() {
 
   const classes = useStyles()
-  
+  const theme = useTheme()
+  const secondaryColor = theme.palette.secondary.main
   const appSlice = useSelector(state => state.app)
   const {
     open,
@@ -35,16 +41,13 @@ export default function RightMenu() {
 
   return <div className={clsx( classes.rightMenu )}>
 
-          <Typography variant={ `button` } className={clsx( classes.rightMenuTitle )} >
-            Navigation
-          </Typography>
-
           <List>
 
             <ListItem 
               button
               onClick={( e ) => {
                 e.preventDefault()
+                goTo( `/`, `@localify` )
               }}>
               <ListItemIcon>
                 <Icon icon={ `home` } color={ `secondary` } />
@@ -52,35 +55,41 @@ export default function RightMenu() {
               <ListItemText primary={`Home`} />
             </ListItem>
 
-            <ListItem 
-              button
-              onClick={( e ) => {
-                e.preventDefault()
-              }}>
-              <ListItemIcon>
-                <Icon icon={ `user` } color={ `secondary` } />
-              </ListItemIcon>
-              <ListItemText primary={`User`} />
-            </ListItem>
-
-            <ListItem 
-              button
-              onClick={( e ) => {
-                e.preventDefault()
-              }}>
-              <ListItemIcon>
-                <Icon icon={ `map` } color={ `secondary` } />
-              </ListItemIcon>
-              <ListItemText primary={`Map`} />
-            </ListItem>
-
           </List>
 
-          <Typography variant={ `button` } className={clsx( classes.rightMenuTitle )} >
-            Open Source
-          </Typography>
 
-          <List>
+          <Collapsing options={{
+            icon: `github`,
+            iconColor: secondaryColor,
+            title: `Open Source`,
+          }}>
+            <List>
+
+            
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+                navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
+              }}>
+              <ListItemIcon>
+                <Icon icon={`bug`} color={`secondary`} />
+              </ListItemIcon>
+              <ListItemText primary={`New Issue` } />
+            </ListItem>
+
+            <ListItem 
+              button
+              onClick={( e ) => {
+                e.preventDefault()
+                navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
+              }}>
+              <ListItemIcon>
+                <Icon icon={`agile`} color={`secondary`} />
+              </ListItemIcon>
+              <ListItemText primary={`Kanban Board` } />
+            </ListItem>
 
             <ListItem 
               button
@@ -93,33 +102,10 @@ export default function RightMenu() {
               </ListItemIcon>
               <ListItemText primary={`Code`} />
             </ListItem>
-
-            <ListItem 
-              button
-              onClick={( e ) => {
-                e.preventDefault()
-                navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
-              }}>
-              <ListItemIcon>
-                <Icon icon={`hand`} color={`secondary`} />
-              </ListItemIcon>
-              <ListItemText primary={`Kanban Board` } />
-            </ListItem>
-
-
-            <ListItem 
-              button
-              onClick={( e ) => {
-                e.preventDefault()
-                navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
-              }}>
-              <ListItemIcon>
-                <Icon icon={`add`} color={`secondary`} />
-              </ListItemIcon>
-              <ListItemText primary={`New Issue` } />
-            </ListItem>
+            
 
           </List>
-          <Divider />
+          </Collapsing>
+          
         </div>
 }

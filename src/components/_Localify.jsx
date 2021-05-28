@@ -1,4 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { 
+  subscribe,
+} from '../redux/localify/actions'
 import clsx from 'clsx'
 import { Icon } from '../theme'
 import {
@@ -83,9 +87,32 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Localify() {
+
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = React.useState( false )
+  const [open, setOpen] = React.useState( false ) 
+  const appSlice = useSelector(state => state.app)
+  const localifySlice = useSelector( state => state.localify )
+  const {
+    title,
+  } = appSlice
+
+  React.useEffect(() => {
+    const {
+      subscribing,
+      subscribed,
+    } = localifySlice
+    if (!subscribing && !subscribed) {
+      console.log ('SUBSCRIBE ONCE')
+      subscribe()
+    }
+
+
+
+
+  }, [localifySlice])
+
+
 
   const handleDrawerOpen = () => {
     setOpen( true )
@@ -103,7 +130,7 @@ export default function Localify() {
         })}>
         <Toolbar>
           <Typography variant="h6" noWrap className={classes.title}>
-            @localify
+            { title }
           </Typography>
           <IconButton
             color="inherit"
@@ -111,7 +138,7 @@ export default function Localify() {
             edge="end"
             onClick={handleDrawerOpen}
             className={clsx(open && classes.hide)}>
-            <Icon icon={ `pwa` } />
+            <Icon icon={ `left` } />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -125,7 +152,6 @@ export default function Localify() {
         <Trips />
       </div>
 
-      
       <Drawer
         open={ open }
         className={ clsx( classes.drawer )}

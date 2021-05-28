@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(),
   },
   card: {
-    width: 300,
+    width: 345,
   },
   media: {
     height: 140,
@@ -45,6 +45,7 @@ export default function Trip( props ) {
     time,
     flag,
   } = trip
+  if ( !title ) return null
 
   return <div className={ clsx ( classes.cardKML ) }>
             <Card className={ clsx ( classes.card ) }>
@@ -61,10 +62,10 @@ export default function Trip( props ) {
               <CardActions>
                 <Button
                   color={ `secondary` }
-                  variant={ `outlined` }
+                  variant={ `contained` }
                   onClick={ (e) => {
                     e.preventDefault()
-                    goTo(`/trip/${ id }`)
+                    goTo(`/trip/${ id }`, title)
                   }}>
                   View
                 </Button>

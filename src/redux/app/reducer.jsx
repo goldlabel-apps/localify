@@ -1,25 +1,25 @@
 import { createReducer } from '@reduxjs/toolkit'
 import {
-  open,
   overlay,
   path,
+  title,
 } from "./actions"
 
 export const appSlice = {
-  open: false,
   overlay: false,
   path: `/`,
+  title: `@localify`,
 }
 
 const appReducer = createReducer( appSlice, {
 
-  [path]: (state, action) => {
-    state.path = action.path
+  [title]: (state, action) => {
+    state.title = action.title
     return state
   },
 
-  [open]: (state, action) => {
-    state.open = action.open
+  [path]: (state, action) => {
+    state.path = action.path
     return state
   },
 

@@ -66,15 +66,13 @@ export default function Collapsing( props ) {
 					className={clsx( classes.plainAccordion )}>
 					<AccordionSummary
 			          expandIcon={ <Icon icon={`panel-toggle`} /> }
-			          aria-controls={ `wordpress` }
 			          id={ `help` } >
 			          <div className={ clsx( classes.icon )}>
 			          	<Icon icon={ icon } color={ iconColor } />
 			          </div>
 			          <Typography 
 			          	variant={ `body2` }
-			          	className={clsx( classes.hTag )}
-			          >
+			          	className={clsx( classes.hTag )}>
 			          	{ title }
 			          </Typography>
         			</AccordionSummary>

@@ -13,6 +13,7 @@ import IconLocalify from '@material-ui/icons/PersonPin'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
+import IconBug from '@material-ui/icons/BugReport'
 import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'
 import IconDashboard from '@material-ui/icons/Dashboard'
@@ -375,6 +376,8 @@ class Icon extends Component {
             case `map`:
                 return (<IconMap color={iconColor} />)
 
+            case `bug`:
+                return (<IconBug color={iconColor} />)
 
             default: {
                 return (<IconDefault color={iconColor} />)
