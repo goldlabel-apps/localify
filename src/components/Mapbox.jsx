@@ -2,10 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
+    Typography,
 } from '@material-ui/core/'
-import {
-  Mapbox
-} from './'
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -13,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Main() {
+export default function Mapbox() {
   
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
@@ -23,6 +21,8 @@ export default function Main() {
   if ( open ) console.log( 'open', open )
 
   return <div className={ classes.main }>
-          <Mapbox />
+          <Typography variant={ `body1` }>
+            Mapbox
+          </Typography>
         </div>
 }

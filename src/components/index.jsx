@@ -3,6 +3,7 @@ import Collapsing from './Collapsing'
 import Overlay from './Overlay'
 import RightMenu from './RightMenu'
 import Main from './Main'
+import Mapbox from './Mapbox'
 
 export {
 	Localify,
@@ -10,4 +11,5 @@ export {
 	Overlay,
 	RightMenu,
 	Main,
+	Mapbox,
 }

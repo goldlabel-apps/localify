@@ -89,7 +89,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/localify`, `_blank`)
               }}>
               <ListItemIcon>
-                <Icon icon={ `code` } color={ `primary` } />
+                <Icon icon={ `code` } color={ `secondary` } />
               </ListItemIcon>
               <ListItemText primary={`Code`} />
             </ListItem>
@@ -101,7 +101,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
               }}>
               <ListItemIcon>
-                <Icon icon={`hand`} color={`primary`} />
+                <Icon icon={`hand`} color={`secondary`} />
               </ListItemIcon>
               <ListItemText primary={`Kanban Board` } />
             </ListItem>
@@ -114,7 +114,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
               }}>
               <ListItemIcon>
-                <Icon icon={`add`} color={`primary`} />
+                <Icon icon={`add`} color={`secondary`} />
               </ListItemIcon>
               <ListItemText primary={`New Issue` } />
             </ListItem>

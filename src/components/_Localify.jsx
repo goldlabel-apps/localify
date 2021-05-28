@@ -40,8 +40,12 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginRight: drawerWidth,
   },
+  homeBtn:{
+    marginRight: theme.spacing(0),
+  },
   title: {
     flexGrow: 1,
+    fontWeight: 'lighter',
   },
   hide: {
     display: 'none',
@@ -82,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Localify() {
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = React.useState( true )
+  const [open, setOpen] = React.useState( false )
 
   const handleDrawerOpen = () => {
     setOpen( true )
@@ -99,9 +103,21 @@ export default function Localify() {
           [classes.appBarShift]: open,
         })}>
         <Toolbar>
+
+          <IconButton  
+            className={ classes.homeBtn }
+            aria-label={ `home` }
+            edge={`end`}
+            onClick={ ( e ) => {
+              e.preventDefault()
+            }}>
+            <Icon icon={ `localify` } color={ `secondary` } />
+          </IconButton>
+
           <Typography variant="h6" noWrap className={classes.title}>
             @localify
           </Typography>
+
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -124,17 +140,14 @@ export default function Localify() {
       </div>
 
       
-
       <Drawer
         open={ open }
         className={ clsx( classes.drawer )}
         variant="persistent"
         anchor={ `right` }
-        
         classes={{
           paper: classes.drawerPaper,
-        }}
-      >
+        }}>
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <Icon icon={ `left`} /> : <Icon icon={ `right`} /> }
