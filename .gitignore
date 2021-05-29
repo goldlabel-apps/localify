@@ -3,6 +3,8 @@
 .env.production
 .env.development
 
+public/trips/_DEV_
+
 # Firebase
 .firebase
 
