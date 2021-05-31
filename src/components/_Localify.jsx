@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { 
-  subscribe,
-} from '../redux/localify/actions'
+// import { 
+//   subscribe,
+// } from '../redux/localify/actions'
 import clsx from 'clsx'
 import { Icon } from '../theme'
 import {
@@ -17,7 +17,6 @@ import {
 import {
   RightMenu,
   Trips,
-  AddNew,
 } from './'
 
 const drawerWidth = 240
@@ -99,11 +98,11 @@ export default function Localify() {
   } = appSlice
 
   React.useEffect(() => {
-    const {
-      subscribing,
-      subscribed,
-    } = localifySlice
-    if (!subscribing && !subscribed) subscribe()  
+    // const {
+    //   subscribing,
+    //   subscribed,
+    // } = localifySlice
+    // if (!subscribing && !subscribed) subscribe()  
   }, [localifySlice])
 
   const handleDrawerOpen = () => {
@@ -133,7 +132,7 @@ export default function Localify() {
             <Icon icon={ `left` } />
           </IconButton>
 
-          <AddNew />
+          
 
 
         </Toolbar>
