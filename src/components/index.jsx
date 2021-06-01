@@ -7,6 +7,7 @@ import Trip from './Trip'
 import TripListItem from './TripListItem'
 import AddNew from './AddNew'
 import TripNew from './TripNew'
+import TripView from './TripView'
 
 export {
 	Collapsing,
@@ -17,5 +18,7 @@ export {
 	Trip,
 	TripListItem,
 	TripNew,
+	TripView,
 	AddNew,
+
 }

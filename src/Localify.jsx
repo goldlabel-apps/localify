@@ -1,11 +1,14 @@
 import React from 'react'
+import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import { appRouter } from './appRouter'
+import { 
+  goTo,
+} from './redux/app/actions'
 import { 
   subscribe,
   newTrip,
 } from './redux/localify/actions'
-import clsx from 'clsx'
 import { Icon } from './theme'
 import {
   makeStyles,
@@ -20,6 +23,8 @@ import {
 import {
   RightMenu,
   Trips,
+  TripNew,
+  TripView,
 } from './components'
 
 const drawerWidth = 240
@@ -27,6 +32,9 @@ const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
   localify: {
     display: 'flex',
+  },
+  iconBtn:{
+    marginTop: theme.spacing(0.5),
   },
   appBar: {
     background: 'none',
@@ -102,11 +110,12 @@ export default function Localify() {
   const localifySlice = useSelector( state => state.localify )
   const {
     title,
-    // path,
   } = appSlice
 
   let routeOjb = appRouter()
-  if ( routeOjb ) console.log('routeOjb', routeOjb)
+  const { type } = routeOjb
+
+  // console.log ('type', type)
 
   React.useEffect(() => {
     const {
@@ -131,6 +140,17 @@ export default function Localify() {
           [classes.appBarShift]: open,
         })}>
         <Toolbar>
+
+         <IconButton
+            color={`primary`}
+            edge={ `start` }
+            className={ clsx( classes.iconBtn ) }
+            onClick={ ( e ) => {
+              goTo( `/`, `@localify` )
+            }}>
+            <Icon icon={ `localify` } color={ `primary` } />
+          </IconButton>
+
           <Typography variant="h6" noWrap className={classes.title}>
             { title }
           </Typography>
@@ -167,10 +187,11 @@ export default function Localify() {
         })}
       >
         <div className={classes.drawerHeader} />
+        { type === `view` ? <TripView /> : null }
+        { type === `new` ? <TripNew /> : null }
+        { type === `trips` ? <Trips /> : null }
 
         
-
-        <Trips />
       </div>
 
       <Drawer

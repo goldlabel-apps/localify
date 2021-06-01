@@ -6,18 +6,18 @@ import {
 // import { Icon } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
-  newTrip: {
+  viewTrip: {
     margin: theme.spacing(),
   },
 }))
 
-export default function TripNew() {
+export default function TripView() {
   
   const classes = useStyles()
 
 
-  return <div className={ clsx ( classes.newTrip ) }>
-            New Trip
+  return <div className={ clsx ( classes.viewTrip ) }>
+            TripView
         </div>
 }
 
