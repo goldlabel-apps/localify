@@ -1,23 +1,31 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { fakeTrips } from './fakeTrips'
+// import { fakeTrips } from './fakeTrips'
 import {
   trips,
   subscribing,
   subscribed,
   updating,
   updated,
+  selected,
 } from "./actions"
 
 export const localifySlice = {
-  trips: fakeTrips,
+  trips: [],
   subscribing: false,
   subscribed: false,
   updating: false,
   updated: false,
+  selected: null,
+
 }
 
 const localifyReducer = createReducer( localifySlice, {
-
+ 
+  [selected]: (state, action) => {
+    state.selected = action.selected
+    return state
+  },
+  
   [updated]: (state, action) => {
     state.updated = action.updated
     return state

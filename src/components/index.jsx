@@ -5,6 +5,7 @@ import RightMenu from './RightMenu'
 import Trips from './Trips'
 import Mapbox from './Mapbox'
 import Trip from './Trip'
+import TripListItem from './TripListItem'
 import AddNew from './AddNew'
 
 export {
@@ -15,5 +16,6 @@ export {
 	Trips,
 	Mapbox,
 	Trip,
+	TripListItem,
 	AddNew,
 }

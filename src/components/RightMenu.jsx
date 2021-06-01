@@ -39,6 +39,7 @@ export default function RightMenu() {
   } = appSlice
   if ( open ) console.log ('open', open)
 
+
   return <div className={clsx( classes.rightMenu )}>
 
           <List>

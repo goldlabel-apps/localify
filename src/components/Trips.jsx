@@ -5,9 +5,10 @@ import {
     makeStyles,
     Grid,
     Typography,
+    List,
 } from '@material-ui/core/'
 import {
-  Trip,
+  TripListItem,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
@@ -37,16 +38,25 @@ export default function Trips() {
   return <div className={ clsx( classes.main ) }>
 
           <Grid container>
+            
+            <Grid item xs={ 12 }>
+            <List dense>
+              { trips.map ( (item, i) => {
+                  return <TripListItem trip={ item } key={ `trip_${ i }` } />
+              })}
+            </List>
+            </Grid>
+
             <Grid item xs={ 12 }>
               <Typography 
-                variant={ `body1` }
+                variant={ `body2` }
                 className={ clsx( classes.lighter, classes.padded ) }>
                 Showing all { trips.length } trips
               </Typography>
             </Grid>
-            { trips.map ( (item, i) => {
-                return <Trip trip={ item } key={ `trip_${i}` } />
-            })}
+
+
+
           </Grid>
           
         </div>
