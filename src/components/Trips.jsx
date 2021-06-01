@@ -12,7 +12,7 @@ import {
 } from './'
 
 const useStyles = makeStyles((theme) => ({
-  main: {
+  trips: {
     display: 'flex',
   },
   item:{
@@ -35,16 +35,16 @@ export default function Trips() {
   } = localifySlice
 
 
-  return <div className={ clsx( classes.main ) }>
+  return <div className={ clsx( classes.trips ) }>
 
           <Grid container>
             
             <Grid item xs={ 12 }>
-            <List dense>
-              { trips.map ( (item, i) => {
-                  return <TripListItem trip={ item } key={ `trip_${ i }` } />
-              })}
-            </List>
+              <List dense>
+                { trips.map ( (item, i) => {
+                    return <TripListItem trip={ item } key={ `trip_${ i }` } />
+                })}
+              </List>
             </Grid>
 
             <Grid item xs={ 12 }>
@@ -54,8 +54,6 @@ export default function Trips() {
                 Showing all { trips.length } trips
               </Typography>
             </Grid>
-
-
 
           </Grid>
           

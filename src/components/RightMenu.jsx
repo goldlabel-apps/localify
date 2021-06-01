@@ -32,7 +32,7 @@ export default function RightMenu() {
 
   const classes = useStyles()
   const theme = useTheme()
-  const secondaryColor = theme.palette.secondary.main
+  const primaryColor = theme.palette.primary.main
   const appSlice = useSelector(state => state.app)
   const {
     open,
@@ -51,7 +51,7 @@ export default function RightMenu() {
                 goTo( `/`, `@localify` )
               }}>
               <ListItemIcon>
-                <Icon icon={ `home` } color={ `secondary` } />
+                <Icon icon={ `home` } color={ `primary` } />
               </ListItemIcon>
               <ListItemText primary={`Home`} />
             </ListItem>
@@ -61,12 +61,11 @@ export default function RightMenu() {
 
           <Collapsing options={{
             icon: `github`,
-            iconColor: secondaryColor,
+            iconColor: primaryColor,
             title: `Open Source`,
           }}>
-            <List>
-
             
+            <List>
 
             <ListItem 
               button
@@ -75,7 +74,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/listingslab/issues/new/choose`, `_blank` )
               }}>
               <ListItemIcon>
-                <Icon icon={`bug`} color={`secondary`} />
+                <Icon icon={`bug`} color={`primary`} />
               </ListItemIcon>
               <ListItemText primary={`New Issue` } />
             </ListItem>
@@ -87,7 +86,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/listingslab/projects/1`, `_blank` )
               }}>
               <ListItemIcon>
-                <Icon icon={`agile`} color={`secondary`} />
+                <Icon icon={`agile`} color={`primary`} />
               </ListItemIcon>
               <ListItemText primary={`Kanban Board` } />
             </ListItem>
@@ -99,7 +98,7 @@ export default function RightMenu() {
                 navigateTo( `https://github.com/listingslab-software/localify`, `_blank`)
               }}>
               <ListItemIcon>
-                <Icon icon={ `code` } color={ `secondary` } />
+                <Icon icon={ `code` } color={ `primary` } />
               </ListItemIcon>
               <ListItemText primary={`Code`} />
             </ListItem>

@@ -3,6 +3,11 @@ import {
 	getStore,
 	getFStore,
 } from '../../'
+
+import {
+  goTo,
+} from '../app/actions'
+
 export const trips = createAction(`LOCALIFY/TRIPS`) 
 export const subscribing = createAction(`LOCALIFY/SUBSCRIBING`) 
 export const subscribed = createAction(`LOCALIFY/SUBSCRIBED`) 
@@ -10,9 +15,17 @@ export const updating = createAction(`LOCALIFY/UPDATING`)
 export const updated = createAction(`LOCALIFY/UPDATED`) 
 export const selected = createAction(`LOCALIFY/SELECTED`) 
 
-export const selectTrip = ( id ) => {
+export const newTrip = ( ) => {
+	const store = getStore()
+	store.dispatch({type: `LOCALIFY/SELECTED`, selected: null })
+	goTo( `/trip/new`, `New trip` )
+	return true
+}
+
+export const selectTrip = ( id, title ) => {
 	const store = getStore()
 	store.dispatch({type: `LOCALIFY/SELECTED`, selected: id })
+	goTo( `/trip/${id}`, title )
 	return true
 }
 

@@ -9,8 +9,8 @@ import {
 } from '@material-ui/core/'
 import {
   Overlay,
-  Localify,
 } from './components'
+import Localify from './Localify'
 
 export default function App() {
 

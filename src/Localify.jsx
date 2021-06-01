@@ -1,13 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { appRouter } from './appRouter'
 import { 
   subscribe,
-} from '../redux/localify/actions'
+  newTrip,
+} from './redux/localify/actions'
 import clsx from 'clsx'
-import { Icon } from '../theme'
+import { Icon } from './theme'
 import {
   makeStyles,
   useTheme,
+  Button,
   Drawer,
   AppBar,
   Toolbar,
@@ -17,7 +20,7 @@ import {
 import {
   RightMenu,
   Trips,
-} from './'
+} from './components'
 
 const drawerWidth = 240
 
@@ -84,6 +87,10 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginRight: 0,
   },
+  btnTxt:{
+    marginRight: theme.spacing(),
+    marginLeft: theme.spacing(),
+  },
 }))
 
 export default function Localify() {
@@ -95,7 +102,10 @@ export default function Localify() {
   const localifySlice = useSelector( state => state.localify )
   const {
     title,
+    path,
   } = appSlice
+
+  let routerDecision = ''
 
   React.useEffect(() => {
     const {
@@ -123,17 +133,29 @@ export default function Localify() {
           <Typography variant="h6" noWrap className={classes.title}>
             { title }
           </Typography>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            className={clsx(open && classes.hide)}>
-            <Icon icon={ `left` } />
-          </IconButton>
-
           
 
+          <Button
+            className={ clsx (classes.none)}
+            color={ `primary` }
+            variant={ `text` } 
+            onClick={ (e) => {
+              e.preventDefault()
+              newTrip()
+            }}>
+            <Icon icon={`add`} />
+            <span className={ clsx (classes.btnTxt)}>
+              New trip
+            </span>
+          </Button>
+
+          <IconButton
+            color={`primary`}
+            edge={ `end` }
+            onClick={ handleDrawerOpen }
+            className={ clsx( open && classes.hide )}>
+            <Icon icon={ `left` } color={ `primary` } />
+          </IconButton>
 
         </Toolbar>
       </AppBar>
@@ -144,6 +166,9 @@ export default function Localify() {
         })}
       >
         <div className={classes.drawerHeader} />
+
+        { console.log ('routerDecision', routerDecision)}
+
         <Trips />
       </div>
 
@@ -166,15 +191,3 @@ export default function Localify() {
 
     </div>
 }
-
-/*
-<IconButton  
-            className={ classes.homeBtn }
-            aria-label={ `home` }
-            edge={`end`}
-            onClick={ ( e ) => {
-              e.preventDefault()
-            }}>
-            <Icon icon={ `localify` } color={ `secondary` } />
-          </IconButton>
-*/

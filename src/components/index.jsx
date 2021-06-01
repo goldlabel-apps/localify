@@ -1,4 +1,3 @@
-import Localify from './_Localify'
 import Collapsing from './Collapsing'
 import Overlay from './Overlay'
 import RightMenu from './RightMenu'
@@ -7,9 +6,9 @@ import Mapbox from './Mapbox'
 import Trip from './Trip'
 import TripListItem from './TripListItem'
 import AddNew from './AddNew'
+import TripNew from './TripNew'
 
 export {
-	Localify,
 	Collapsing,
 	Overlay,
 	RightMenu,
@@ -17,5 +16,6 @@ export {
 	Mapbox,
 	Trip,
 	TripListItem,
+	TripNew,
 	AddNew,
 }

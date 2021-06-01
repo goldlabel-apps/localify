@@ -17,9 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
-const getFlagPath = ( countryCode ) => {
-  // console.log ( 'getFlagPath', countryCode )
+const getFlagPath = countryCode => {
   return `/svg/flags/${ countryCode }.svg`
 }
 
@@ -34,14 +32,14 @@ export default function TripListItem( props ) {
     description,
     countryCode,
   } = trip
-  if ( !title ) return null
 
   return <ListItem
             button 
             className={ clsx ( classes.trip ) }
             onClick={ (e) => {
               e.preventDefault()
-              selectTrip ( id )
+
+              selectTrip ( id, title )
             }}>
               <ListItemIcon>
                 <Avatar src={ getFlagPath( countryCode )}/>
