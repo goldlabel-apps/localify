@@ -102,10 +102,11 @@ export default function Localify() {
   const localifySlice = useSelector( state => state.localify )
   const {
     title,
-    path,
+    // path,
   } = appSlice
 
-  let routerDecision = ''
+  let routeOjb = appRouter()
+  if ( routeOjb ) console.log('routeOjb', routeOjb)
 
   React.useEffect(() => {
     const {
@@ -167,7 +168,7 @@ export default function Localify() {
       >
         <div className={classes.drawerHeader} />
 
-        { console.log ('routerDecision', routerDecision)}
+        
 
         <Trips />
       </div>
