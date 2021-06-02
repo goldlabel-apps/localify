@@ -129,7 +129,10 @@ export default function Localify() {
   } = appSlice
 
   let routeOjb = appRouter()
-  const { type } = routeOjb
+  const { 
+    type,
+    id,
+  } = routeOjb
 
   React.useEffect(() => {
     const {
@@ -194,7 +197,7 @@ export default function Localify() {
             <Grid item xs={ 12 } >
               <div>
                 { type === `home` ? <Home /> : null }
-                { type === `view` ? <Single trip={{}} /> : null }
+                { type === `single` ? <Single trip={{ id }} /> : null }
                 { type === `new` ? <NewTrip /> : null }
                 { type === `trips` ? <Trips /> : null }
                 { type === `help` ? <HelpStart /> : null }

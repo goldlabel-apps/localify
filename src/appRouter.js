@@ -8,19 +8,16 @@ export const appRouter = () => {
 	let action = s[ 2 ]
 	// console.log ( 'endpoint', endpoint )
 	// console.log ( 'action', action )
-
 	if ( endpoint === `` ) {
 		return {
 			type: `home`,
 		}
 	}
-
 	if ( endpoint === `help` ) {
 		return {
 			type: `help`,
 		}
 	}
-
 	if ( endpoint === `trip` ) {
 		if ( !action ) {
 			return `trips`
@@ -30,8 +27,8 @@ export const appRouter = () => {
 		}
 		if ( action ) {
 			return {
+				type: `single`,
 				id: action,
-				type: `view`
 			}
 		}
 	}

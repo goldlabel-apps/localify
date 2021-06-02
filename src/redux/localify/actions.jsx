@@ -3,7 +3,6 @@ import {
 	getStore,
 	getFStore,
 } from '../../'
-
 import {
   goTo,
 } from '../app/actions'
@@ -29,13 +28,13 @@ export const selectTrip = ( id, title ) => {
 	return true
 }
 
-export const update = ( id, newTrip ) => { 
+export const updateTrip = ( id, updatedTrip ) => { 
 	
 	const store = getStore()
 	const db = getFStore() 
 	let trip = {
-		...newTrip,
 		updated: Date.now(),
+		...updatedTrip,
 	}
 	store.dispatch({type: `APP/OVERLAY`, overlay: true })
 

@@ -24,7 +24,7 @@ export default function Home() {
   const classes = useStyles()
 
   return <div className={ clsx( classes.home ) }>
-              <Typography variant={ `button` } >
+              <Typography variant={ `h6` } >
                 Home
               </Typography>
         </div>

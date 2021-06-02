@@ -1,25 +1,21 @@
 import React from 'react'
 import clsx from 'clsx'
-import { useSelector } from 'react-redux'
-import { update } from '../../redux/localify/actions'
-import moment from 'moment'
+import { updateTrip } from '../../redux/localify/actions'
 import {
     makeStyles,
-    Avatar,
     Button,
     Grid,
     Card,
-    CardHeader,
-    CardMedia,
     CardContent,
     CardActions,
     TextField,
+    Typography,
 } from '@material-ui/core/'
 import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   trip: {
-    margin: theme.spacing(),
+    color: theme.palette.primary.main,
   },
   btnTxt:{
     marginLeft: theme.spacing(),
@@ -34,74 +30,52 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 140,
   },
-  title:{
-    // fontWeight: 'lighter',
-  },
 }))
 
 export default function Trip( props ) {
   
   const { trip } = props
+  const {
+    id,
+  } = trip
+  if ( !id ) return null
+
+
+  // console.log ('trip', trip)
   const classes = useStyles()
-  const appSlice = useSelector(state => state.app)
-  const [newTrip, setNewTrip] = React.useState( trip )
+  const [updatedTrip, setNewTrip] = React.useState( trip )
+
+
 
   const stageChange = (key, value) => {
     let t = {
-      ...newTrip,
+      ...updatedTrip,
       [key]: value,
     }
     setNewTrip( t )
-  }
+  }  
 
-  const {
-    open,
-  } = appSlice
-  if ( open ) console.log( 'open', open )
-  
-  const {
-    id,
-    title,
-    image,
-    updated,
-    flag,
-  } = trip
-  if ( !title ) return null
 
   return <div className={ clsx ( classes.trip ) }>
             <Card className={ clsx ( classes.card ) }>
-              <CardHeader 
-                avatar={ <Avatar src={ flag } /> }
-                title={ title }
-                subheader={ moment( updated ).fromNow() }
-              />
-              { image ? <CardMedia
-                className={classes.media}
-                image={ image }
-                title={ title }
-              /> : null }
+              
+             
 
               <CardContent>
-
-                <Grid container>
-                  
-                  <Grid item xs={ 2 }>
-                    Title
-                  </Grid>
-                  
-                  <Grid item xs={ 10 }>
+                <Grid container>               
+                  <Grid item xs={ 12 }>
+                    <Typography variant={ `button` } gutterBottom>
+                      Title
+                    </Typography>
                     <TextField 
                       fullWidth
-                      defaultValue={ title } 
+                      defaultValue={ `title` } 
                       onChange={ ( e ) => {
                          stageChange(`title`, e.target.value)
                       }}
                     />
                   </Grid>
-
                 </Grid>
-
-                
               </CardContent>
 
               <CardActions>
@@ -112,10 +86,10 @@ export default function Trip( props ) {
                   variant={ `text` }
                   onClick={ (e) => {
                     e.preventDefault()
-                    update( id, newTrip )
+                    updateTrip( id, updatedTrip )
                   }}>
                     <span className={ clsx ( classes.btnTxt ) }>
-                      Save
+                      Update
                     </span>
                     <Icon icon={`save`} />
                 </Button>
@@ -133,7 +107,7 @@ export default function Trip( props ) {
 /*
 
               <pre>
-                  { JSON.stringify( newTrip, null, 2 ) }
+                  { JSON.stringify( updatedTrip, null, 2 ) }
                 </pre>
 
 

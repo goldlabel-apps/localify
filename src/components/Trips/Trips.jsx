@@ -34,7 +34,7 @@ export default function Trips() {
   return <div className={ clsx( classes.trips ) }>
 
  
-              <Typography variant={ `button` } >
+              <Typography variant={ `h6` } >
                 Trips
               </Typography>
 
@@ -43,12 +43,6 @@ export default function Trips() {
                     return <TripListItem trip={ item } key={ `trip_${ i }` } />
                 })}
               </List>
-
-              <Typography 
-                variant={ `body2` }
-                className={ clsx( classes.lighter, classes.padded ) }>
-                Showing all { trips.length } trips
-              </Typography>
           
         </div>
 }
