@@ -38,7 +38,13 @@ export default function Trips() {
   return <div className={ clsx( classes.trips ) }>
 
           <Grid container>
-            
+
+            <Grid item xs={ 12 }>
+              <Typography variant={ `h2` }  className={ classes.lighter }>
+                Trips
+              </Typography>
+            </Grid>
+
             <Grid item xs={ 12 }>
               <List dense>
                 { trips.map ( (item, i) => {

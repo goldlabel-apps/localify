@@ -29,7 +29,7 @@ import {
 import {
   Trips,
   TripNew,
-  TripView,
+  Single,
 } from './components/Trips'
 
 
@@ -189,7 +189,7 @@ export default function Localify() {
       >
         <div className={classes.drawerHeader} />
 
-          { type === `view` ? <TripView /> : null }
+          { type === `view` ? <Single trip={{}} /> : null }
           { type === `new` ? <TripNew /> : null }
           { type === `trips` ? <Trips /> : null }
           { type === `help` ? <HelpStart /> : null }
