@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     height: 140,
   },
   title:{
-    fontWeight: 'lighter',
+    // fontWeight: 'lighter',
   },
 }))
 

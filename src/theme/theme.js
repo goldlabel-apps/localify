@@ -9,9 +9,12 @@
   orangey #e05717
   greeny #ccd31f
 
+  // window.location.host
+  // const defaultHost = `localhost:3000`
+
 */
 let widgetSettings = {
-  primaryColor: `#421c5d`,
+  primaryColor: `#424242`,
   secondaryColor: `#ccd31f`,
 }
 if ( window.widgetSettings ) widgetSettings = window.widgetSettings
@@ -20,16 +23,12 @@ const {
   secondaryColor,
 } = widgetSettings
 
-// window.location.host
-// const defaultHost = `localhost:3000`
-
 export const theme = { 
   palette: {
-    type: 'light',
+    type: 'dark',
     background: {
-      default: `#fff`,
-      paper: `#fff`,
-
+      default: `#ccd31f`,
+      // paper: `#fff`,
     },
     primary: {
       main: primaryColor,

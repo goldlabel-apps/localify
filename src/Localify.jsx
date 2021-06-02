@@ -2,24 +2,26 @@ import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import { appRouter } from './appRouter'
+import {
+  makeStyles,
+  // useTheme,
+  Drawer,
+  AppBar,
+  Grid,
+  Toolbar,
+  Typography,
+  IconButton,
+  ButtonBase,
+} from '@material-ui/core/'
 import { 
   goTo,
   toggleRightMenuOpen,
 } from './redux/app/actions'
 import { 
   subscribe,
-  newTrip,
+  // newTrip,
 } from './redux/localify/actions'
 import { Icon } from './theme'
-import {
-  makeStyles,
-  useTheme,
-  Drawer,
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-} from '@material-ui/core/'
 import {
   RightMenu,
 } from './components'
@@ -27,14 +29,13 @@ import {
   HelpStart,
 } from './components/Help'
 import {
+  Home,
   Trips,
-  TripNew,
+  NewTrip,
   Single,
 } from './components/Trips'
 
-
-
-const drawerWidth = 280
+const drawerWidth = 170
 
 const useStyles = makeStyles((theme) => ({
   localify: {
@@ -44,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(0.5),
   },
   appBar: {
-    background: 'none',
-    border: 'none',
+    // background: 'none',
+    // border: 'none',
     boxShadow: 'none',
     color: theme.palette.primary.main,
     transition: theme.transitions.create(['margin', 'width'], {
@@ -64,9 +65,16 @@ const useStyles = makeStyles((theme) => ({
   homeBtn:{
     marginRight: theme.spacing(0),
   },
-  title: {
+  mightyIcon:{
+    paddingTop: theme.spacing( 0.5 ),
+    marginRight: theme.spacing(),
+  },
+  mightyBtn: {
+    // fontWeight: 'lighter',
+    color: theme.palette.secondary.main,
+  },
+  grow:{
     flexGrow: 1,
-    fontWeight: 'lighter',
   },
   hide: {
     display: 'none',
@@ -74,16 +82,18 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+
   },
   drawerPaper: {
     width: drawerWidth,
+    border: 'none',
   },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
   },
   content: {
     flexGrow: 1,
@@ -110,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Localify() {
 
   const classes = useStyles()
-  const theme = useTheme()
+  // const theme = useTheme()
   const appSlice = useSelector(state => state.app)
   const localifySlice = useSelector( state => state.localify )
   const {
@@ -145,38 +155,30 @@ export default function Localify() {
         })}>
         <Toolbar>
 
-         <IconButton
+
+         <ButtonBase
             color={`secondary`}
             edge={ `start` }
-            className={ clsx( classes.iconBtn ) }
             onClick={ ( e ) => {
+              e.preventDefault()
               goTo( `/`, `@localify` )
             }}>
-            <Icon icon={ `localify` } color={ `secondary` } />
-          </IconButton>
+            <div className={ clsx( classes.mightyIcon ) }>
+              <Icon icon={ `localify` } color={ `secondary` } />
+            </div>
+            <Typography variant="h6" noWrap className={classes.mightyBtn}>
+              { title }
+            </Typography>
+          </ButtonBase>
 
-          <Typography variant="h6" noWrap className={classes.title}>
-            { title }
-          </Typography>
+          <div className={ clsx ( classes.grow ) } />
           
-          <IconButton
-            className={ clsx (classes.none)}
-            color={ `secondary` }
-            variant={ `text` } 
-            onClick={ (e) => {
-              e.preventDefault()
-              newTrip()
-            }}>
-            <Icon icon={`new`} color={ `secondary` } />
-            
-          </IconButton>
-
           <IconButton
             color={`secondary`}
             edge={ `end` }
             onClick={ handleDrawerOpen }
             className={ clsx( rightMenuOpen && classes.hide )}>
-            <Icon icon={ `left` } color={ `secondary` } />
+            <Icon icon={ `menu` } color={ `secondary` } />
           </IconButton>
 
         </Toolbar>
@@ -188,12 +190,17 @@ export default function Localify() {
         })}
       >
         <div className={classes.drawerHeader} />
-
-          { type === `view` ? <Single trip={{}} /> : null }
-          { type === `new` ? <TripNew /> : null }
-          { type === `trips` ? <Trips /> : null }
-          { type === `help` ? <HelpStart /> : null }
-        
+         <Grid container>
+            <Grid item xs={ 12 } >
+              <div>
+                { type === `home` ? <Home /> : null }
+                { type === `view` ? <Single trip={{}} /> : null }
+                { type === `new` ? <NewTrip /> : null }
+                { type === `trips` ? <Trips /> : null }
+                { type === `help` ? <HelpStart /> : null }
+              </div>
+            </Grid>
+          </Grid>
         </div>
 
       <Drawer
@@ -207,14 +214,30 @@ export default function Localify() {
 
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <Icon icon={ `left`} color={ `secondary` } /> 
-            : <Icon icon={ `right`} color={ `secondary` } /> }
+            <Icon icon={ `close`} color={ `secondary` } />
           </IconButton>
         </div>
-        
         <RightMenu />
-        
       </Drawer>
-
     </div>
 }
+
+
+
+
+
+/*
+
+
+<IconButton
+            className={ clsx (classes.none)}
+            color={ `secondary` }
+            variant={ `text` } 
+            onClick={ (e) => {
+              e.preventDefault()
+              newTrip()
+            }}>
+            <Icon icon={`new`} color={ `secondary` } />
+            
+          </IconButton>
+*/

@@ -14,6 +14,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   trip: {
+    color: theme.palette.primary.main,
   },
 }))
 

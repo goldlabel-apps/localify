@@ -1,31 +1,23 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import {
     makeStyles,
     Typography,
 } from '@material-ui/core/'
+// import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
-  main: {
-    // border: '1px solid red',
-  },
-  lighter:{
-    fontWeight: 'lighter',
+  helpStart: {
+    color: theme.palette.primary.main,
   },
 }))
 
 export default function HelpStart() {
   
   const classes = useStyles()
-  const appSlice = useSelector(state => state.app)
-  const {
-    open,
-  } = appSlice
-  if ( open ) console.log( 'open', open )
 
-  return <div className={ classes.main }>
-          <Typography variant={ `h2` }  className={ classes.lighter }>
-            HelpStart
-          </Typography>
+  return <div className={ classes.helpStart }>
+            <Typography variant={ `button` } >
+                Help
+            </Typography>
         </div>
 }

@@ -7,7 +7,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   single: {
-    margin: theme.spacing(),
+    color: theme.palette.primary.main,
   },
 }))
 

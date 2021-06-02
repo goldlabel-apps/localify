@@ -45,6 +45,18 @@ export default function RightMenu() {
                 button
                 onClick={( e ) => {
                   e.preventDefault()
+                  goTo( `/trips`, `Trips` )
+                }}>
+                <ListItemIcon>
+                  <Icon icon={ `trips` } color={ `secondary` } />
+                </ListItemIcon>
+                <ListItemText primary={`Trips`} />
+              </ListItem>
+
+              <ListItem 
+                button
+                onClick={( e ) => {
+                  e.preventDefault()
                   goTo( `/trip/new`, `New Trip` )
                 }}>
                 <ListItemIcon>

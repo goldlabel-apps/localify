@@ -8,9 +8,9 @@ import {
 } from "./actions"
 
 export const appSlice = {
-  overlay: false,
-  path: `/`,
   title: `@localify`,
+  path: `/`,
+  overlay: false,
   helpOpen: true,
   rightMenuOpen: true,
 }

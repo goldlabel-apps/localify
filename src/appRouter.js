@@ -9,6 +9,12 @@ export const appRouter = () => {
 	// console.log ( 'endpoint', endpoint )
 	// console.log ( 'action', action )
 
+	if ( endpoint === `` ) {
+		return {
+			type: `home`,
+		}
+	}
+
 	if ( endpoint === `help` ) {
 		return {
 			type: `help`,

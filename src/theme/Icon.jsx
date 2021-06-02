@@ -16,7 +16,9 @@ import IconMail from '@material-ui/icons/Mail'
 import IconBug from '@material-ui/icons/BugReport'
 import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'
-import IconNew from '@material-ui/icons/AddCircleOutline'
+import IconNew from '@material-ui/icons/Movie'
+import IconTrips from '@material-ui/icons/Subscriptions'
+
 import IconDashboard from '@material-ui/icons/Dashboard'
 import IconPWA from '@material-ui/icons/ImportantDevices'
 import IconAgile from '@material-ui/icons/SupervisorAccount'
@@ -376,6 +378,9 @@ class Icon extends Component {
 
             case `map`:
                 return (<IconMap color={iconColor} />)
+
+            case `trips`:
+                return (<IconTrips color={iconColor} />)
 
             case `bug`:
                 return (<IconBug color={iconColor} />)

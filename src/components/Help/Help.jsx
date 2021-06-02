@@ -17,12 +17,7 @@ import {
 // import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
-  rightMenu: {
-    // 
-  },
-  rightMenuTitle:{
-        padding: theme.spacing(2),
-        flexGrow: 1,
+  help: {
   },
 }))
 
@@ -34,7 +29,7 @@ export default function Help() {
     helpOpen,
   } = appSlice
 
-  return <div className={clsx( classes.rightMenu )}>
+  return <div className={clsx( classes.help )}>
           <Collapsing options={{
             open: helpOpen,
             toggleFunc: () => {

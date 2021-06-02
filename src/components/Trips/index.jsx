@@ -1,13 +1,14 @@
+import Home from './Home'
 import Single from './Single'
 import Trips from './Trips'
 import TripListItem from './TripListItem'
-import TripNew from './TripNew'
-// import TripView from './TripView'
+import NewTrip from './NewTrip'
 
 export {
+	Home,
 	Single,
 	Trips,
 	TripListItem,
-	TripNew,
-	// TripView,
+	NewTrip,
+
 }
