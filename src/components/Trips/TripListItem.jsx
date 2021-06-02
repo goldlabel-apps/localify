@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import {
   selectTrip,
-} from '../redux/localify/actions'
+} from '../../redux/localify/actions'
 import {
     makeStyles,
     Avatar,
@@ -10,7 +10,7 @@ import {
     ListItemIcon,
     ListItemText,
 } from '@material-ui/core/'
-// import { Icon } from '../theme'
+// import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   trip: {

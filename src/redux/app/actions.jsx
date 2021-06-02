@@ -7,6 +7,20 @@ import {
 export const overlay = createAction(`APP/OVERLAY`) 
 export const path = createAction(`APP/PATH`) 
 export const title = createAction(`APP/TITLE`) 
+export const helpOpen = createAction(`APP/HELPOPEN`) 
+export const rightMenuOpen = createAction(`APP/RIGHTMENUOPEN`) 
+
+export const toggleRightMenuOpen = rightMenuOpen => {
+	const store = getStore()
+	store.dispatch({type: `APP/RIGHTMENUOPEN`, rightMenuOpen })
+	return true
+}
+
+export const toggleHelpOpen = helpOpen => {
+	const store = getStore()
+	store.dispatch({type: `APP/HELPOPEN`, helpOpen })
+	return true
+}
 
 export const goTo = ( path, title ) => {
 	const history = getHistory()

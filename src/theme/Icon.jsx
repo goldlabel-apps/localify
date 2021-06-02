@@ -16,6 +16,7 @@ import IconMail from '@material-ui/icons/Mail'
 import IconBug from '@material-ui/icons/BugReport'
 import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'
+import IconNew from '@material-ui/icons/AddCircleOutline'
 import IconDashboard from '@material-ui/icons/Dashboard'
 import IconPWA from '@material-ui/icons/ImportantDevices'
 import IconAgile from '@material-ui/icons/SupervisorAccount'
@@ -31,8 +32,8 @@ import IconFullscreen from '@material-ui/icons/Fullscreen'
 import IconFullscreenExit from '@material-ui/icons/FullscreenExit'
 import IconPhoto from '@material-ui/icons/CameraAlt'
 import IconFilm from '@material-ui/icons/MovieCreation'
-import IconInfo from '@material-ui/icons/Help'
-import IconHome from '@material-ui/icons/Home'
+import IconHelp from '@material-ui/icons/HelpOutline'
+import IconHome from '@material-ui/icons/HomeOutlined'
 import IconPalette from '@material-ui/icons/Palette'
 import IconMenu from '@material-ui/icons/MoreVert'
 import IconExpand from '@material-ui/icons/Add'
@@ -261,11 +262,8 @@ class Icon extends Component {
             case `close`:
                 return (<IconClose color={iconColor} />)
 
-            case `info`:
-                return (<IconInfo color={iconColor} />)
-
-            case `instructions`:
-                return (<IconInfo color={iconColor} />)
+            case `help`:
+                return (<IconHelp color={iconColor} />)
 
             case `edit`:
                 return (<IconEdit color={iconColor} />)
@@ -302,6 +300,9 @@ class Icon extends Component {
 
             case `add`:
                 return (<IconAddBold color={iconColor} />)
+
+            case `new`:
+                return (<IconNew color={iconColor} />)
 
             case `games`:
                 return (<IconGames color={iconColor} />)

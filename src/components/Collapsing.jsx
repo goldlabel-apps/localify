@@ -55,34 +55,31 @@ export default function Collapsing( props ) {
 	} = props
 	if ( !children ) return null
 	const {
+		open,
 		title,
 		icon, 
 		iconColor,
+		toggleFunc,
 	} = options 
 
-	return	<div className={clsx( classes.collapsing )}>
-				<Accordion 
-					defaultExpanded={ false }
-					className={clsx( classes.plainAccordion )}>
-					<AccordionSummary
-			          expandIcon={ <Icon icon={`panel-toggle`} /> }
-			          id={ `help` } >
-			          <div className={ clsx( classes.icon )}>
-			          	<Icon icon={ icon } color={ iconColor } />
-			          </div>
-			          <Typography 
-			          	variant={ `body2` }
-			          	className={clsx( classes.hTag )}>
-			          	{ title }
-			          </Typography>
-        			</AccordionSummary>
-        			<AccordionDetails>
-						{ children }
-					</AccordionDetails>
-				</Accordion>
-		</div>
+	return	<Accordion 
+				expanded={ open }
+				className={clsx( classes.plainAccordion )}
+				onChange={ toggleFunc }>
+				<AccordionSummary
+		          expandIcon={ <Icon icon={`panel-toggle`} color={ `secondary` } /> }
+		          id={ `help` } >
+		          <div className={ clsx( classes.icon )}>
+		          	<Icon icon={ icon } color={ iconColor } />
+		          </div>
+		          <Typography 
+		          	variant={ `button` }
+		          	className={clsx( classes.hTag )}>
+		          	{ title }
+		          </Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					{ children }
+				</AccordionDetails>
+			</Accordion>
 }
-
-/*
-
-*/

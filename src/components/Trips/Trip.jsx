@@ -1,7 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
-import { update } from '../redux/localify/actions'
+import { update } from '../../redux/localify/actions'
 import moment from 'moment'
 import {
     makeStyles,
@@ -15,7 +15,7 @@ import {
     CardActions,
     TextField,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   trip: {

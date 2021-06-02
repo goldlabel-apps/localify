@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { appRouter } from './appRouter'
 import { 
   goTo,
+  toggleRightMenuOpen,
 } from './redux/app/actions'
 import { 
   subscribe,
@@ -13,7 +14,6 @@ import { Icon } from './theme'
 import {
   makeStyles,
   useTheme,
-  Button,
   Drawer,
   AppBar,
   Toolbar,
@@ -22,12 +22,19 @@ import {
 } from '@material-ui/core/'
 import {
   RightMenu,
+} from './components'
+import {
+  HelpStart,
+} from './components/Help'
+import {
   Trips,
   TripNew,
   TripView,
-} from './components'
+} from './components/Trips'
 
-const drawerWidth = 240
+
+
+const drawerWidth = 280
 
 const useStyles = makeStyles((theme) => ({
   localify: {
@@ -75,7 +82,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
   },
@@ -105,17 +111,15 @@ export default function Localify() {
 
   const classes = useStyles()
   const theme = useTheme()
-  const [open, setOpen] = React.useState( false ) 
   const appSlice = useSelector(state => state.app)
   const localifySlice = useSelector( state => state.localify )
   const {
     title,
+    rightMenuOpen,
   } = appSlice
 
   let routeOjb = appRouter()
   const { type } = routeOjb
-
-  // console.log ('type', type)
 
   React.useEffect(() => {
     const {
@@ -126,56 +130,53 @@ export default function Localify() {
   }, [localifySlice])
 
   const handleDrawerOpen = () => {
-    setOpen( true )
+    toggleRightMenuOpen( true )
   }
 
   const handleDrawerClose = () => {
-    setOpen( false )
+    toggleRightMenuOpen( false )
   }
 
   return <div className={classes.localify}>
       <AppBar
         position={ `fixed` }
         className={ clsx( classes.appBar, {
-          [classes.appBarShift]: open,
+          [classes.appBarShift]: rightMenuOpen,
         })}>
         <Toolbar>
 
          <IconButton
-            color={`primary`}
+            color={`secondary`}
             edge={ `start` }
             className={ clsx( classes.iconBtn ) }
             onClick={ ( e ) => {
               goTo( `/`, `@localify` )
             }}>
-            <Icon icon={ `localify` } color={ `primary` } />
+            <Icon icon={ `localify` } color={ `secondary` } />
           </IconButton>
 
           <Typography variant="h6" noWrap className={classes.title}>
             { title }
           </Typography>
           
-
-          <Button
+          <IconButton
             className={ clsx (classes.none)}
-            color={ `primary` }
+            color={ `secondary` }
             variant={ `text` } 
             onClick={ (e) => {
               e.preventDefault()
               newTrip()
             }}>
-            <Icon icon={`add`} />
-            <span className={ clsx (classes.btnTxt)}>
-              New trip
-            </span>
-          </Button>
+            <Icon icon={`new`} color={ `secondary` } />
+            
+          </IconButton>
 
           <IconButton
-            color={`primary`}
+            color={`secondary`}
             edge={ `end` }
             onClick={ handleDrawerOpen }
-            className={ clsx( open && classes.hide )}>
-            <Icon icon={ `left` } color={ `primary` } />
+            className={ clsx( rightMenuOpen && classes.hide )}>
+            <Icon icon={ `left` } color={ `secondary` } />
           </IconButton>
 
         </Toolbar>
@@ -183,32 +184,36 @@ export default function Localify() {
       
       <div
         className={clsx(classes.content, {
-          [classes.contentShift]: open,
+          [classes.contentShift]: rightMenuOpen,
         })}
       >
         <div className={classes.drawerHeader} />
-        { type === `view` ? <TripView /> : null }
-        { type === `new` ? <TripNew /> : null }
-        { type === `trips` ? <Trips /> : null }
 
+          { type === `view` ? <TripView /> : null }
+          { type === `new` ? <TripNew /> : null }
+          { type === `trips` ? <Trips /> : null }
+          { type === `help` ? <HelpStart /> : null }
         
-      </div>
+        </div>
 
       <Drawer
-        open={ open }
+        open={ rightMenuOpen }
         className={ clsx( classes.drawer )}
         variant="persistent"
         anchor={ `right` }
         classes={{
           paper: classes.drawerPaper,
         }}>
+
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <Icon icon={ `left`} /> : <Icon icon={ `right`} /> }
+            {theme.direction === 'rtl' ? <Icon icon={ `left`} color={ `secondary` } /> 
+            : <Icon icon={ `right`} color={ `secondary` } /> }
           </IconButton>
         </div>
         
         <RightMenu />
+        
       </Drawer>
 
     </div>

@@ -8,6 +8,13 @@ export const appRouter = () => {
 	let action = s[ 2 ]
 	// console.log ( 'endpoint', endpoint )
 	// console.log ( 'action', action )
+
+	if ( endpoint === `help` ) {
+		return {
+			type: `help`,
+		}
+	}
+
 	if ( endpoint === `trip` ) {
 		if ( !action ) {
 			return `trips`
