@@ -19,11 +19,9 @@ import {
 } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
-  trips: {
+  card: {
+    boxShadow: 'none',
   },
-  padded:{
-    padding: theme.spacing(),
-  }
 }))
 
 export default function TList() {
@@ -35,7 +33,7 @@ export default function TList() {
   } = localifySlice
 
 
-  return <Card className={ clsx( classes.trips ) }>
+  return <Card className={ clsx( classes.card ) }>
             <CardHeader 
               title={ `Trips` }
               avatar={ <IconButton

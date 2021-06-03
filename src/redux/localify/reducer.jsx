@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-// import { fakeTrips } from './fakeTrips'
+import { newTrip } from './newTrip'
 import {
   trips,
   subscribing,
@@ -16,7 +16,7 @@ export const localifySlice = {
   updating: false,
   updated: false,
   selected: null,
-
+  newTrip,
 }
 
 const localifyReducer = createReducer( localifySlice, {

@@ -12,7 +12,7 @@ export const appRouter = () => {
 	// console.log ( 'action', action )
 	if ( endpoint === `` ) {
 		return {
-			type: `localify`,
+			type: `dashboard`,
 		}
 	}
 	if ( endpoint === `settings` ) {
@@ -44,6 +44,6 @@ export const appRouter = () => {
 		}
 	}
 	return { 
-		type: `localify`,	
+		type: `dashboard`,	
 	}
 }

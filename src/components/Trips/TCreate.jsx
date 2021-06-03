@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
+import { useSelector } from 'react-redux'
 import {
     makeStyles,
     IconButton,
@@ -9,6 +10,7 @@ import {
     CardContent,
     Grid,
     TextField,
+    Button,
 } from '@material-ui/core/'
 import { 
   goTo,
@@ -18,25 +20,42 @@ import {
 } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
-  newTrip: {
-    color: theme.palette.primary.main,
+  card: {
+    boxShadow: 'none',
+  },
+  btn:{
+    margin: theme.spacing(),
+  },
+  btnTxt: {
+    marginLeft: theme.spacing(),
+    marginRight: theme.spacing(),
   },
 }))
 
 export default function TCreate() {
   
+
+  //newTrip
+
+  const localifySlice = useSelector(state => state.localify)
+  const {
+    newTrip,
+  } = localifySlice
+
+  // console.log ('newTrip', newTrip)
+
   const classes = useStyles()
-  const [newTrip, setNewTrip] = React.useState( {} )
+  const [newTripState, setNewTrip] = React.useState( {} )
   
   const stageChange = (key, value) => {
     let t = {
-      ...newTrip,
+      ...newTripState,
       [key]: value,
     }
     setNewTrip( t )
   }  
 
-  return <Card className={ clsx ( classes.newTrip ) }>
+  return <Card className={ clsx ( classes.card ) }>
 
             <CardHeader 
               avatar={ <IconButton
@@ -51,7 +70,7 @@ export default function TCreate() {
             />
             <CardContent>
               <Grid container>               
-                  <Grid item xs={ 12 }>
+                  <Grid item xs={ 12 } md={ 8 }>
                     <Typography gutterBottom>
                       Title
                     </Typography>
@@ -63,6 +82,50 @@ export default function TCreate() {
                       }}
                     />
                   </Grid>
+
+                  <Grid item xs={ 12 }  md={ 4 }>
+                    <Button
+                      className={ clsx ( classes.btn ) }
+                      variant={ `outlined` }
+                      color={ `primary` }
+                      onClick={ ( e ) => {
+                        e.preventDefault()
+                        console.log ('reset')
+                      }}>
+                      <Icon icon={ `refresh` } />
+                      <span className={ clsx ( classes.btnTxt ) }>
+                        Reset
+                      </span>
+                    </Button>
+                    <Button 
+                      className={ clsx ( classes.btn ) }
+                      variant={ `contained` }
+                      color={ `primary` }
+                      onClick={ ( e ) => {
+                        e.preventDefault()
+                        console.log ('reset')
+                      }}>
+                      <Icon icon={ `save` } />
+                      <span className={ clsx ( classes.btnTxt ) }>
+                        Save
+                      </span>
+                    </Button>
+                  </Grid>
+
+
+                  <Grid item xs={ 6 } md={ 3 }>
+                    
+                  </Grid>
+
+
+
+                  <Grid item xs={ 12 }>
+                    <pre>
+                      { JSON.stringify( newTrip, null, 2 ) }
+                    </pre>
+                    
+                  </Grid>
+
                 </Grid>
               </CardContent>
           </Card>

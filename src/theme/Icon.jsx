@@ -18,7 +18,7 @@ import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'
 import IconNew from '@material-ui/icons/Movie'
 import IconTrips from '@material-ui/icons/Subscriptions'
-
+import IconRefresh from '@material-ui/icons/RotateLeft'
 import IconDashboard from '@material-ui/icons/Dashboard'
 import IconPWA from '@material-ui/icons/ImportantDevices'
 import IconAgile from '@material-ui/icons/SupervisorAccount'
@@ -381,6 +381,9 @@ class Icon extends Component {
 
             case `trips`:
                 return (<IconTrips color={iconColor} />)
+
+            case `refresh`:
+                return (<IconRefresh color={iconColor} />)
 
             case `bug`:
                 return (<IconBug color={iconColor} />)

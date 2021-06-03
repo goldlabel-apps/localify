@@ -8,9 +8,7 @@ import {
   AppBar,
   Grid,
   Toolbar,
-  Typography,
   IconButton,
-  ButtonBase,
 } from '@material-ui/core/'
 import { 
   goTo,
@@ -31,7 +29,7 @@ import {
   TView,
 } from './components/Trips'
 
-const drawerWidth = 170
+const drawerWidth = 175
 
 const useStyles = makeStyles((theme) => ({
   localify: {
@@ -66,8 +64,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing( 2 ),
   },
   mightyBtn: {
-    // fontWeight: 'lighter',
-    // color: theme.palette.secondary.main,
+    fontWeight: 'lighter',
+    marginRight: theme.spacing( 2 ),
   },
   grow:{
     flexGrow: 1,
@@ -120,7 +118,7 @@ export default function Localify() {
   const appSlice = useSelector(state => state.app)
   const localifySlice = useSelector( state => state.localify )
   const {
-    title,
+    // title,
     rightMenuOpen,
   } = appSlice
 
@@ -155,21 +153,20 @@ export default function Localify() {
         })}>
         <Toolbar>
 
-
-         <ButtonBase
+        <IconButton
             color={`secondary`}
             edge={ `start` }
             onClick={ ( e ) => {
               e.preventDefault()
-              goTo( `/`, `@localify` )
-            }}>
+              goTo( `/`, `Dashboard` )
+            }}> 
+              <Icon icon={ `localify` } color={ `secondary` } />
+           </IconButton>
+         
             <div className={ clsx( classes.mightyIcon ) }>
               <Icon icon={ type } color={ `secondary` } />
             </div>
-            <Typography variant="h6" noWrap className={classes.mightyBtn}>
-              { title }
-            </Typography>
-          </ButtonBase>
+            
 
           <div className={ clsx ( classes.grow ) } />
           
@@ -193,7 +190,7 @@ export default function Localify() {
          <Grid container>
             <Grid item xs={ 12 } >
               <div>
-                { type === `localify` ? <Dashboard /> : null }
+                { type === `dashboard` ? <Dashboard /> : null }
                 { type === `trip` ? <TView trip={{ id }} /> : null }
                 { type === `new` ? <TCreate /> : null }
                 { type === `trips` ? <TList /> : null }
@@ -240,4 +237,9 @@ export default function Localify() {
             <Icon icon={`new`} color={ `secondary` } />
             
           </IconButton>
+
+<Typography variant="h6" noWrap className={classes.mightyBtn}>
+              { title }
+            </Typography>
+            
 */
