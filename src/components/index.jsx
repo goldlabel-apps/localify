@@ -4,6 +4,8 @@ import RightMenu from './RightMenu'
 import Mapbox from './Mapbox'
 import AddNew from './AddNew'
 import Dashboard from './Dashboard'
+import ImageUpload from './ImageUpload'
+import Settings from './Settings'
 
 export {
 	Collapsing,
@@ -12,4 +14,6 @@ export {
 	Mapbox,
 	AddNew,
 	Dashboard,
+	ImageUpload,
+	Settings,
 }

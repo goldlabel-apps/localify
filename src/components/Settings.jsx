@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core/'
 import {
   toggleHelpOn,
-} from '../../redux/app/actions'
+} from '../redux/app/actions'
 
 const useStyles = makeStyles((theme) => ({
   helpStart: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function HelpStart() {
+export default function Settings() {
   
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)

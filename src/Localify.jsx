@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { appRouter } from './appRouter'
 import {
   makeStyles,
-  // useTheme,
   Drawer,
   AppBar,
   Grid,
@@ -19,16 +18,13 @@ import {
 } from './redux/app/actions'
 import { 
   subscribe,
-  // newTrip,
 } from './redux/localify/actions'
 import { Icon } from './theme'
 import {
   Dashboard,
   RightMenu,
+  Settings,
 } from './components'
-import {
-  HelpStart,
-} from './components/Help'
 import {
   Trips,
   NewTrip,
@@ -45,10 +41,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(0.5),
   },
   appBar: {
-    // background: 'none',
-    // border: 'none',
+    background: 'none',
+    border: 'none',
     boxShadow: 'none',
-    color: theme.palette.primary.main,
+    // color: theme.palette.primary.main,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -71,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mightyBtn: {
     // fontWeight: 'lighter',
-    color: theme.palette.secondary.main,
+    // color: theme.palette.secondary.main,
   },
   grow:{
     flexGrow: 1,
@@ -153,6 +149,7 @@ export default function Localify() {
   return <div className={classes.localify}>
       <AppBar
         position={ `fixed` }
+        color={ `default` }
         className={ clsx( classes.appBar, {
           [classes.appBarShift]: rightMenuOpen,
         })}>
@@ -167,7 +164,7 @@ export default function Localify() {
               goTo( `/`, `@localify` )
             }}>
             <div className={ clsx( classes.mightyIcon ) }>
-              <Icon icon={ `localify` } color={ `secondary` } />
+              <Icon icon={ type } color={ `secondary` } />
             </div>
             <Typography variant="h6" noWrap className={classes.mightyBtn}>
               { title }
@@ -196,11 +193,11 @@ export default function Localify() {
          <Grid container>
             <Grid item xs={ 12 } >
               <div>
-                { type === `home` ? <Dashboard /> : null }
-                { type === `single` ? <Single trip={{ id }} /> : null }
+                { type === `localify` ? <Dashboard /> : null }
+                { type === `trip` ? <Single trip={{ id }} /> : null }
                 { type === `new` ? <NewTrip /> : null }
                 { type === `trips` ? <Trips /> : null }
-                { type === `help` ? <HelpStart /> : null }
+                { type === `settings` ? <Settings /> : null }
               </div>
             </Grid>
           </Grid>

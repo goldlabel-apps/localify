@@ -3,19 +3,25 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Typography,
+    IconButton,
     List,
+    Card,
+    CardHeader,
 } from '@material-ui/core/'
+import { 
+  goTo,
+} from '../../redux/app/actions'
+
+
 import {
   TripListItem,
 } from './'
+import {
+  Icon,
+} from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   trips: {
-    color: theme.palette.primary.main,
-  },
-  lighter:{
-    // fontWeight: 'lighter',
   },
   padded:{
     padding: theme.spacing(),
@@ -31,19 +37,24 @@ export default function Trips() {
   } = localifySlice
 
 
-  return <div className={ clsx( classes.trips ) }>
-
- 
-              <Typography variant={ `h6` } >
-                Trips
-              </Typography>
-
+  return <Card className={ clsx( classes.trips ) }>
+            <CardHeader 
+              title={ `Trips` }
+              avatar={ <IconButton
+                          color={ `secondary` }
+                          onClick={ ( e ) => {
+                            e.preventDefault()
+                            goTo( `/trips`, `Trips`)
+                          }}>
+                          <Icon icon={ `trips` } color={ `secondary` } />
+                        </IconButton> }
+              
+            />
               <List dense>
                 { trips.map ( (item, i) => {
                     return <TripListItem trip={ item } key={ `trip_${ i }` } />
                 })}
               </List>
-          
-        </div>
+        </Card>
 }
 

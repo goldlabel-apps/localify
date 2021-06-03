@@ -10,27 +10,38 @@ export const appRouter = () => {
 	// console.log ( 'action', action )
 	if ( endpoint === `` ) {
 		return {
-			type: `home`,
+			type: `localify`,
 		}
 	}
-	if ( endpoint === `help` ) {
+	if ( endpoint === `settings` ) {
 		return {
-			type: `help`,
+			type: `settings`,
+		}
+	}
+	if ( endpoint === `trips` ) {
+		return {
+			type: `trips`,
 		}
 	}
 	if ( endpoint === `trip` ) {
 		if ( !action ) {
-			return `trips`
+			return {
+				type: `trips`,
+			}
 		}
 		if ( action === `new` ) {
-			return { type: `new` }
+			return { 
+				type: `new`,
+			}
 		}
 		if ( action ) {
 			return {
-				type: `single`,
 				id: action,
+				type: `trip`,
 			}
 		}
 	}
-	return { type: `trips` }
+	return { 
+		type: `localify`,	
+	}
 }

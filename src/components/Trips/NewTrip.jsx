@@ -2,10 +2,20 @@ import React from 'react'
 import clsx from 'clsx'
 import {
     makeStyles,
+    IconButton,
     Typography,
+    Card,
+    CardHeader,
+    CardContent,
     Grid,
     TextField,
 } from '@material-ui/core/'
+import { 
+  goTo,
+} from '../../redux/app/actions'
+import {
+  Icon,
+} from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   newTrip: {
@@ -26,14 +36,23 @@ export default function NewTrip() {
     setNewTrip( t )
   }  
 
-  return <div className={ clsx ( classes.newTrip ) }>
-              <Typography variant={ `h6` } >
-                New Trip
-              </Typography>
+  return <Card className={ clsx ( classes.newTrip ) }>
 
+            <CardHeader 
+              avatar={ <IconButton
+                          color={ `secondary` }
+                          onClick={ ( e ) => {
+                            e.preventDefault()
+                            goTo( `/trip/new`, `New Trip`)
+                          }}>
+                          <Icon icon={ `new` } color={ `secondary` } />
+                        </IconButton> }
+              title={ `New Trip` }
+            />
+            <CardContent>
               <Grid container>               
                   <Grid item xs={ 12 }>
-                    <Typography variant={ `button` } gutterBottom>
+                    <Typography gutterBottom>
                       Title
                     </Typography>
                     <TextField 
@@ -45,11 +64,8 @@ export default function NewTrip() {
                     />
                   </Grid>
                 </Grid>
-
-
-
-
-          </div>
+              </CardContent>
+          </Card>
 }
 
 

@@ -25,9 +25,9 @@ const {
 
 export const theme = { 
   palette: {
-    type: 'light',
+    type: 'dark',
     background: {
-      // default: `#ccd31f`,
+      default: `#ccd31f`,
       // paper: `#fff`,
     },
     primary: {

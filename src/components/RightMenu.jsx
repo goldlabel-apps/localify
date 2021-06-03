@@ -1,8 +1,10 @@
+
 import React from 'react'
 import clsx from 'clsx'
 import { Icon } from '../theme'
 import { 
   goTo,
+  toggleRightMenuOpen,  
 } from '../redux/app/actions'
 import {
     makeStyles,
@@ -33,10 +35,11 @@ export default function RightMenu() {
                 button
                 onClick={( e ) => {
                   e.preventDefault()
-                  goTo( `/`, `@localify` )
+                  goTo( `/`, `Dashboard` )
+                  toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
-                  <Icon icon={ `dashboard` } color={ `secondary` } />
+                  <Icon icon={ `localify` } color={ `secondary` } />
                 </ListItemIcon>
                 <ListItemText primary={`Dashboard`} />
               </ListItem>
@@ -46,6 +49,7 @@ export default function RightMenu() {
                 onClick={( e ) => {
                   e.preventDefault()
                   goTo( `/trips`, `Trips` )
+                  toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
                   <Icon icon={ `trips` } color={ `secondary` } />
@@ -58,6 +62,7 @@ export default function RightMenu() {
                 onClick={( e ) => {
                   e.preventDefault()
                   goTo( `/trip/new`, `New Trip` )
+                  toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
                   <Icon icon={ `new` } color={ `secondary` } />
@@ -69,16 +74,19 @@ export default function RightMenu() {
                 button
                 onClick={( e ) => {
                   e.preventDefault()
-                  goTo( `/help`, `Help` )
+                  goTo( `/settings`, `Settings` )
+                  toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
-                  <Icon icon={ `help` } color={ `secondary` } />
+                  <Icon icon={ `settings` } color={ `secondary` } />
                 </ListItemIcon>
-                <ListItemText primary={`Help`} />
+                <ListItemText primary={`Settings`} />
               </ListItem>
             </List>
         </div>
 }
+
+
 
 
 

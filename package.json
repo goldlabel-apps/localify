@@ -1,5 +1,5 @@
 {
-  "version": "3.1.2",
+  "version": "3.1.3",
   "name": "localify",
   "description": "Everything you need to work out where",
   "repository": "https://github.com/listingslab-software/localify",
@@ -24,6 +24,7 @@
     "moment": "^2.29.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "react-images-uploading": "^3.1.2",
     "react-redux": "^7.2.2",
     "react-scripts": "2.1.1",
     "ua-parser-js": "^0.7.23"

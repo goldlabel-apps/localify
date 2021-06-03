@@ -8,7 +8,7 @@ import {
 } from "./actions"
 
 export const appSlice = {
-  title: `@localify`,
+  title: `Dashboard`,
   path: `/`,
   overlay: false,
   helpOn: true,
