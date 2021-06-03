@@ -26,9 +26,9 @@ import {
   Settings,
 } from './components'
 import {
-  Trips,
-  NewTrip,
-  Single,
+  TList,
+  TCreate,
+  TView,
 } from './components/Trips'
 
 const drawerWidth = 170
@@ -194,9 +194,9 @@ export default function Localify() {
             <Grid item xs={ 12 } >
               <div>
                 { type === `localify` ? <Dashboard /> : null }
-                { type === `trip` ? <Single trip={{ id }} /> : null }
-                { type === `new` ? <NewTrip /> : null }
-                { type === `trips` ? <Trips /> : null }
+                { type === `trip` ? <TView trip={{ id }} /> : null }
+                { type === `new` ? <TCreate /> : null }
+                { type === `trips` ? <TList /> : null }
                 { type === `settings` ? <Settings /> : null }
               </div>
             </Grid>

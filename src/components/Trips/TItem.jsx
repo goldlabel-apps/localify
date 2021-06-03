@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 // }
 
 
-export default function TripListItem( props ) {
+export default function TItem( props ) {
   
   const { trip } = props
   const classes = useStyles()

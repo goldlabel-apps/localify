@@ -6,18 +6,17 @@ import {
 // import { Icon } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
-  single: {
-    color: theme.palette.primary.main,
+  view: {
   },
 }))
 
-export default function Single() {
+export default function TView() {
   
   const classes = useStyles()
 
 
-  return <div className={ clsx ( classes.single ) }>
-            Single
+  return <div className={ clsx ( classes.view ) }>
+            TView
         </div>
 }
 

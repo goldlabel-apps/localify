@@ -11,10 +11,8 @@ import {
 import { 
   goTo,
 } from '../../redux/app/actions'
-
-
 import {
-  TripListItem,
+  TItem,
 } from './'
 import {
   Icon,
@@ -28,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function Trips() {
+export default function TList() {
   
   const classes = useStyles()
   const localifySlice = useSelector(state => state.localify)
@@ -52,7 +50,7 @@ export default function Trips() {
             />
               <List dense>
                 { trips.map ( (item, i) => {
-                    return <TripListItem trip={ item } key={ `trip_${ i }` } />
+                    return <TItem trip={ item } key={ `trip_${ i }` } />
                 })}
               </List>
         </Card>

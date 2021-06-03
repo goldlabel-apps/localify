@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function NewTrip() {
+export default function TCreate() {
   
   const classes = useStyles()
   const [newTrip, setNewTrip] = React.useState( {} )

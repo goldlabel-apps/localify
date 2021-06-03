@@ -5,15 +5,16 @@ import {
     Grid,
 } from '@material-ui/core/'
 import { 
-  Trips,
-  NewTrip,
+  TList,
+  TCreate,
 } from './Trips'
 
 const useStyles = makeStyles((theme) => ({
-  home: {
+  dashboard: {
   },
   padded:{
-    // padding: theme.spacing(),
+    paddingLeft: theme.spacing( 0.5 ),
+    paddingRight: theme.spacing( 0.5 ),
   }
 }))
 
@@ -24,10 +25,10 @@ export default function Dashboard() {
   return <div className={ clsx( classes.dashboard ) } >
               <Grid container>
                 <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) } >
-                  <Trips />
+                  <TList />
                 </Grid>
                 <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) }>
-                 <NewTrip />
+                 <TCreate />
                 </Grid>
               </Grid>
           </div>

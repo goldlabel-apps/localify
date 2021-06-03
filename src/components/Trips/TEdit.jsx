@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Trip( props ) {
+export default function TEdit( props ) {
   
   const { trip } = props
   const {

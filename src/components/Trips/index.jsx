@@ -1,12 +1,13 @@
-import Single from './Single'
-import Trips from './Trips'
-import TripListItem from './TripListItem'
-import NewTrip from './NewTrip'
+import TCreate from './TCreate'
+import TEdit from './TEdit'
+import TItem from './TItem'
+import TList from './TList'
+import TView from './TView'
 
 export {
-	Single,
-	Trips,
-	TripListItem,
-	NewTrip,
-
+	TCreate,
+	TEdit,
+	TItem,
+	TList,
+	TView,
 }
