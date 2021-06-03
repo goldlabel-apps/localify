@@ -13,11 +13,17 @@ export const subscribed = createAction(`LOCALIFY/SUBSCRIBED`)
 export const updating = createAction(`LOCALIFY/UPDATING`) 
 export const updated = createAction(`LOCALIFY/UPDATED`) 
 export const selected = createAction(`LOCALIFY/SELECTED`) 
+export const newTrip = createAction(`LOCALIFY/NEWTRIP`) 
 
-export const newTrip = ( ) => {
+export const updateNewTrip = ( key, value ) => {
 	const store = getStore()
-	store.dispatch({type: `LOCALIFY/SELECTED`, selected: null })
-	goTo( `/trip/new`, `New trip` )
+	let newTripObj = {
+		...store.getState().localify.newTrip,
+		[key]: value,
+	}
+	console.log (newTripObj)
+	store.dispatch({type: `LOCALIFY/NEWTRIP`, newTrip: newTripObj })
+	// goTo( `/trip/new`, `New trip` )
 	return true
 }
 

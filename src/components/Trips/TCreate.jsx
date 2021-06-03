@@ -14,6 +14,9 @@ import {
 import { 
   goTo,
 } from '../../redux/app/actions'
+import { 
+  updateNewTrip,
+} from '../../redux/localify/actions'
 import {
   Icon,
 } from '../../theme'
@@ -42,27 +45,13 @@ const useStyles = makeStyles((theme) => ({
 export default function TCreate() {
   
 
-  //newTrip
-
+  const classes = useStyles()
   const localifySlice = useSelector(state => state.localify)
   const {
     newTrip,
   } = localifySlice
-
   const { title } = newTrip
-
-  // console.log ('newTrip', newTrip)
-
-  const classes = useStyles()
-  const [newTripState, setNewTrip] = React.useState( {} )
   
-  const stageChange = (key, value) => {
-    let t = {
-      ...newTripState,
-      [key]: value,
-    }
-    setNewTrip( t )
-  }  
 
   return <Card className={ clsx ( classes.card ) }>
 
@@ -78,9 +67,9 @@ export default function TCreate() {
               title={ `New Trip` }
             />
             <CardContent>
+
               <Grid container>               
                   
-
                   <Grid item xs={ 12 } md={ 8 }>
                     <form className={ classes.form } noValidate autoComplete="off">
                       <TextField 
@@ -92,16 +81,11 @@ export default function TCreate() {
                         label={ `Title` }
                         variant={ `standard` }
                         onChange={ ( e ) => {
-                           stageChange(`title`, e.target.value)
+                           updateNewTrip(`title`, e.target.value)
                         }}
                       />
                     </form>
                   </Grid>
-
-                  
-
-
-
 
                   <Grid item xs={ 12 }  md={ 4 }>
                     <Button
