@@ -1,14 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Button,
     Typography,
     Grid,
+    FormGroup,
+    FormControlLabel,
+    Switch,
 } from '@material-ui/core/'
-import { 
-  goTo,
+import {
+  toggleHelpOn,
 } from '../../redux/app/actions'
-// import { Icon } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
   helpStart: {
@@ -19,33 +21,58 @@ const useStyles = makeStyles((theme) => ({
 export default function HelpStart() {
   
   const classes = useStyles()
+  const appSlice = useSelector(state => state.app)
+  const {
+    helpOn,
+  } = appSlice
 
   return <div className={ classes.helpStart }>
+            
             <Typography variant={ `h6` } >
                 Help
             </Typography>
 
             <Grid container>
-              <Grid item xs={ 12 } >
-                <Typography variant={ `body2` }>
+              
+              <Grid item xs={ 12 } md={ 6 } >
+                <FormGroup row>
+                  <FormControlLabel
+                    label={ `Turn help ${ helpOn ? `off` : `on` }` }
+                    control={
+                      <Switch
+                        checked={ helpOn }
+                        onChange={ () => { toggleHelpOn( !helpOn ) } }
+                        name="helpOn"
+                        color="primary"
+                      />
+                    }
+                    
+                  />
+                </FormGroup>
+              </Grid>
+
+              <Grid item xs={ 12 } md={ 6 } >
+                <Typography variant={ `body2` } gutterBottom>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                   Praesent lacinia mi dolor, vel dignissim justo molestie sed. 
                   Fusce tincidunt ante in porta finibus. Donec a metus neque. 
                 </Typography>
               </Grid>
-              <Grid item xs={ 12 } >
-                <Button
-                  color={ `secondary` }
-                  variant={ `text` } 
+
+            </Grid>
+
+
+        </div>
+}
+
+/*
+<Button
+                  color={ `primary` }
+                  variant={ `outlined` } 
                   onClick={ ( e ) => {
                     e.preventDefault()
                     goTo( `/help`, `Help` )
                   }}>
                   More Help
                 </Button>
-              </Grid>
-            </Grid>
-
-
-        </div>
-}
+*/

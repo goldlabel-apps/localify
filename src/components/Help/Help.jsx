@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core/'
 import { 
   goTo,
-  toggleHelpOpen,
+  toggleHelpOn,
 } from '../../redux/app/actions'
 import { 
   Collapsing,
@@ -33,7 +33,7 @@ export default function Help() {
           <Collapsing options={{
             open: helpOpen,
             toggleFunc: () => {
-              toggleHelpOpen( !helpOpen )
+              toggleHelpOn( !helpOpen )
             },
             icon: `help`,
             iconColor: `secondary`,

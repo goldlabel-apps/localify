@@ -23,13 +23,13 @@ import {
 } from './redux/localify/actions'
 import { Icon } from './theme'
 import {
+  Dashboard,
   RightMenu,
 } from './components'
 import {
   HelpStart,
 } from './components/Help'
 import {
-  Home,
   Trips,
   NewTrip,
   Single,
@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mightyIcon:{
     paddingTop: theme.spacing( 0.5 ),
-    marginRight: theme.spacing(),
+    marginRight: theme.spacing( 2 ),
   },
   mightyBtn: {
     // fontWeight: 'lighter',
@@ -196,7 +196,7 @@ export default function Localify() {
          <Grid container>
             <Grid item xs={ 12 } >
               <div>
-                { type === `home` ? <Home /> : null }
+                { type === `home` ? <Dashboard /> : null }
                 { type === `single` ? <Single trip={{ id }} /> : null }
                 { type === `new` ? <NewTrip /> : null }
                 { type === `trips` ? <Trips /> : null }

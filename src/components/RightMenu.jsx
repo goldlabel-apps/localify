@@ -36,9 +36,9 @@ export default function RightMenu() {
                   goTo( `/`, `@localify` )
                 }}>
                 <ListItemIcon>
-                  <Icon icon={ `home` } color={ `secondary` } />
+                  <Icon icon={ `dashboard` } color={ `secondary` } />
                 </ListItemIcon>
-                <ListItemText primary={`Home`} />
+                <ListItemText primary={`Dashboard`} />
               </ListItem>
 
               <ListItem 

@@ -3,7 +3,7 @@ import {
   overlay,
   path,
   title,
-  helpOpen,
+  helpOn,
   rightMenuOpen,
 } from "./actions"
 
@@ -11,8 +11,8 @@ export const appSlice = {
   title: `@localify`,
   path: `/`,
   overlay: false,
-  helpOpen: true,
-  rightMenuOpen: true,
+  helpOn: true,
+  rightMenuOpen: false,
 }
 
 const appReducer = createReducer( appSlice, {
@@ -22,8 +22,8 @@ const appReducer = createReducer( appSlice, {
     return state
   },
 
-  [helpOpen]: (state, action) => {
-    state.helpOpen = action.helpOpen
+  [helpOn]: (state, action) => {
+    state.helpOn = action.helpOn
     return state
   },
 

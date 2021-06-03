@@ -3,9 +3,7 @@ import Overlay from './Overlay'
 import RightMenu from './RightMenu'
 import Mapbox from './Mapbox'
 import AddNew from './AddNew'
-import {
-	Help,
-} from './Help/'
+import Dashboard from './Dashboard'
 
 export {
 	Collapsing,
@@ -13,5 +11,5 @@ export {
 	RightMenu,
 	Mapbox,
 	AddNew,
-	Help,
+	Dashboard,
 }
