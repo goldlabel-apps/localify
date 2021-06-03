@@ -31,9 +31,9 @@ export const appRouter = () => {
 				type: `trips`,
 			}
 		}
-		if ( action === `new` ) {
+		if ( action === `create` ) {
 			return { 
-				type: `new`,
+				type: `create`,
 			}
 		}
 		if ( action ) {

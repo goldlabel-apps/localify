@@ -3,14 +3,10 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    IconButton,
     List,
     Card,
     CardHeader,
 } from '@material-ui/core/'
-import { 
-  goTo,
-} from '../../redux/app/actions'
 import {
   TItem,
 } from './'
@@ -35,15 +31,8 @@ export default function TList() {
 
   return <Card className={ clsx( classes.card ) }>
             <CardHeader 
-              title={ `Trips` }
-              avatar={ <IconButton
-                          color={ `secondary` }
-                          onClick={ ( e ) => {
-                            e.preventDefault()
-                            goTo( `/trips`, `Trips`)
-                          }}>
-                          <Icon icon={ `trips` } color={ `secondary` } />
-                        </IconButton> }
+              title={ `Browse` }
+              avatar={ <Icon icon={ `trips` } color={ `secondary` } /> }
               
             />
               <List dense>

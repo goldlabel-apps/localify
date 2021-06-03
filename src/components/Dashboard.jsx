@@ -24,12 +24,13 @@ export default function Dashboard() {
 
   return <div className={ clsx( classes.dashboard ) } >
               <Grid container>
-                <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) } >
-                  <TList />
-                </Grid>
                 <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) }>
                  <TCreate />
                 </Grid>
+                <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) } >
+                  <TList />
+                </Grid>
+                
               </Grid>
           </div>
 }

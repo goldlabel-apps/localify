@@ -192,7 +192,7 @@ export default function Localify() {
               <div>
                 { type === `dashboard` ? <Dashboard /> : null }
                 { type === `trip` ? <TView trip={{ id }} /> : null }
-                { type === `new` ? <TCreate /> : null }
+                { type === `create` ? <TCreate /> : null }
                 { type === `trips` ? <TList /> : null }
                 { type === `settings` ? <Settings /> : null }
               </div>

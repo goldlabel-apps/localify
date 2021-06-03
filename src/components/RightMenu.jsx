@@ -39,7 +39,7 @@ export default function RightMenu() {
                   toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
-                  <Icon icon={ `localify` } color={ `secondary` } />
+                  <Icon icon={ `dashboard` } color={ `secondary` } />
                 </ListItemIcon>
                 <ListItemText primary={`Dashboard`} />
               </ListItem>
@@ -48,27 +48,29 @@ export default function RightMenu() {
                 button
                 onClick={( e ) => {
                   e.preventDefault()
-                  goTo( `/trips`, `Trips` )
+                  goTo( `/trip/create`, `Create` )
                   toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
-                  <Icon icon={ `trips` } color={ `secondary` } />
+                  <Icon icon={ `create` } color={ `secondary` } />
                 </ListItemIcon>
-                <ListItemText primary={`Trips`} />
+                <ListItemText primary={`Create`} />
               </ListItem>
 
               <ListItem 
                 button
                 onClick={( e ) => {
                   e.preventDefault()
-                  goTo( `/trip/new`, `New Trip` )
+                  goTo( `/trips`, `Browse` )
                   toggleRightMenuOpen( false )
                 }}>
                 <ListItemIcon>
-                  <Icon icon={ `new` } color={ `secondary` } />
+                  <Icon icon={ `trips` } color={ `secondary` } />
                 </ListItemIcon>
-                <ListItemText primary={`New Trip`} />
+                <ListItemText primary={`Browse`} />
               </ListItem>
+
+              
               
               <ListItem 
                 button

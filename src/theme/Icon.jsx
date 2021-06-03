@@ -81,7 +81,6 @@ import IconLeft from '@material-ui/icons/ChevronLeft'
 import IconRight from '@material-ui/icons/ChevronRight'
 import IconAPI from '@material-ui/icons/Code'
 import IconProduct from '@material-ui/icons/Widgets'
-import IconCreate from '@material-ui/icons/Add'
 import IconConnected from '@material-ui/icons/Wifi'
 import IconNotConnected from '@material-ui/icons/WifiOff'
 import IconLocale from '@material-ui/icons/PersonPin'
@@ -154,9 +153,6 @@ class Icon extends Component {
 
             case `gdpr`:
                 return (<IconGDPR color={iconColor} />)
-
-            case `create`:
-                return (<IconCreate color={iconColor} />)   
 
             case `api`:
                 return (<IconAPI color={iconColor} />)             
@@ -302,6 +298,9 @@ class Icon extends Component {
 
             case `add`:
                 return (<IconAddBold color={iconColor} />)
+
+           case `create`:
+                return (<IconAddBold color={iconColor} />)     
 
             case `new`:
                 return (<IconNew color={iconColor} />)

@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    IconButton,
     Card,
     CardHeader,
     CardContent,
@@ -12,10 +11,8 @@ import {
     Button,
 } from '@material-ui/core/'
 import { 
-  goTo,
-} from '../../redux/app/actions'
-import { 
   updateNewTrip,
+  saveNewTrip,
 } from '../../redux/localify/actions'
 import {
   Icon,
@@ -36,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
   btn:{
     margin: theme.spacing(),
   },
+  vertSpacer: {
+    height: 20,
+  },
   btnTxt: {
     marginLeft: theme.spacing(),
     marginRight: theme.spacing(),
@@ -50,32 +50,28 @@ export default function TCreate() {
   const {
     newTrip,
   } = localifySlice
-  const { title } = newTrip
+  const { 
+    title,
+    countryCode,
+  } = newTrip
   
 
   return <Card className={ clsx ( classes.card ) }>
 
             <CardHeader 
-              avatar={ <IconButton
-                          color={ `secondary` }
-                          onClick={ ( e ) => {
-                            e.preventDefault()
-                            goTo( `/trip/new`, `New Trip`)
-                          }}>
-                          <Icon icon={ `new` } color={ `secondary` } />
-                        </IconButton> }
-              title={ `New Trip` }
+              avatar={ <Icon icon={ `add` } color={ `secondary` } /> }
+              title={ `Create` }
             />
             <CardContent>
 
               <Grid container>               
                   
-                  <Grid item xs={ 12 } md={ 8 }>
+                  <Grid item xs={ 12 }>
                     <form className={ classes.form } noValidate autoComplete="off">
                       <TextField 
                         fullWidth
-                        autoFocus
                         required
+                        id={ `title` }
                         className={ classes.inputTxt } 
                         value={ title }
                         label={ `Title` }
@@ -84,30 +80,32 @@ export default function TCreate() {
                            updateNewTrip(`title`, e.target.value)
                         }}
                       />
+                      <div className={ clsx ( classes.vertSpacer ) }/>
+                      <TextField 
+                        fullWidth
+                        id={ `countryCode` }
+                        className={ classes.inputTxt } 
+                        value={ countryCode || `` }
+                        label={ `Country Code` }
+                        variant={ `standard` }
+                        onChange={ ( e ) => {
+                           updateNewTrip(`countryCode`, e.target.value)
+                        }}
+                      />
+                      <div className={ clsx ( classes.vertSpacer ) }/>
+
                     </form>
                   </Grid>
 
-                  <Grid item xs={ 12 }  md={ 4 }>
-                    <Button
+                  <Grid item xs={ 12 }>
+                    
+                    <Button 
                       className={ clsx ( classes.btn ) }
                       variant={ `outlined` }
                       color={ `primary` }
                       onClick={ ( e ) => {
                         e.preventDefault()
-                        console.log ('reset')
-                      }}>
-                      <Icon icon={ `refresh` } />
-                      <span className={ clsx ( classes.btnTxt ) }>
-                        Reset
-                      </span>
-                    </Button>
-                    <Button 
-                      className={ clsx ( classes.btn ) }
-                      variant={ `contained` }
-                      color={ `primary` }
-                      onClick={ ( e ) => {
-                        e.preventDefault()
-                        console.log ('reset')
+                        saveNewTrip()
                       }}>
                       <Icon icon={ `save` } />
                       <span className={ clsx ( classes.btnTxt ) }>
@@ -130,3 +128,11 @@ export default function TCreate() {
 }
 
 
+/*
+<IconButton
+                          color={ `secondary` }
+                          onClick={ ( e ) => {
+                            e.preventDefault()
+                            goTo( `/trip/new`, `New Trip`)
+                          }}>
+*/

@@ -5,9 +5,9 @@ import {
 } from '../../redux/localify/actions'
 import {
     makeStyles,
-    // Avatar,
+    Avatar,
     ListItem,
-    // ListItemIcon,
+    ListItemIcon,
     ListItemText,
 } from '@material-ui/core/'
 // import { Icon } from '../../theme'
@@ -15,12 +15,14 @@ import {
 const useStyles = makeStyles((theme) => ({
   trip: {
     color: theme.palette.primary.main,
+    // borderLeft: '1px solid ' + theme.palette.secondary.main,
+    borderBottom: '1px solid ' + theme.palette.secondary.main,
   },
 }))
 
-// const getFlagPath = countryCode => {
-//   return `/svg/flags/${ countryCode }.svg`
-// }
+const getFlagPath = countryCode => {
+  return `/svg/flags/${ countryCode }.svg`
+}
 
 
 export default function TItem( props ) {
@@ -30,8 +32,7 @@ export default function TItem( props ) {
   const {
     id,
     title,
-    // description,
-    // countryCode,
+    countryCode,
   } = trip
 
   return <ListItem
@@ -42,15 +43,16 @@ export default function TItem( props ) {
 
               selectTrip ( id, title )
             }}>
+            { countryCode ? <ListItemIcon>
+                <Avatar src={ getFlagPath( countryCode )}/>
+              </ListItemIcon> : null }
               
               <ListItemText 
                 primary={ title } 
-                // secondary={ description }
+                secondary={ countryCode }
               />
         </ListItem>
 }
 /*
-<ListItemIcon>
-                <Avatar src={ getFlagPath( countryCode )}/>
-              </ListItemIcon>
+
 */
