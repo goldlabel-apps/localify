@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import {
     makeStyles,
     IconButton,
-    Typography,
     Card,
     CardHeader,
     CardContent,
@@ -20,6 +19,14 @@ import {
 } from '../../theme'
 
 const useStyles = makeStyles((theme) => ({
+  form: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(),
+    },
+  },
+  inputTxt:{
+    maxWidth: 500,
+  },
   card: {
     boxShadow: 'none',
   },
@@ -41,6 +48,8 @@ export default function TCreate() {
   const {
     newTrip,
   } = localifySlice
+
+  const { title } = newTrip
 
   // console.log ('newTrip', newTrip)
 
@@ -70,18 +79,29 @@ export default function TCreate() {
             />
             <CardContent>
               <Grid container>               
+                  
+
                   <Grid item xs={ 12 } md={ 8 }>
-                    <Typography gutterBottom>
-                      Title
-                    </Typography>
-                    <TextField 
-                      fullWidth
-                      defaultValue={ `title` } 
-                      onChange={ ( e ) => {
-                         stageChange(`title`, e.target.value)
-                      }}
-                    />
+                    <form className={ classes.form } noValidate autoComplete="off">
+                      <TextField 
+                        fullWidth
+                        autoFocus
+                        required
+                        className={ classes.inputTxt } 
+                        value={ title }
+                        label={ `Title` }
+                        variant={ `standard` }
+                        onChange={ ( e ) => {
+                           stageChange(`title`, e.target.value)
+                        }}
+                      />
+                    </form>
                   </Grid>
+
+                  
+
+
+
 
                   <Grid item xs={ 12 }  md={ 4 }>
                     <Button
@@ -111,12 +131,6 @@ export default function TCreate() {
                       </span>
                     </Button>
                   </Grid>
-
-
-                  <Grid item xs={ 6 } md={ 3 }>
-                    
-                  </Grid>
-
 
 
                   <Grid item xs={ 12 }>
