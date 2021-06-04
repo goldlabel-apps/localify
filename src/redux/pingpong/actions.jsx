@@ -23,7 +23,6 @@ export const messageSending = createAction(`PINGPONG/MESSAGE/SENDING`)
 export const messageBadge = createAction(`PINGPONG/MESSAGE/BADGE`)
 export const privacyOpen = createAction(`PINGPONG/PRIVACY/OPEN`)
 
-
 export const initPingPong = () => {
 	const store = getStore()
 	store.dispatch({ type: `PINGPONG/INIT`, initting: true })
@@ -40,7 +39,6 @@ export const initPingPong = () => {
 	    })
 	return true
 }
-
 
 export const togglePrivacyOpen = bool => {
 	const store = getStore()
@@ -64,7 +62,7 @@ export const updateTingAttribute = ( attribute, value ) => {
 	const store = getStore()
 	const { id } = store.getState().pingpong
 	const db = firebase.firestore()
-	db.collection(`pingpong`).doc( id )
+	db.collection(`localify`).doc( id )
 		.set({ [attribute]: value }, { merge: true })
 		.then( function(response) {
 			return true
@@ -79,80 +77,14 @@ export const updateTingAttribute = ( attribute, value ) => {
 export const subscribeTing = ( id ) => {
 	const store = getStore()
 	const db = firebase.firestore()
-	db.collection( `pingpong` ).doc( id )
+	// console.log ( 'subscribeTing', id )
+	db.collection( `localify` ).doc( id )
 	    .onSnapshot( ( doc )  => {
 	    	// console.log ( 'ting', doc.data() )
 	        store.dispatch({type: `PINGPONG/TING`, ting: doc.data() })
 	    })
 	return true
 }
-
-export const sendNewMessage = () => {
-	const store = getStore()
-	store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: true })
-	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/new-message`
-	const { 
-		id,
-		ting,
-		newMessage,
-	} = store.getState().pingpong
-	if ( newMessage.length < 5 ) {
-		setFeedback({ 
-			severity: `info`, 
-			message: `Your message is too short`,
-		})
-		toggleFeedback( true)
-		return false
-	}
-	const { environment } = store.getState().wordpress
-	const {
-		browserName,
-		browserMajor,
-		osName,
-		device,
-		ip,
-		countryName,
-		city,
-		stateProv,
-	} = ting	
-	let deviceStr = `${ osName } ${ device } ${ browserName } ${ browserMajor }`
-	let locationStr = `${ city } ${ stateProv } ${ countryName }`
-	const {
-		appVersion,
-		host,
-		customLogo,
-	} = environment
-	let messagePayload = {
-		appVersion,
-		host,
-		customLogo,
-		message: newMessage,
-		tingId: id,
-		deviceStr,
-		locationStr,
-		ip,
-	}	
-	axios.post( endpoint, messagePayload )
-		.then( function( res ) {
-			const store = getStore()
-			store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: false })
-			store.dispatch({ type: `PINGPONG/MESSAGE/PAYLOAD`, messagePayload: res.data.response.data })
-			updateNewMessage( `` )
-			return true
-		})
-		.catch(function( error ) {
-			const store = getStore()
-			store.dispatch({ type: `PINGPONG/MESSAGE/SENDING`, messageSending: false })
-			setFeedback({ 
-				severity: `error`, 
-				message: `Error sending message`,
-			})
-			toggleFeedback( true)
-			return false
-		})
-}
-
-
 
 export const gotoURL = (url, target) => { 
 	window.open(url, target)
@@ -170,10 +102,11 @@ export const updateNewMessage = newMessage => {
 
 export const connectAPI = () => { 
 	const ting = getStore().getState().pingpong.ting
-	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
-	console.log ('connectAPI endpoint', endpoint)
+	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/localify/`
+	// console.log ('connectAPI endpoint', endpoint)
 	axios.post( endpoint, ting )
 		.then(function( res ) {
+			// console.log ('res.data.response', res.data.response)
 			const store = getStore()
 			const id = res.data.response.data.id
 			store.dispatch({ type: `PINGPONG/ID`, id })

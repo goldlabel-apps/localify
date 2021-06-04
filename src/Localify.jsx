@@ -13,9 +13,9 @@ import {
 import {
   toggleRightMenuOpen,
 } from './redux/app/actions'
-import { 
-  subscribe,
-} from './redux/localify/actions'
+// import { 
+//   subscribe,
+// } from './redux/localify/actions'
 import { Icon } from './theme'
 import {
   Dashboard,
@@ -113,11 +113,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Localify() {
 
   const classes = useStyles()
-  // const theme = useTheme()
   const appSlice = useSelector(state => state.app)
-  const localifySlice = useSelector( state => state.localify )
   const {
-    // title,
     rightMenuOpen,
   } = appSlice
 
@@ -127,13 +124,14 @@ export default function Localify() {
     id,
   } = routeOjb
 
-  React.useEffect(() => {
-    const {
-      subscribing,
-      subscribed,
-    } = localifySlice
-    if (!subscribing && !subscribed) subscribe()  
-  }, [localifySlice])
+  // const localifySlice = useSelector( state => state.localify )
+  // React.useEffect(() => {
+  //   const {
+  //     subscribing,
+  //     subscribed,
+  //   } = localifySlice
+  //   if (!subscribing && !subscribed) console.log ( 'subscribe()' )  
+  // }, [localifySlice])
 
   const handleDrawerOpen = () => {
     toggleRightMenuOpen( true )
