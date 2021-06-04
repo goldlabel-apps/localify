@@ -67,11 +67,6 @@ export const updateTingAttribute = ( attribute, value ) => {
 	db.collection(`pingpong`).doc( id )
 		.set({ [attribute]: value }, { merge: true })
 		.then( function(response) {
-			// setFeedback({ 
-			// 	severity: `success`, 
-			// 	message: `Settings Saved`,
-			// })
-			// toggleFeedback( true)
 			return true
 		})
 		.catch(function(error) {
@@ -176,6 +171,7 @@ export const updateNewMessage = newMessage => {
 export const connectAPI = () => { 
 	const ting = getStore().getState().pingpong.ting
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/pingpong/update/`
+	console.log ('connectAPI endpoint', endpoint)
 	axios.post( endpoint, ting )
 		.then(function( res ) {
 			const store = getStore()
