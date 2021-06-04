@@ -1,16 +1,17 @@
-let primaryColor = `#ccd31f`
-let secondaryColor = `#424242`
+let primaryColor = `#424242`
+let secondaryColor = `#e05717`
 
 export const themeLight = { 
   palette: {
     type: 'light',
+    
     background: {
       paper: '#fff',
       default: '#fff'
     },
     text:{
-      primary: secondaryColor,
-      secondary: '#ccd31f',
+      primary: primaryColor,
+      secondary: secondaryColor,
     },
     primary: {
       main: primaryColor,
