@@ -8,9 +8,14 @@ import {
   selected,
   newTrip,
   selectedFirst,
+  createOpen,
 } from "./actions"
 
 export const localifySlice = {
+  createOpen: false,
+  newTrip: {
+    title: ``,
+  },
   trips: [],
   subscribing: false,
   subscribed: false,
@@ -18,15 +23,17 @@ export const localifySlice = {
   updated: false,
   selected: null,
   selectedFirst: false,
-  newTrip: {
-    title: ``,
-  },
 }
 
 const localifyReducer = createReducer( localifySlice, {
  
+  [createOpen]: (state, action) => {
+    state.createOpen = action.createOpen
+    return state
+  },
+  
   [selectedFirst]: (state, action) => {
-    state.newTrip = action.selectedFirst
+    state.selectedFirst = action.selectedFirst
     return state
   },
   

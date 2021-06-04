@@ -22,20 +22,18 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   
   const classes = useStyles()
-  const showCreate = false
+  const showCreate = true
 
   return <div className={ clsx( classes.dashboard ) } >
               <Grid container>
 
-                { showCreate ? <Grid item xs={ 12 } className={ clsx( classes.padded ) } >
-                  <TCreate />
-                </Grid> : null }
+                <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) } >
+                  { showCreate ? <TCreate /> : null }
+                  <TList />
+                </Grid>
 
                 <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) }>
                  <TView />
-                </Grid>
-                <Grid item xs={ 12 } md={ 6 } className={ clsx( classes.padded ) } >
-                  <TList />
                 </Grid>
                 
               </Grid>

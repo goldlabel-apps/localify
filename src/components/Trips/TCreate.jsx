@@ -3,139 +3,81 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Card,
-    CardHeader,
-    CardContent,
-    Grid,
-    TextField,
-    Button,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    Typography,
 } from '@material-ui/core/'
-import { 
-  updateNewTrip,
-  saveNewTrip,
-} from '../../redux/localify/actions'
 import {
+  toggleCreateOpen,
+} from '../../redux/localify/actions'
+import { TForm } from './'
+import { 
   Icon,
 } from '../../theme'
 
-const useStyles = makeStyles((theme) => ({
-  form: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(),
-    },
+const useStyles = makeStyles( theme => ({
+  collapsing:{
   },
-  inputTxt:{
-    maxWidth: 500,
+  fullWidth:{
+    width: '100%',
   },
-  card: {
+  link: {
+    cursor: 'pointer',
+  },
+  plainAccordion: {
     boxShadow: 'none',
+    borderRadius: 0,
+    border: 'none',
   },
-  btn:{
-    margin: theme.spacing(),
-  },
-  vertSpacer: {
-    height: 20,
+  grow: {
+    flexGrow: 1,
   },
   btnTxt: {
-    marginLeft: theme.spacing(),
-    marginRight: theme.spacing(),
+    marginLeft: theme.spacing( 2 ),
+    marginRight: theme.spacing( 2 ),
+  },
+  icon:{
+    marginRight: theme.spacing( 2 ),
+  },
+  hTag: {
+    // fontWeight: 'lighter',
+  },
+  root: {
+      width: '100%',
+  },
+  heading: {
+    marginTop: theme.spacing( 0.45 ),
   },
 }))
 
 export default function TCreate() {
   
-
   const classes = useStyles()
   const localifySlice = useSelector(state => state.localify)
   const {
-    newTrip,
+    createOpen,
   } = localifySlice
-  const { 
-    title,
-    countryCode,
-  } = newTrip
-  
 
-  return <Card className={ clsx ( classes.card ) }>
-
-            <CardHeader 
-              avatar={ <Icon icon={ `add` } color={ `secondary` } /> }
-              title={ `Create` }
-            />
-            <CardContent>
-
-              <Grid container>               
-                  
-                  <Grid item xs={ 12 }>
-                    <form className={ classes.form } noValidate autoComplete="off">
-                      <TextField 
-                        fullWidth
-                        required
-                        id={ `title` }
-                        className={ classes.inputTxt } 
-                        value={ title }
-                        label={ `Title` }
-                        variant={ `standard` }
-                        onChange={ ( e ) => {
-                           updateNewTrip(`title`, e.target.value)
-                        }}
-                      />
-                      <div className={ clsx ( classes.vertSpacer ) }/>
-                      <TextField 
-                        fullWidth
-                        id={ `countryCode` }
-                        className={ classes.inputTxt } 
-                        value={ countryCode || `` }
-                        label={ `Country Code` }
-                        variant={ `standard` }
-                        onChange={ ( e ) => {
-                           updateNewTrip(`countryCode`, e.target.value)
-                        }}
-                      />
-                      <div className={ clsx ( classes.vertSpacer ) }/>
-
-                    </form>
-                  </Grid>
-
-                  <Grid item xs={ 12 }>
-                    
-                    <Button 
-                      className={ clsx ( classes.btn ) }
-                      variant={ `text` }
-                      color={ `secondary` }
-                      onClick={ ( e ) => {
-                        e.preventDefault()
-                        saveNewTrip()
-                      }}>
-                      <Icon icon={ `save` } />
-                      <span className={ clsx ( classes.btnTxt ) }>
-                        Save
-                      </span>
-                    </Button>
-                  </Grid>
-
-
-                  
-
-                </Grid>
-              </CardContent>
-          </Card>
+  return  <Accordion 
+            expanded={ createOpen }
+            className={clsx( classes.plainAccordion )}
+            onChange={ () => {
+              toggleCreateOpen ( !createOpen )
+            }}>
+            <AccordionSummary
+                  expandIcon={ <Icon icon={`panel-toggle`} color={ `secondary` } /> }
+                  id={ `help` } >
+                  <div className={ clsx( classes.icon )}>
+                    <Icon icon={ `create` } color={ `secondary` } />
+                  </div>
+                  <Typography 
+                    className={clsx( classes.hTag )}>
+                    Create
+                  </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <TForm />
+            </AccordionDetails>
+          </Accordion>
 }
-
-
-/*
-
-<Grid item xs={ 12 }>
-                    <pre>
-                      { JSON.stringify( newTrip, null, 2 ) }
-                    </pre>
-                    
-                  </Grid>
-
-<IconButton
-                          color={ `secondary` }
-                          onClick={ ( e ) => {
-                            e.preventDefault()
-                            goTo( `/trip/new`, `New Trip`)
-                          }}>
-*/

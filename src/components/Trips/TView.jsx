@@ -22,10 +22,9 @@ export default function TView() {
   const {
     selected,
   } = localifySlice
-  if ( !selected ) return null
-
   const trip = getTripById()
-
+  if ( !selected || !trip ) return null
+  
   return <div className={ clsx ( classes.view ) }>
             <pre>
               { JSON.stringify( trip, null, 2 ) }
