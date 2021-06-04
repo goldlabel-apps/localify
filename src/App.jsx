@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {
-  theme, 
+  themeLight, 
+  themeDark,
 } from './theme'
 import {
   MuiThemeProvider,  
@@ -12,7 +14,17 @@ import {
 } from './components'
 import Localify from './Localify'
 
+// let theme
+
 export default function App() {
+
+    const appSlice = useSelector(state => state.app)
+
+    let theme = themeLight
+    const {
+      darkMode,
+    } = appSlice
+    if ( darkMode ) theme = themeDark
 
     return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
               <CssBaseline />

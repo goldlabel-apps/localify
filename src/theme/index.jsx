@@ -1,4 +1,5 @@
-import { theme } from './theme'
+import { themeLight } from './themeLight'
+import { themeDark } from './themeDark'
 import Icon from './Icon'
 import IconWordPress from './svgIcon/IconWordPress'
 import IconGDPR from './svgIcon/IconGDPR'
@@ -8,7 +9,8 @@ import IconGithub from './svgIcon/IconGithub'
 
 export {
 	Icon,
-	theme,
+	themeLight,
+	themeDark,
 	IconWordPress,
 	IconGDPR,
 	IconHome,

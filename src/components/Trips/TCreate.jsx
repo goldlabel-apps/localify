@@ -101,8 +101,8 @@ export default function TCreate() {
                     
                     <Button 
                       className={ clsx ( classes.btn ) }
-                      variant={ `outlined` }
-                      color={ `primary` }
+                      variant={ `text` }
+                      color={ `secondary` }
                       onClick={ ( e ) => {
                         e.preventDefault()
                         saveNewTrip()
@@ -115,12 +115,7 @@ export default function TCreate() {
                   </Grid>
 
 
-                  <Grid item xs={ 12 }>
-                    <pre>
-                      { JSON.stringify( newTrip, null, 2 ) }
-                    </pre>
-                    
-                  </Grid>
+                  
 
                 </Grid>
               </CardContent>
@@ -129,6 +124,14 @@ export default function TCreate() {
 
 
 /*
+
+<Grid item xs={ 12 }>
+                    <pre>
+                      { JSON.stringify( newTrip, null, 2 ) }
+                    </pre>
+                    
+                  </Grid>
+
 <IconButton
                           color={ `secondary` }
                           onClick={ ( e ) => {

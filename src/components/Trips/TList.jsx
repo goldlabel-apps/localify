@@ -16,6 +16,8 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   card: {
+    background: 'none',
+    boarder: 'none',
     boxShadow: 'none',
   },
 }))

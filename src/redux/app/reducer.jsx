@@ -3,12 +3,13 @@ import {
   overlay,
   path,
   title,
-  helpOn,
+  darkMode,
   rightMenuOpen,
 } from "./actions"
 
 export const appSlice = {
   title: `Dashboard`,
+  darkMode: true,
   path: `/`,
   overlay: false,
   helpOn: true,
@@ -22,8 +23,8 @@ const appReducer = createReducer( appSlice, {
     return state
   },
 
-  [helpOn]: (state, action) => {
-    state.helpOn = action.helpOn
+  [darkMode]: (state, action) => {
+    state.darkMode = action.darkMode
     return state
   },
 

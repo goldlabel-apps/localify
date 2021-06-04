@@ -7,7 +7,7 @@ import {
 export const overlay = createAction(`APP/OVERLAY`) 
 export const path = createAction(`APP/PATH`) 
 export const title = createAction(`APP/TITLE`) 
-export const helpOn = createAction(`APP/HELPON`) 
+export const darkMode = createAction(`APP/DARKMODE`) 
 export const rightMenuOpen = createAction(`APP/RIGHTMENUOPEN`) 
 
 export const toggleRightMenuOpen = rightMenuOpen => {
@@ -16,9 +16,9 @@ export const toggleRightMenuOpen = rightMenuOpen => {
 	return true
 }
 
-export const toggleHelpOn = helpOn => {
+export const toggleDarkMode = darkMode => {
 	const store = getStore()
-	store.dispatch({type: `APP/HELPON`, helpOn })
+	store.dispatch({type: `APP/DARKMODE`, darkMode })
 	return true
 }
 

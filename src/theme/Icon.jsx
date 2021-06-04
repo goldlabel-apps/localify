@@ -37,7 +37,7 @@ import IconFilm from '@material-ui/icons/MovieCreation'
 import IconHelp from '@material-ui/icons/HelpOutline'
 import IconHome from '@material-ui/icons/HomeOutlined'
 import IconPalette from '@material-ui/icons/Palette'
-import IconMenu from '@material-ui/icons/MoreVert'
+import IconMenu from '@material-ui/icons/Menu'
 import IconExpand from '@material-ui/icons/Add'
 import IconStart from '@material-ui/icons/ArrowForward'
 import IconGambler from '@material-ui/icons/MonetizationOn'
@@ -379,6 +379,9 @@ class Icon extends Component {
                 return (<IconMap color={iconColor} />)
 
             case `trips`:
+                return (<IconTrips color={iconColor} />)
+
+            case `trip`:
                 return (<IconTrips color={iconColor} />)
 
             case `refresh`:

@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Help() {
+export default function Page() {
 
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
@@ -41,7 +41,7 @@ export default function Help() {
           }}>
             <Grid container>
               <Grid item xs={ 12 } >
-                <Typography variant={ `body2` }>
+                <Typography>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                   Praesent lacinia mi dolor, vel dignissim justo molestie sed. 
                   Fusce tincidunt ante in porta finibus. Donec a metus neque. 
@@ -49,13 +49,13 @@ export default function Help() {
               </Grid>
               <Grid item xs={ 12 } >
                 <Button
-                  color={ `secondary` }
-                  variant={ `text` } 
+                  color={ `primary` }
+                  variant={ `outlined` } 
                   onClick={ ( e ) => {
                     e.preventDefault()
                     goTo( `/help`, `Help` )
                   }}>
-                  More Help
+                  Help
                 </Button>
               </Grid>
             </Grid>

@@ -3,9 +3,9 @@ import {
 	getStore,
 	getFStore,
 } from '../../'
-import {
-  goTo,
-} from '../app/actions'
+// import {
+//   goTo,
+// } from '../app/actions'
 
 export const trips = createAction(`LOCALIFY/TRIPS`) 
 export const subscribing = createAction(`LOCALIFY/SUBSCRIBING`) 
@@ -14,6 +14,27 @@ export const updating = createAction(`LOCALIFY/UPDATING`)
 export const updated = createAction(`LOCALIFY/UPDATED`) 
 export const selected = createAction(`LOCALIFY/SELECTED`) 
 export const newTrip = createAction(`LOCALIFY/NEWTRIP`) 
+export const selectedFirst = createAction(`LOCALIFY/SELECTED/FIRST`) 
+
+export const selectTrip = ( id, title ) => {
+	const store = getStore()
+	store.dispatch({type: `LOCALIFY/SELECTED`, selected: id })
+	return true
+}
+
+export const getTripById = () => {
+	const store = getStore()
+	const selected = store.getState().localify.selected
+	const trips = store.getState().localify.trips
+	if ( !trips.length ) return null
+	for (let i = 0; i < trips.length ; i ++){
+		if ( trips[i].id === selected ){
+			return trips[i]
+		}
+	}
+	return null
+}
+
 
 export const subscribe = () => { 
 	const store = getStore()
@@ -30,8 +51,39 @@ export const subscribe = () => {
 	        })
 	        store.dispatch( {type: `LOCALIFY/TRIPS`, trips } )
 	        store.dispatch( {type: `LOCALIFY/SUBSCRIBED`, subscribed: true } )
+	    
+	    const selectedFirst = store.getState().localify.selectedFirst
+	    
+
+	    if ( !selectedFirst ){
+	    	if (trips.length){
+	    		// console.log ( 'selectedFirst', selectedFirst, trips[0].id )
+	    		store.dispatch({type: `LOCALIFY/SELECTED`, selected: trips[0].id })
+	    		store.dispatch({type: `LOCALIFY/SELECTED/FIRST`, selectedFirst: true })
+	    	}
+	    	
+	    }
 		})
 }
+
+
+export const deleteTrip = id => {
+	const store = getStore()
+	const db = getFStore() 
+	store.dispatch({type: `APP/OVERLAY`, overlay: true })
+	db.collection( `trips` ).doc( id ).delete()
+		.then( () => {
+			store.dispatch({type: `APP/OVERLAY`, overlay: false })
+			return true
+		})
+		.catch((error) => {
+    	console.error("Error deleting document: ", error)
+    	store.dispatch({type: `APP/OVERLAY`, overlay: false })
+    	return false
+		})
+	return true
+}
+
 
 export const saveNewTrip = () => {
 	const store = getStore()
@@ -87,12 +139,7 @@ export const updateNewTrip = ( key, value ) => {
 	return true
 }
 
-export const selectTrip = ( id, title ) => {
-	const store = getStore()
-	store.dispatch({type: `LOCALIFY/SELECTED`, selected: id })
-	goTo( `/trip/${id}`, title )
-	return true
-}
+
 
 export const throwError = error => {
 	const store = getStore()
