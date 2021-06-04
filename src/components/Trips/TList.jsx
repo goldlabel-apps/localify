@@ -28,6 +28,7 @@ export default function TList() {
   const localifySlice = useSelector(state => state.localify)
   const {
     trips,
+    selected,
   } = localifySlice
 
 
@@ -39,7 +40,9 @@ export default function TList() {
             />
               <List dense>
                 { trips.map ( (item, i) => {
-                    return <TItem trip={ item } key={ `trip_${ i }` } />
+                    let isSelected = false
+                    if (item.id === selected) isSelected = true
+                    return <TItem trip={ item } isSelected={ isSelected } key={ `trip_${ i }` } />
                 })}
               </List>
         </Card>

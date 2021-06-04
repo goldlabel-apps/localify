@@ -30,7 +30,7 @@ const getFlagPath = countryCode => {
 
 export default function TItem( props ) {
   
-  const { trip } = props
+  const { trip, isSelected } = props
   const classes = useStyles()
   const {
     id,
@@ -40,6 +40,7 @@ export default function TItem( props ) {
 
   return <ListItem
             button 
+            disabled={ isSelected }
             className={ clsx ( classes.trip ) }
             onClick={ (e) => {
               e.preventDefault()

@@ -101,12 +101,13 @@ export const saveNewTrip = () => {
 		.then( (doc) => {
 			console.log("Document written with ID: ", doc.id)
 			store.dispatch({type: `APP/OVERLAY`, overlay: false })
+			store.dispatch({type: `LOCALIFY/CREATE/OPEN`, createOpen: false })
 			return true
 		})
 		.catch((error) => {
-    	console.error("Error adding document: ", error)
-    	store.dispatch({type: `APP/OVERLAY`, overlay: false })
-    	return false
+	    	console.error("Error adding document: ", error)
+	    	store.dispatch({type: `APP/OVERLAY`, overlay: false })
+	    	return false
 		})
 	return true
 }

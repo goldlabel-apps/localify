@@ -3,9 +3,6 @@ import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
-    Card,
-    CardHeader,
-    CardContent,
     Grid,
     TextField,
     Button,
@@ -30,11 +27,14 @@ const useStyles = makeStyles((theme) => ({
   card: {
     boxShadow: 'none',
   },
+  grow: {
+    flexGrow: 1,
+  },
   btn:{
     margin: theme.spacing(),
   },
   vertSpacer: {
-    height: 20,
+    height: theme.spacing(),
   },
   btnTxt: {
     marginLeft: theme.spacing(),
@@ -56,15 +56,7 @@ export default function TForm() {
   } = newTrip
   
 
-  return <Card className={ clsx ( classes.card ) }>
-
-            <CardHeader 
-              avatar={ <Icon icon={ `add` } color={ `secondary` } /> }
-              title={ `Create` }
-            />
-            <CardContent>
-
-              <Grid container>               
+  return <Grid container>               
                   
                   <Grid item xs={ 12 }>
                     <form className={ classes.form } noValidate autoComplete="off">
@@ -98,10 +90,10 @@ export default function TForm() {
                   </Grid>
 
                   <Grid item xs={ 12 }>
-                    
+                    <div className={ clsx ( classes.grow ) }/>
                     <Button 
                       className={ clsx ( classes.btn ) }
-                      variant={ `text` }
+                      variant={ `contained` }
                       color={ `secondary` }
                       onClick={ ( e ) => {
                         e.preventDefault()
@@ -114,28 +106,5 @@ export default function TForm() {
                     </Button>
                   </Grid>
 
-
-                  
-
                 </Grid>
-              </CardContent>
-          </Card>
 }
-
-
-/*
-
-<Grid item xs={ 12 }>
-                    <pre>
-                      { JSON.stringify( newTrip, null, 2 ) }
-                    </pre>
-                    
-                  </Grid>
-
-<IconButton
-                          color={ `secondary` }
-                          onClick={ ( e ) => {
-                            e.preventDefault()
-                            goTo( `/trip/new`, `New Trip`)
-                          }}>
-*/
