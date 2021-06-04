@@ -14,12 +14,9 @@ import {
 } from './components'
 import Localify from './Localify'
 
-// let theme
-
 export default function App() {
 
     const appSlice = useSelector(state => state.app)
-
     let theme = themeLight
     const {
       darkMode,
