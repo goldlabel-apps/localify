@@ -4,6 +4,7 @@ let secondaryColor = `#ccd31f`
 export const themeDark = { 
   palette: {
     type: 'dark',
+    
     background: {
     },
     text:{

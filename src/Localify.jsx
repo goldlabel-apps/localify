@@ -10,8 +10,7 @@ import {
   Toolbar,
   IconButton,
 } from '@material-ui/core/'
-import { 
-  goTo,
+import {
   toggleRightMenuOpen,
 } from './redux/app/actions'
 import { 
@@ -153,21 +152,7 @@ export default function Localify() {
         })}>
         <Toolbar>
 
-        <IconButton
-            color={`secondary`}
-            edge={ `start` }
-            onClick={ ( e ) => {
-              e.preventDefault()
-              goTo( `/`, `Dashboard` )
-            }}> 
-              <Icon icon={ `localify` } color={ `secondary` } />
-           </IconButton>
-         
-            <div className={ clsx( classes.mightyIcon ) }>
-              <Icon icon={ type } color={ `secondary` } />
-            </div>
-            
-
+        
           <div className={ clsx ( classes.grow ) } />
           
           <IconButton
