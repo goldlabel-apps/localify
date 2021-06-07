@@ -4,23 +4,17 @@ import { useSelector } from 'react-redux'
 import { appRouter } from './appRouter'
 import {
   makeStyles,
-  Drawer,
   AppBar,
   Grid,
   Toolbar,
   Typography,
-  IconButton,
 } from '@material-ui/core/'
-import { Icon } from './theme'
-import {
-  toggleRightMenuOpen,
-} from './redux/app/actions'
+// import { Icon } from './theme'
 import {
   initDocsfify,
 } from './redux/docsify/actions'
 import {
   Dashboard,
-  RightMenu,
   Settings,
 } from './components'
 
@@ -138,13 +132,7 @@ export default function AppShell() {
     type,
   } = routeOjb
 
-  const drawerOpen = () => {
-    toggleRightMenuOpen( true )
-  }
-
-  const drawerClose = () => {
-    toggleRightMenuOpen( false )
-  }
+  
 
   return <div className={classes.localify}>
       <AppBar
@@ -161,14 +149,6 @@ export default function AppShell() {
 
           <div className={ clsx ( classes.grow ) } />
           
-          <IconButton
-            color={`secondary`}
-            edge={ `end` }
-            onClick={ drawerOpen }
-            className={ clsx( rightMenuOpen && classes.hide )}>
-            <Icon icon={ `menu` } color={ `secondary` } />
-          </IconButton>
-
         </Toolbar>
       </AppBar>
       
@@ -188,23 +168,5 @@ export default function AppShell() {
           </Grid>
         </div>
 
-      <Drawer
-        open={ rightMenuOpen }
-        className={ clsx( classes.drawer )}
-        variant={ `persistent` }
-        anchor={ `right` }
-        classes={{
-          paper: classes.drawerPaper,
-        }}>
-
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={drawerClose}>
-            <Icon icon={ `close`} color={ `secondary` } />
-          </IconButton>
-        </div>
-
-        <RightMenu />
-      
-      </Drawer>
     </div>
 }

@@ -10,7 +10,7 @@ import {
     ListItemAvatar,
 } from '@material-ui/core/'
 import { 
-  goToRoute,
+  goToPage,
 } from '../redux/app/actions'
 import { CollapsingMenu } from './'
 import { Icon } from '../theme'
@@ -48,14 +48,13 @@ export default function Navigation() {
                     const {
                       name,
                       icon,
-                      route,
                     } = item
                     return <ListItem 
                               button
                               key={ `section_page_${i}` }
                               onClick={ (e) => {
                                 e.preventDefault()
-                                goToRoute( route )
+                                goToPage( item )
                               }}>
                               <ListItemAvatar>
                                 <Icon icon={ icon } color={ `secondary` } />
@@ -85,33 +84,31 @@ export default function Navigation() {
                                   defaultExpanded,
                                   title: name,
                                   icon,
-                                }} >
+                              }}>
+                                
                                 { pages ? <React.Fragment>
                                   { pages.map( (item, i ) => {
-
-
-
-                                const {
-                                  name,
-                                  icon,
-                                  route,
-                                } = item
-                                return <ListItem 
-                                          button
-                                          key={ `section_page_${i}` }
-                                          onClick={ (e) => {
-                                            e.preventDefault()
-                                            goToRoute( route )
-                                          }}>
-                                          <ListItemAvatar>
-                                            <Icon icon={ icon } color={ `secondary` } />
-                                          </ListItemAvatar>
-                                          <ListItemText 
-                                            primary={ name }
-                                          />
-                                        </ListItem>
-                                  })}
+                                              const {
+                                                name,
+                                                icon,
+                                              } = item
+                                              return <ListItem 
+                                                        button
+                                                        key={ `section_page_${i}` }
+                                                        onClick={ (e) => {
+                                                          e.preventDefault()
+                                                          goToPage( item )
+                                                        }}>
+                                                        <ListItemAvatar>
+                                                          <Icon icon={ icon } color={ `secondary` } />
+                                                        </ListItemAvatar>
+                                                        <ListItemText 
+                                                          primary={ name }
+                                                        />
+                                                      </ListItem>
+                                                })}
                                 </React.Fragment> : null }
+
                                 { sections ? <React.Fragment>
                                   got sections
                                 </React.Fragment> : null }

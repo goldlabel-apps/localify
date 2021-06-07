@@ -1,11 +1,12 @@
 {
-  "version": "3.1.9",
+  "version": "3.2.0",
   "name": "localify",
   "description": "Everything you need to work out where",
   "repository": "https://github.com/listingslab-software/localify",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "_project": "@localify",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "yarn build && firebase deploy"

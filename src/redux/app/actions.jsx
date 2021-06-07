@@ -9,8 +9,10 @@ export const path = createAction(`APP/PATH`)
 export const darkMode = createAction(`APP/DARKMODE`) 
 export const rightMenuOpen = createAction(`APP/RIGHTMENUOPEN`) 
 
-export const goToRoute = route => {
-	console.log ( 'goToRoute', route )
+
+
+export const goToPage = page => {
+	console.log ( 'goToPage', page )
 	// const history = getHistory()
 	// history.push( path )
 	// const store = getStore()
