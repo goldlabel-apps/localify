@@ -1,7 +1,5 @@
 import { getHistory } from './'
 
-
-
 export const appRouter = () => {	
 	const h = getHistory()
 	const { pathname } = h.location
