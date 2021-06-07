@@ -103,10 +103,8 @@ export const updateNewMessage = newMessage => {
 export const connectAPI = () => { 
 	const ting = getStore().getState().pingpong.ting
 	const endpoint = `${ process.env.REACT_APP_LISTINGSLAB_API }/localify/`
-	// console.log ('connectAPI endpoint', endpoint)
 	axios.post( endpoint, ting )
 		.then(function( res ) {
-			// console.log ('res.data.response', res.data.response)
 			const store = getStore()
 			const id = res.data.response.data.id
 			store.dispatch({ type: `PINGPONG/ID`, id })
