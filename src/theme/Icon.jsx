@@ -14,6 +14,7 @@ import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
 import IconBug from '@material-ui/icons/BugReport'
+import IconSection from '@material-ui/icons/MenuBook'
 import IconDownload from '@material-ui/icons/GetApp'
 import IconAddBold from '@material-ui/icons/AddBox'
 import IconNew from '@material-ui/icons/Movie'
@@ -383,6 +384,9 @@ class Icon extends Component {
 
             case `trip`:
                 return (<IconTrips color={iconColor} />)
+
+            case `section`:
+                return (<IconSection color={iconColor} />)
 
             case `refresh`:
                 return (<IconRefresh color={iconColor} />)

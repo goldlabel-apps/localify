@@ -1,0 +1,30 @@
+{
+	"title": "@localify",
+	"description": "Maintain useful, up to date documentation for internal and external use",
+	"pages": [
+		{
+			"name": "Start",
+			"file": "000_start.md",
+			"slug": "start",
+			"icon" : "docs"
+		}
+	],
+	"sections": [
+		{
+			"defaultExpanded": true,
+			"name" : "API",
+			"slug" : "api",
+			"icon" : "api",
+			"pages": [
+				{
+					"name": "Ping",
+					"description": "Test the API with a traditional ping/pong call",
+					"icon" : "docs",
+					"file": "api/010_ping.md",
+					"slug": "api/ping"
+				}
+			]
+		}
+	]
+}
+

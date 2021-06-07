@@ -4,8 +4,10 @@ import clsx from 'clsx'
 import {
     makeStyles,
     Grid,
-    Typography,
 } from '@material-ui/core/'
+import { 
+  Navigation,
+} from './'
 
 const useStyles = makeStyles((theme) => ({
   dashboard: {
@@ -14,25 +16,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   
-  const classes = useStyles()
-  const pingpongSlice = useSelector(state => state.pingpong)
-  const {
-    ting,
-  } = pingpongSlice
+  let showJSON = false
 
+  const classes = useStyles()
+  const docsifySlice = useSelector(state => state.docsify)
+  const {
+    config,
+  } = docsifySlice
+  if ( !config ) return null
+  // const {
+  //   title,
+  // } = config
 
   return <div className={ clsx( classes.dashboard ) } >
               <Grid container>
 
                 <Grid item xs={ 12 } >
-                  <Typography>
-                  As a visitor, I want to see something really relevant 
-                  the first time I clap eyes on the product so that I'm hooked
-                  </Typography>
 
-                  <pre>
-                    { JSON.stringify( ting, null, 2 ) }
-                  </pre>
+                  <Navigation />
+
+                  { showJSON ? <pre>
+                    { JSON.stringify( config, null, 2 ) }
+                  </pre> : null }
                   
                 </Grid>
 

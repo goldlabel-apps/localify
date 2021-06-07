@@ -3,6 +3,8 @@
   "name": "@localify",
   "theme_color": "#ccd31f",
   "background_color": "#ccd31f",
+  "start_url": ".",
+  "display": "standalone",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +21,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone"
+  ]
 }

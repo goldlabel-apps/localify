@@ -1,20 +1,17 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import { appReducer, appSlice } from './app/reducer'
-import { localifyReducer, localifySlice } from './localify/reducer'
-import { pingpongReducer, pingpongSlice } from './pingpong/reducer'
+import { docsifyReducer, docsifySlice } from './docsify/reducer'
 
 const reduxStore = () => {
   const reducer = combineReducers({
     app: appReducer,
-    localify: localifyReducer,
-    pingpong: pingpongReducer,
+    docsify: docsifyReducer,
   })
 
   const preloadedState = {
     app: appSlice,
-    localify: localifySlice,
-    pingpong: pingpongSlice,
+    docsify: docsifySlice,
   }
   
   const middleware = [
