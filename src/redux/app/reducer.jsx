@@ -7,7 +7,7 @@ import {
 } from "./actions"
 
 export const appSlice = {
-  darkMode: false,
+  darkMode: true,
   path: `/`,
   overlay: false,
   helpOn: true,
