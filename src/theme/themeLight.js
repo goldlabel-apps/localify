@@ -1,5 +1,5 @@
 let primaryColor = `#424242`
-let secondaryColor = `#e05717`
+let secondaryColor = `#421c5d`
 
 export const themeLight = { 
   palette: {

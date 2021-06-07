@@ -6,9 +6,26 @@ import {
 
 export const overlay = createAction(`APP/OVERLAY`) 
 export const path = createAction(`APP/PATH`) 
-export const title = createAction(`APP/TITLE`) 
 export const darkMode = createAction(`APP/DARKMODE`) 
 export const rightMenuOpen = createAction(`APP/RIGHTMENUOPEN`) 
+
+export const goToRoute = route => {
+	console.log ( 'goToRoute', route )
+	// const history = getHistory()
+	// history.push( path )
+	// const store = getStore()
+	// store.dispatch({type: `APP/PATH`, path })
+	return true
+}
+
+export const goTo = path => {
+	console.log ( 'goTo', path )
+	const history = getHistory()
+	history.push( path )
+	const store = getStore()
+	store.dispatch({type: `APP/PATH`, path })
+	return true
+}
 
 export const toggleRightMenuOpen = rightMenuOpen => {
 	const store = getStore()
@@ -22,15 +39,7 @@ export const toggleDarkMode = darkMode => {
 	return true
 }
 
-export const goTo = ( path, title ) => {
-	const history = getHistory()
-	// const { location } = history
-	history.push( path )
-	const store = getStore()
-	store.dispatch({type: `APP/PATH`, path })
-	store.dispatch({type: `APP/TITLE`, title })
-	return true
-}
+
 
 export const navigateTo = ( url, target ) => {
 	window.open( url, target )
