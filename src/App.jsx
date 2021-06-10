@@ -11,7 +11,7 @@ import {
   Toolbar,
   Typography,
 } from '@material-ui/core/'
-import Routed from './Routed'
+// import Routed from './Routed'
 import {
   themeLight, 
   themeDark,
@@ -20,7 +20,7 @@ import {
   initDocsfify,
 } from './redux/docsify/actions'
 import {
-  MenuDial,
+  // MenuDial,
 } from './components'
 
 const drawerWidth = 175
@@ -153,15 +153,23 @@ export default function App() {
               </Grid>
                 
                 <div className={ clsx ( classes.grow ) } />
-                <MenuDial />
+                
               </Toolbar>
             </AppBar>
             <div className={classes.drawerHeader} />
-            <Grid container>
+            
+          </div>
+        </MuiThemeProvider> 
+}
+
+/*
+
+<MenuDial />
+
+
+<Grid container>
               <Grid item xs={ 12 } >
                 <Routed />
               </Grid>
             </Grid>
-          </div>
-        </MuiThemeProvider> 
-}
+*/

@@ -1,7 +1,7 @@
 {
-  "version": "3.2.2",
+  "version": "3.2.3",
   "name": "localify",
-  "description": "Everything you need to work out where",
+  "description": "Everything you need to work with where",
   "repository": "https://github.com/listingslab-software/localify",
   "author": "listingslab <listingslab@gmail.com>",
   "license": "MIT",
