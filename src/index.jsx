@@ -8,6 +8,8 @@ import { Provider } from 'react-redux'
 import reduxStore from './redux'
 import App from './App'
 
+import * as serviceWorker from './serviceWorker'
+
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
 
 const fireConfig = {
@@ -39,3 +41,5 @@ ReactDOM.render(
 	</Provider>, 
 	document.getElementById( 'localify' )
 )
+
+serviceWorker.register()
