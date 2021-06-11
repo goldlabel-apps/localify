@@ -6,7 +6,6 @@ import {
   createMuiTheme,
   MuiThemeProvider, 
   CssBaseline,
-  IconButton,
   AppBar,
   Grid,
   Toolbar,
@@ -16,14 +15,14 @@ import {
 import {
   themeLight, 
   themeDark,
-  Icon,
 } from './theme'
 import {
   initDocsfify,
 } from './redux/docsify/actions'
-// import {
-//   Mapbox,
-// } from './components'
+import {
+  Mapbox,
+  ThumbMenu,
+} from './components'
 
 const drawerWidth = 175
 
@@ -150,21 +149,18 @@ export default function App() {
               </Grid>
                 
                 <div className={ clsx( classes.grow ) } />
-                <IconButton
-                  color={ `secondary` }
-                  onClick={(e) => {
-                    e.preventDefault()
-                    console.log ('menu')
-                  }}>
-                  <Icon icon={ `menu` } color={ `secondary` } />
-                </IconButton>
+
+                <ThumbMenu />
+
+
+               
               </Toolbar>
             </AppBar>
             
             <div className={ clsx( classes.drawerHeader )} />
             
             <div className={clsx( classes.content ) }>
-              content.
+              <Mapbox />
             </div>
 
           </div>
@@ -173,7 +169,7 @@ export default function App() {
 
 
 /*
-<Mapbox />
+
 <MenuDial />
 <Grid container>
               <Grid item xs={ 12 } >

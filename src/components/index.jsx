@@ -6,7 +6,7 @@ import ImageUpload from './ImageUpload'
 import Settings from './Settings'
 import Navigation from './Navigation'
 import MenuDial from './MenuDial'
-
+import ThumbMenu from './ThumbMenu'
 
 export {
 	CollapsingMenu,
@@ -17,4 +17,5 @@ export {
 	Settings,
 	Navigation,
 	MenuDial,
+	ThumbMenu,
 }

@@ -9,7 +9,13 @@ export const path = createAction(`APP/PATH`)
 export const darkMode = createAction(`APP/DARKMODE`) 
 export const rightMenuOpen = createAction(`APP/RIGHTMENUOPEN`) 
 
-
+export const navigateTo = ( url, target ) => {
+	window.open( url, target )
+	if ( target === `_self`){
+		toggleOverlay( true )
+	}
+	return true
+}
 
 export const goToPage = page => {
 	console.log ( 'goToPage', page )
@@ -38,16 +44,6 @@ export const toggleRightMenuOpen = rightMenuOpen => {
 export const toggleDarkMode = darkMode => {
 	const store = getStore()
 	store.dispatch({type: `APP/DARKMODE`, darkMode })
-	return true
-}
-
-
-
-export const navigateTo = ( url, target ) => {
-	window.open( url, target )
-	if ( target === `_self`){
-		toggleOverlay( true )
-	}
 	return true
 }
 
