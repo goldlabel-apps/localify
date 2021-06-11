@@ -1,6 +1,5 @@
 import CollapsingMenu from './CollapsingMenu'
 import Overlay from './Overlay'
-import RightMenu from './RightMenu'
 import Mapbox from './Mapbox'
 import ImageUpload from './ImageUpload'
 import Settings from './Settings'
@@ -14,7 +13,6 @@ import DarkmodeSwitch from './DarkmodeSwitch'
 export {
 	CollapsingMenu,
 	Overlay,
-	RightMenu,
 	Mapbox,
 	ImageUpload,
 	Settings,

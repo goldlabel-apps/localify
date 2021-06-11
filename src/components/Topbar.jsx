@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux'
 
 import {
     makeStyles,
+    Avatar,
     AppBar,
-    Grid,
     Toolbar,
+    CardHeader,
     Typography,
 } from '@material-ui/core/'
 
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
   grow:{
     flexGrow: 1,
+  },
+  darkMode:{
+    color: theme.palette.common.white,
   },
   appBar: {
     background: 'none',
@@ -37,28 +41,34 @@ export default function Topbar() {
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
   const {
-    open,
-  } = appSlice
-  if ( open ) console.log( 'open', open )
-
+    config,
+    darkMode,
+  } = appSlice  
+  const {
+    title,
+    description,
+    icon,
+  } = config
+  
   return  <AppBar
               position={ `fixed` }
               color={ `primary` }
               className={ clsx( classes.appBar )}>
               <Toolbar>
-              <Grid container>
-                <Grid item xs={ 12 } >
-                  <Typography variant="h6" noWrap>
-                  { `title` }
-                </Typography>
-                <Typography variant="body2" noWrap>
-                  { `description` }
-                </Typography>
-                </Grid>
-              </Grid>
-                <div className={ clsx( classes.grow ) } />
-
-                <ThumbMenu />               
+              <CardHeader 
+                disableTypography
+                avatar={ <Avatar src={ darkMode ? icon.dark : icon.light } /> }
+                title={ <Typography className={ clsx( darkMode ? classes.darkMode : null ) }>
+                          { title }
+                        </Typography>
+                      }
+                subheader={ <Typography className={ clsx( darkMode ? classes.darkMode : null ) }>
+                              { description }
+                            </Typography> 
+                          }
+              /> 
+              <div className={ clsx( classes.grow ) } />
+              <ThumbMenu />               
               </Toolbar>
             </AppBar>
 }

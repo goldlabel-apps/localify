@@ -1,26 +1,47 @@
 import { createReducer } from '@reduxjs/toolkit'
 import {
+  error,
   overlay,
   path,
   darkMode,
-  rightMenuOpen,
+  config,
+  configLoading,
+  configLoaded,
 } from "./actions"
 
 export const appSlice = {
-  darkMode: false,
+  error: null,
+  darkMode: true,
   path: `/`,
   overlay: false,
-  helpOn: true,
-  rightMenuOpen: false,
+  config: null,
+  configLoading: false,
+  configLoaded: false,
 }
 
 const appReducer = createReducer( appSlice, {
 
-  [rightMenuOpen]: (state, action) => {
-    state.rightMenuOpen = action.rightMenuOpen
+  [error]: (state, action) => {
+    state.error = action.error
     return state
   },
 
+
+  [config]: (state, action) => {
+    state.config = action.config
+    return state
+  },
+
+  [configLoading]: (state, action) => {
+    state.configLoading = action.configLoading
+    return state
+  },
+
+  [configLoaded]: (state, action) => {
+    state.configLoaded = action.configLoaded
+    return state
+  },
+  
   [darkMode]: (state, action) => {
     state.darkMode = action.darkMode
     return state

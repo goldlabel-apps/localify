@@ -1,5 +1,5 @@
 import React from 'react'
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { navigateTo } from '../redux/app/actions'
 import {
     withStyles,
@@ -17,7 +17,7 @@ import { DarkmodeSwitch } from './'
 
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    // border: '1px solid #d3d4d5',
   },
 })(( props ) => (
   <Menu
@@ -39,14 +39,16 @@ const StyledMenuItem = withStyles((theme) => ({
   root: { 
     paddingRight: 50,
     '&:hover': {
+       background: 'none',
       // backgroundColor: theme.palette.secondary.main,
-      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+      // backgroundColor: 'rgba(0, 0, 0, 0.1)',
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         color: theme.palette.common.primary,
       },
     },
     '&:focus': {
-      backgroundColor: theme.palette.common.white,
+      background: 'none',
+      // backgroundColor: theme.palette.common.white,
       // backgroundColor: 'rgba(0, 0, 0, 0.25)',
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         // color: theme.palette.common.white,
@@ -59,7 +61,20 @@ export default function ThumbMenu() {
   
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
-  const primaryColor = theme.palette.primary.main
+  
+
+  const appSlice = useSelector(state => state.app)
+  const {
+    darkMode,
+  } = appSlice
+
+  let menuIconColor = `primary`
+  let hexColor = theme.palette.primary.main
+
+  if ( darkMode )  {
+    hexColor = theme.palette.secondary.main
+    menuIconColor = `secondary`
+  }
 
   const handleClick = ( e ) => {
     setAnchorEl( e.currentTarget )
@@ -74,11 +89,10 @@ export default function ThumbMenu() {
             <DarkmodeSwitch />
             
             <IconButton
-              
               aria-controls={`thumb-menu`}
               aria-haspopup="true"
               onClick={ handleClick }>
-              <Icon icon={ `menu` } color={ `primary` } />
+              <Icon icon={ `menu` } color={ menuIconColor } />
             </IconButton>
 
 
@@ -101,7 +115,7 @@ export default function ThumbMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `home` } color={ `primary` } />
+              <Icon icon={ `home` } color={ menuIconColor } />
             </ListItemIcon>
             <ListItemText primary={`Home` } />
           </StyledMenuItem>
@@ -112,7 +126,7 @@ export default function ThumbMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `listingslab` } color={ primaryColor } />
+              <Icon icon={ `listingslab` } color={ hexColor } />
             </ListItemIcon>
             <ListItemText primary={`by listingslab` } />
           </StyledMenuItem>
@@ -124,7 +138,7 @@ export default function ThumbMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `map` } color={ `primary` } />
+              <Icon icon={ `map` } color={ menuIconColor } />
             </ListItemIcon>
             <ListItemText primary={`mapbox` } />
           </StyledMenuItem>
@@ -136,7 +150,7 @@ export default function ThumbMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `locale` } color={ `primary` } />
+              <Icon icon={ `locale` } color={ menuIconColor } />
             </ListItemIcon>
             <ListItemText primary={`ipgeolocation` } />
           </StyledMenuItem>
@@ -147,7 +161,7 @@ export default function ThumbMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `github` } color={ primaryColor } />
+              <Icon icon={ `github` } color={ hexColor } />
             </ListItemIcon>
             <ListItemText primary={`GitHub repo` } />
           </StyledMenuItem>     

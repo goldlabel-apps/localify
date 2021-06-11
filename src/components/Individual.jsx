@@ -8,7 +8,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   individual: {
-    border: '1px solid #ddd',
+    // border: '1px solid #ddd',
   },
 }))
 

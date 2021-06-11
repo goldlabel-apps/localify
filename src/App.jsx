@@ -7,7 +7,11 @@ import {
   MuiThemeProvider, 
   CssBaseline,
   Grid,
+  LinearProgress,
 } from '@material-ui/core/'
+import { 
+  loadConfig,
+} from './redux/app/actions'
 import {
   themeLight, 
   themeDark,
@@ -45,29 +49,35 @@ export default function App() {
   let theme = themeLight
   const {
     darkMode,
+    config,
   } = appSlice
   if ( darkMode ) theme = themeDark
+
+  React.useEffect(() => {
+    const {
+      configLoading,
+      configLoaded,
+    } = appSlice
+    if (!configLoading && !configLoaded) loadConfig()
+  }, [appSlice])
   
   return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
           <CssBaseline />
-          <div className={classes.localify}>
-            <Topbar /> 
-            <div className={ clsx( classes.drawerHeader )} />
-            <div className={clsx( classes.content ) }>
-
-            <Grid container>
-
-                <Grid item xs={ 12 } sm={ 6 } >
-                  <Individual />
-                </Grid>
-
-                <Grid item xs={ 12 } sm={ 6 } >
-                  <Mapbox />
-                </Grid>
-
-              </Grid>
-
-            </div>
-          </div>
+          { !config ? <LinearProgress />
+            : <div className={classes.localify}>
+                <Topbar /> 
+                <div className={ clsx( classes.drawerHeader )} />
+                <div className={clsx( classes.content ) }>
+                <Grid container>
+                    <Grid item xs={ 12 } sm={ 6 } >
+                      <Individual />
+                    </Grid>
+                    <Grid item xs={ 12 } sm={ 6 } >
+                      <Mapbox />
+                    </Grid>
+                  </Grid>
+                </div>
+              </div>
+          }
         </MuiThemeProvider> 
 }

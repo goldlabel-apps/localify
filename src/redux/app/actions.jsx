@@ -1,13 +1,37 @@
 import { createAction } from '@reduxjs/toolkit'
+import axios from 'axios'
 import { 
 	getStore,
 	getHistory,
 } from '../../'
 
+export const error = createAction(`APP/ERROR`) 
 export const overlay = createAction(`APP/OVERLAY`) 
 export const path = createAction(`APP/PATH`) 
-export const darkMode = createAction(`APP/DARKMODE`) 
-export const rightMenuOpen = createAction(`APP/RIGHTMENUOPEN`) 
+export const darkMode = createAction(`APP/DARKMODE`)
+export const config = createAction(`APP/CONFIG`)
+export const configLoading = createAction(`APP/CONFIG/LOADING`)
+export const configLoaded = createAction(`APP/CONFIG/LOADED`)
+
+export const loadConfig = () => {
+	const store = getStore()
+	store.dispatch({type: `APP/CONFIG/LOADING`, configLoading: true })
+	const configPath = `/config.json`
+	axios.get( configPath )
+		.then( function( res ) {
+			store.dispatch({type: `APP/CONFIG`, config: res.data })
+			store.dispatch({type: `APP/CONFIG/LOADING`, configLoading: false })
+			store.dispatch({type: `APP/CONFIG/LOADED`, configLoaded: true })
+			return true
+		})
+		.catch( function( error ) {
+			throwError( error )
+			store.dispatch({type: `APP/CONFIG/LOADING`, configLoading: false })
+			store.dispatch({type: `APP/CONFIG/LOADED`, configLoaded: true })
+			return false
+		})
+	return true
+}
 
 export const navigateTo = ( url, target ) => {
 	window.open( url, target )
@@ -17,27 +41,10 @@ export const navigateTo = ( url, target ) => {
 	return true
 }
 
-export const goToPage = page => {
-	console.log ( 'goToPage', page )
-	// const history = getHistory()
-	// history.push( path )
-	// const store = getStore()
-	// store.dispatch({type: `APP/PATH`, path })
-	return true
-}
-
-export const goTo = path => {
-	console.log ( 'goTo', path )
+export const routeTo = route => {
+	console.log ( 'routeTo', route )
 	const history = getHistory()
-	history.push( path )
-	const store = getStore()
-	store.dispatch({type: `APP/PATH`, path })
-	return true
-}
-
-export const toggleRightMenuOpen = rightMenuOpen => {
-	const store = getStore()
-	store.dispatch({type: `APP/RIGHTMENUOPEN`, rightMenuOpen })
+	history.push( route )
 	return true
 }
 
@@ -51,4 +58,10 @@ export const toggleOverlay = overlay => {
 	const store = getStore()
 	store.dispatch({type: `APP/OVERLAY`, overlay })
 	return true
+}
+
+export const throwError = error => {
+	const store = getStore()
+	store.dispatch({type: `APP/ERROR`, error })
+	return false
 }

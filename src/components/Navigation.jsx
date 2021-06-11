@@ -9,9 +9,9 @@ import {
     ListItemText,
     ListItemAvatar,
 } from '@material-ui/core/'
-import { 
-  goToPage,
-} from '../redux/app/actions'
+// import { 
+//   goToPage,
+// } from '../redux/app/actions'
 import { CollapsingMenu } from './'
 import { Icon } from '../theme'
 
@@ -54,7 +54,7 @@ export default function Navigation() {
                               key={ `section_page_${i}` }
                               onClick={ (e) => {
                                 e.preventDefault()
-                                goToPage( item )
+                                // goToPage( item )
                               }}>
                               <ListItemAvatar>
                                 <Icon icon={ icon } color={ `secondary` } />
@@ -97,7 +97,7 @@ export default function Navigation() {
                                                         key={ `section_page_${i}` }
                                                         onClick={ (e) => {
                                                           e.preventDefault()
-                                                          goToPage( item )
+                                                          // goToPage( item )
                                                         }}>
                                                         <ListItemAvatar>
                                                           <Icon icon={ icon } color={ `secondary` } />

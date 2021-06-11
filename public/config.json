@@ -1,6 +1,10 @@
 {
 	"title": "@localify",
 	"description": "Everything you need to work with where",
+	"icon": {
+		"dark": "/logo192_darkMode.png",
+		"light": "/logo192.png"
+	},
 	"pages": [
 		{
 			"name": "Start",

@@ -3,11 +3,12 @@ import {
   error,
 } from "./actions"
 
-export const localifySlice = {
+export const mapboxSlice = {
   error: null,
+  maps:[],
 }
 
-const localifyReducer = createReducer( localifySlice, {
+const mapboxReducer = createReducer( mapboxSlice, {
  
   [error]: (state, action) => {
     state.error = action.error
@@ -16,4 +17,4 @@ const localifyReducer = createReducer( localifySlice, {
 
 })
 
-export { localifyReducer }
+export { mapboxReducer }

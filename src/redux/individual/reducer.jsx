@@ -5,6 +5,7 @@ import {
 
 export const individualSlice = {
   error: null,
+  // individualObj: {},
 }
 
 const individualReducer = createReducer( individualSlice, {
