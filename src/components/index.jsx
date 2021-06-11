@@ -9,6 +9,7 @@ import MenuDial from './MenuDial'
 import ThumbMenu from './ThumbMenu'
 import Individual from './Individual'
 import Topbar from './Topbar'
+import DarkmodeSwitch from './DarkmodeSwitch'
 
 export {
 	CollapsingMenu,
@@ -22,4 +23,5 @@ export {
 	ThumbMenu,
 	Individual,
 	Topbar,
+	DarkmodeSwitch,
 }

@@ -57,6 +57,7 @@ export default function Topbar() {
                 </Grid>
               </Grid>
                 <div className={ clsx( classes.grow ) } />
+
                 <ThumbMenu />               
               </Toolbar>
             </AppBar>

@@ -13,6 +13,7 @@ import {
 import { 
   Icon,
 } from '../theme'
+import { DarkmodeSwitch } from './'
 
 const StyledMenu = withStyles({
   paper: {
@@ -69,20 +70,18 @@ export default function ThumbMenu() {
   }
 
   return <React.Fragment>
-      
+            
+            <DarkmodeSwitch />
+            
             <IconButton
-              style={{
-                zIndex: 123456,
-                position: 'absolute',
-                right: theme.spacing( 1 ),
-                top: theme.spacing( 1 ),
-                background: 'white',
-              }}
+              
               aria-controls={`thumb-menu`}
               aria-haspopup="true"
               onClick={ handleClick }>
               <Icon icon={ `menu` } color={ `primary` } />
             </IconButton>
+
+
         
         <StyledMenu 
           style={{
