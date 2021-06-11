@@ -7,6 +7,8 @@ import Settings from './Settings'
 import Navigation from './Navigation'
 import MenuDial from './MenuDial'
 import ThumbMenu from './ThumbMenu'
+import Individual from './Individual'
+import Topbar from './Topbar'
 
 export {
 	CollapsingMenu,
@@ -18,4 +20,6 @@ export {
 	Navigation,
 	MenuDial,
 	ThumbMenu,
+	Individual,
+	Topbar,
 }

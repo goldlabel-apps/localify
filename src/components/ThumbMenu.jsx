@@ -102,7 +102,7 @@ export default function ThumbMenu() {
             handleClose()
           }}>
             <ListItemIcon>
-              <Icon icon={ `home` } color={ `inherit` } />
+              <Icon icon={ `home` } color={ `primary` } />
             </ListItemIcon>
             <ListItemText primary={`Home` } />
           </StyledMenuItem>

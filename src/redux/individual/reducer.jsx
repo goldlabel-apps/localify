@@ -3,11 +3,11 @@ import {
   error,
 } from "./actions"
 
-export const localifySlice = {
+export const individualSlice = {
   error: null,
 }
 
-const localifyReducer = createReducer( localifySlice, {
+const individualReducer = createReducer( individualSlice, {
  
   [error]: (state, action) => {
     state.error = action.error
@@ -16,4 +16,4 @@ const localifyReducer = createReducer( localifySlice, {
 
 })
 
-export { localifyReducer }
+export { individualReducer }
