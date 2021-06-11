@@ -20,7 +20,7 @@ import {
   initDocsfify,
 } from './redux/docsify/actions'
 import {
-  // MenuDial,
+  Mapbox,
 } from './components'
 
 const drawerWidth = 175
@@ -28,6 +28,9 @@ const drawerWidth = 175
 const useStyles = makeStyles((theme) => ({
   localify: {
     // display: 'flex',
+  },
+  mainContent: {
+    border: '1px solid red',
   },
   btnTxt:{
     marginRight: theme.spacing(),
@@ -94,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginRight: -drawerWidth,
+    // marginRight: -drawerWidth,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -158,6 +161,10 @@ export default function App() {
             </AppBar>
             <div className={classes.drawerHeader} />
             
+            <div className={classes.content}>
+              <Mapbox />
+            </div>
+
           </div>
         </MuiThemeProvider> 
 }
@@ -165,8 +172,6 @@ export default function App() {
 /*
 
 <MenuDial />
-
-
 <Grid container>
               <Grid item xs={ 12 } >
                 <Routed />

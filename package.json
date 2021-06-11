@@ -26,6 +26,7 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-images-uploading": "^3.1.2",
+    "react-map-gl": "^6.1.16",
     "react-redux": "^7.2.2",
     "react-scripts": "2.1.1",
     "ua-parser-js": "^0.7.23"
@@ -44,6 +45,9 @@
     ">0.2%",
     "not dead",
     "not ie <= 11",
+    "not ie 11",
+    "chrome < 51",
+    "not safari < 10",
     "not op_mini all"
   ]
 }
