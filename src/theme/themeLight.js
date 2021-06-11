@@ -5,7 +5,7 @@
 let primaryColor = `#421c5d` // purple
 
 
-let secondaryColor = `#ccd31f ` // green
+let secondaryColor = `#ccd31f` // green
 
 export const themeLight = { 
   palette: {

@@ -6,8 +6,7 @@ import {
 } from '../../'
 
 export const error = createAction(`APP/ERROR`) 
-export const overlay = createAction(`APP/OVERLAY`) 
-export const path = createAction(`APP/PATH`) 
+export const overlay = createAction(`APP/OVERLAY`)
 export const darkMode = createAction(`APP/DARKMODE`)
 export const config = createAction(`APP/CONFIG`)
 export const configLoading = createAction(`APP/CONFIG/LOADING`)

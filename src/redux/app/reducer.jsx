@@ -2,7 +2,6 @@ import { createReducer } from '@reduxjs/toolkit'
 import {
   error,
   overlay,
-  path,
   darkMode,
   config,
   configLoading,
@@ -11,8 +10,7 @@ import {
 
 export const appSlice = {
   error: null,
-  darkMode: true,
-  path: `/`,
+  darkMode: false,
   overlay: false,
   config: null,
   configLoading: false,
@@ -44,11 +42,6 @@ const appReducer = createReducer( appSlice, {
   
   [darkMode]: (state, action) => {
     state.darkMode = action.darkMode
-    return state
-  },
-
-  [path]: (state, action) => {
-    state.path = action.path
     return state
   },
 
