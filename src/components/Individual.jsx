@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-
+import { initIndividual } from '../redux/individual/actions'
 import {
     makeStyles,
     // Typography,
@@ -12,28 +12,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-
-
 export default function Individual() {
   
   const classes = useStyles()
-  const appSlice = useSelector(state => state.app)
+  const individualSlice = useSelector( state => state.individual ) 
+
+  React.useEffect(() => {
+    const {
+      initted,
+      initting,
+    } = individualSlice
+    if (!initted && !initting) initIndividual()
+  }, [ individualSlice ]) 
+
   const {
-    open,
-  } = appSlice
-  if ( open ) console.log( 'open', open )
-
-
-  // const docsifySlice = useSelector(state => state.docsify)
-  // React.useEffect(() => {
-  //   const {
-  //     configLoading,
-  //     configLoaded,
-  //   } = docsifySlice
-  //   if (!configLoading && !configLoaded) initDocsfify()
-  // }, [docsifySlice])
-
+    id,
+    individual,
+  } = individualSlice
+  if ( !id ) return null
+  
   return <div className={ classes.individual }>
-              Individual
+              <pre>
+                { JSON.stringify( individual, null, 2 ) }
+              </pre>
           </div>
 }

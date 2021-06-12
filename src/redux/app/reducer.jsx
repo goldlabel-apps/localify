@@ -10,7 +10,7 @@ import {
 
 export const appSlice = {
   error: null,
-  darkMode: false,
+  darkMode: true,
   overlay: false,
   config: null,
   configLoading: false,
@@ -23,7 +23,6 @@ const appReducer = createReducer( appSlice, {
     state.error = action.error
     return state
   },
-
 
   [config]: (state, action) => {
     state.config = action.config

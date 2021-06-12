@@ -1,5 +1,5 @@
 {
-  "version": "3.2.5",
+  "version": "3.2.6",
   "name": "localify",
   "description": "Everything you need to work with where",
   "repository": "https://github.com/listingslab-software/localify",
@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "_project": "@localify",
+    "api": "clear && cd ~/Desktop/Node/api && yarn start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "yarn build && firebase deploy"

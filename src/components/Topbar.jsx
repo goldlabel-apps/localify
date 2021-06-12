@@ -58,11 +58,15 @@ export default function Topbar() {
               <CardHeader 
                 disableTypography
                 avatar={ <Avatar src={ darkMode ? icon.dark : icon.light } /> }
-                title={ <Typography className={ clsx( darkMode ? classes.darkMode : null ) }>
+                title={ <Typography 
+                          variant={ `body1` }
+                          className={ clsx( darkMode ? classes.darkMode : null ) }>
                           { title }
                         </Typography>
                       }
-                subheader={ <Typography className={ clsx( darkMode ? classes.darkMode : null ) }>
+                subheader={ <Typography 
+                              variant={ `body2` }
+                              className={ clsx( darkMode ? classes.darkMode : null ) }>
                               { description }
                             </Typography> 
                           }

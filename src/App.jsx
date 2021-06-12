@@ -63,16 +63,16 @@ export default function App() {
   
   return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
           <CssBaseline />
-          { !config ? <LinearProgress />
+          { !config ? <LinearProgress color={ `secondary` } />
             : <div className={classes.localify}>
                 <Topbar /> 
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
                 <Grid container>
-                    <Grid item xs={ 12 } sm={ 6 } >
+                    <Grid item xs={ 12 } >
                       <Individual />
                     </Grid>
-                    <Grid item xs={ 12 } sm={ 6 } >
+                    <Grid item xs={ 12 } >
                       <Mapbox />
                     </Grid>
                   </Grid>
