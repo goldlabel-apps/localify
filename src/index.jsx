@@ -7,7 +7,7 @@ import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux'
 import reduxStore from './redux'
 import App from './App'
-
+import { changeAuth } from './redux/auth/actions'
 import * as serviceWorker from './serviceWorker'
 
 console.log( `${process.env.REACT_APP_APP} ${pJSON.version} (${process.env.REACT_APP_ENV})` )
@@ -24,6 +24,10 @@ const fireConfig = {
 
 const fBase = firebase.initializeApp(fireConfig)
 export const getFBase = () => { return fBase }
+
+fBase.auth().onAuthStateChanged( function( user ) {
+  changeAuth(user)
+})
 
 const fStore = firebase.firestore()
 const getFStore = () => { return fStore }

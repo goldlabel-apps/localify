@@ -53,7 +53,7 @@ export default function Device() {
              <Grid container>
                 <Grid item>
 
-                <Typography variant={ `h3` }>
+                <Typography variant={ `body1` }>
                     { deviceStr }  
                   </Typography>  
 
