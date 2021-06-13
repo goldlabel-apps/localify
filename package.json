@@ -22,7 +22,6 @@
     "@reduxjs/toolkit": "^1.5.0",
     "axios": "^0.21.1",
     "history": "^5.0.0",
-    "mapbox-gl": "^2.3.0",
     "moment": "^2.29.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
@@ -41,18 +40,18 @@
     "prettier": "1.19.1",
     "prop-types": "15.7.2"
   },
-"browserslist": {
-  "production": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all",
-    "not chrome < 51",
-    "not safari < 10"
-  ],
-  "development": [
-    "last 1 chrome version",
-    "last 1 firefox version",
-    "last 1 safari version"
-  ]
-}
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "not chrome < 51",
+      "not safari < 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

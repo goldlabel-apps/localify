@@ -54,7 +54,7 @@ export const lookupIndividual = () => {
 			return true
 		})
 		.catch(function( error ) {
-			alert ('API DOWN')
+			alert ('Dev API not running')
 			throwError( error )
 			return false
 		})
