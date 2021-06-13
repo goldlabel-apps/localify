@@ -18,7 +18,6 @@ import {
 } from './theme'
 import {
   Topbar,
-  Mapbox,
   Individual,
 } from './components'
 
@@ -69,11 +68,8 @@ export default function App() {
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
                 <Grid container>
-                    <Grid item xs={ 12 } >
+                    <Grid item xs={ 12 } sm={ 6 } >
                       <Individual />
-                    </Grid>
-                    <Grid item xs={ 12 } >
-                      <Mapbox />
                     </Grid>
                   </Grid>
                 </div>
