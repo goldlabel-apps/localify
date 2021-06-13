@@ -12,8 +12,6 @@ export const config = createAction(`APP/CONFIG`)
 export const configLoading = createAction(`APP/CONFIG/LOADING`)
 export const configLoaded = createAction(`APP/CONFIG/LOADED`)
 
-
-
 export const getContent = slug => {
 	const pages = getStore().getState().app.config.pages
 	for ( let i = 0; i < pages.length; i ++ ){
@@ -23,8 +21,6 @@ export const getContent = slug => {
 	}
 	return null
 }
-
-
 
 export const loadConfig = () => {
 	const store = getStore()
