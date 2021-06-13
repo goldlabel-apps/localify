@@ -100,6 +100,18 @@ export const getFlagSrc = individual => {
     return `/svg/flags/${ countryCode2.toLowerCase() }.svg`
 }
 
+export const getDeviceStr = individual => { 
+    if ( !individual ) return false
+    const {
+        osName,
+        device,
+        browserName,
+        browserMajor,
+    } = individual
+    let deviceStr = `${ osName } ${browserName} ${browserMajor} ${ device }`
+    return deviceStr
+}
+
 
 /*
 
