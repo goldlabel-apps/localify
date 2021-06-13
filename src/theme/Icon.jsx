@@ -44,7 +44,8 @@ import IconStart from '@material-ui/icons/ArrowForward'
 import IconGambler from '@material-ui/icons/MonetizationOn'
 import IconStory from '@material-ui/icons/ArrowRight'
 import IconFire from '@material-ui/icons/CloudQueue'
-import IconUser from '@material-ui/icons/Person'
+import IconUser from '@material-ui/icons/PersonOutlined'
+import IconLoggedIn from '@material-ui/icons/Person'
 import IconGames from '@material-ui/icons/Casino'
 import IconOpen from '@material-ui/icons/Add'
 import IconDelete from '@material-ui/icons/DeleteOutlined'
@@ -314,6 +315,9 @@ class Icon extends Component {
 
             case `user`:
                 return (<IconUser color={iconColor} />)
+
+            case `loggedin`:
+                return (<IconLoggedIn color={iconColor} />)
 
             case `ting`:
                 return (<IconUser color={iconColor} />)
