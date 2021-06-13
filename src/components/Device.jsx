@@ -38,6 +38,12 @@ export default function Device() {
   let helpIconColor = `secondary`
   if ( darkMode ) helpIconColor = `secondary`
 
+  const individualSlice = useSelector(state => state.individual) 
+  const {
+    individual,
+  } = individualSlice
+  if ( !individual ) return null
+
   return <div className={ classes.panel }>
              <Grid container>
                 <Grid item>

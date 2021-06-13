@@ -26,6 +26,7 @@ export default function Location() {
   
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
+
   const {
     darkMode,
   } = appSlice
@@ -37,6 +38,13 @@ export default function Location() {
     title,
     content,
   } = contentObj
+
+  
+  const individualSlice = useSelector(state => state.individual) 
+  const {
+    individual,
+  } = individualSlice
+  if ( !individual ) return null
 
   return <div className={ classes.panel }>
             <Grid container>

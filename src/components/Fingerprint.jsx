@@ -29,7 +29,7 @@ export default function Fingerprint() {
   const {
     darkMode,
   } = appSlice
-  const [ expanded, setExpanded ] = React.useState( true )
+  const [ expanded, setExpanded ] = React.useState( false )
   let helpIconColor = `secondary`
   if ( darkMode ) helpIconColor = `secondary`
   const contentObj = getContent( `fingerprint` )
@@ -37,6 +37,11 @@ export default function Fingerprint() {
     title,
     content,
   } = contentObj
+  const individualSlice = useSelector(state => state.individual) 
+  const {
+    individual,
+  } = individualSlice
+  if ( !individual ) return null
 
   return <div className={ classes.panel }>
              <Grid container>
