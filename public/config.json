@@ -7,6 +7,14 @@
 	},
 	"pages": [
 		{
+			"title": "Your fingerprint",
+			"file": "md/fingerprint.md",
+			"slug": "fingerprint",
+			"icon" : "fingerprint",
+			"content": "The request you made to this app produced a unique fingerprint When you come back your device creates the same fingerprint so we know it's you without a log in",
+			"tags": ["GDPR", "privacy", "fingerprint"]
+		},
+		{
 			"title": "Your device",
 			"file": "md/device.md",
 			"slug": "device",
@@ -20,15 +28,7 @@
 			"slug": "location",
 			"icon" : "map",
 			"tags": ["GDPR", "location", "privacy"],
-			"content": "Your request to this app revealed the following location information"
-		},
-		{
-			"title": "Your fingerprint",
-			"file": "md/fingerprint.md",
-			"slug": "fingerprint",
-			"icon" : "fingerprint",
-			"tags": ["GDPR", "privacy", "fingerprint"],
-			"content": "The request you made to this app produced a unique fingerprint"
+			"content": "Your request to this app revealed this location information"
 		}
 	]
 }
