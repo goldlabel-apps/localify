@@ -17,7 +17,6 @@ import {
   getLocationStr,
   getFlagSrc,
  } from '../redux/app/actions'
- import { Mapbox } from './'
 
 const useStyles = makeStyles((theme) => ({
   panel: {
@@ -67,8 +66,6 @@ export default function Location() {
 
               <Grid item>
 
-              <Mapbox />
-
               <CardHeader 
                     disableTypography
                     avatar={ <Avatar src={ flagSrc } /> }
@@ -92,9 +89,6 @@ export default function Location() {
 
 
 
-                
-                  
-
                 <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
                   <CardContent><Typography variant={ `body1` } gutterBottom>
                     { content }
@@ -106,9 +100,3 @@ export default function Location() {
           
       </div>
 }
-
-/*
-<pre>
-              { JSON.stringify(individual, null, 2)}
-            </pre>
-*/

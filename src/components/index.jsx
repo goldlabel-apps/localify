@@ -1,6 +1,5 @@
 import CollapsingMenu from './CollapsingMenu'
 import Overlay from './Overlay'
-import Mapbox from './Mapbox'
 import ImageUpload from './ImageUpload'
 import Settings from './Settings'
 import Navigation from './Navigation'
@@ -18,7 +17,6 @@ export {
 	Auth,
 	CollapsingMenu,
 	Overlay,
-	Mapbox,
 	ImageUpload,
 	Settings,
 	Navigation,
