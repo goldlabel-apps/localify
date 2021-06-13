@@ -7,10 +7,28 @@
 	},
 	"pages": [
 		{
-			"name": "Start",
-			"file": "md/start.md",
-			"slug": "start",
-			"icon" : "start"
+			"title": "Device",
+			"file": "md/device.md",
+			"slug": "device",
+			"icon" : "manager",
+			"tags": ["device", "privacy"],
+			"content": "The request you made to this app contained the following information about your device"
+		},
+		{
+			"title": "Location",
+			"file": "md/location.md",
+			"slug": "location",
+			"icon" : "map",
+			"tags": ["location", "privacy"],
+			"content": "location location location"
+		},
+		{
+			"title": "Fingerprint",
+			"file": "md/fingerprint.md",
+			"slug": "fingerprint",
+			"icon" : "fingerprint",
+			"tags": ["GDPR", "privacy"],
+			"content": "To find out more you need to agree to the [privacy policy](https://listingslab.com/privacy)"
 		}
 	],
 	"sections": []

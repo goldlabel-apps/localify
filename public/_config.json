@@ -1,0 +1,28 @@
+{
+	"title": "@localify",
+	"description": "Individual location",
+	"icon": {
+		"dark": "/logo192_darkMode.png",
+		"light": "/logo192_lightMode.png"
+	},
+	"pages": [
+		{
+			"name": "Device",
+			"file": "md/device.md",
+			"slug": "device",
+			"icon" : "manager",
+			"tags": ["device", "privacy"],
+			"content": "Your device is ...."
+		},
+		{
+			"name": "Fingerprint",
+			"file": "md/fingerprint.md",
+			"slug": "fingerprint",
+			"icon" : "fingerprint",
+			"tags": ["GDPR", "privacy"],
+			"content": "Your fingerprint is a unique identifier which takes details from your device like which phone you're using and combines it into a long, unique string. When you come back your device creates the same string, so we know it's you without any log in. To find out more you need to agree to the [privacy policy](https://listingslab.com/privacy)"
+		}
+	],
+	"sections": []
+}
+

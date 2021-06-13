@@ -7,11 +7,12 @@ import {
     IconButton,
     Grid,
 } from '@material-ui/core/'
+import { getContent } from '../redux/app/actions'
 import { Icon } from '../theme'
 
 const useStyles = makeStyles((theme) => ({
-  device: {
-     border: '1px solid pink',
+  panel: {
+    margin: theme.spacing(),
   },
   padLeft:{
     marginLeft: theme.spacing(),
@@ -28,14 +29,16 @@ export default function Fingerprint() {
   const {
     darkMode,
   } = appSlice
-
-  const [ expanded, setExpanded ] = React.useState( false )
-
-  let helpIconColor = `primary`
+  const [ expanded, setExpanded ] = React.useState( true )
+  let helpIconColor = `secondary`
   if ( darkMode ) helpIconColor = `secondary`
+  const contentObj = getContent( `fingerprint` )
+  const {
+    title,
+    content,
+  } = contentObj
 
-  
-  return <div className={ classes.fingerprint }>
+  return <div className={ classes.panel }>
              <Grid container>
                 <Grid item>
                   <IconButton
@@ -45,25 +48,19 @@ export default function Fingerprint() {
                       setExpanded( !expanded )
                     }}
                   >
-                    <Icon icon={`help`} color={ helpIconColor } />
+                    <Icon icon={`fingerprint`} color={ helpIconColor } />
                   </IconButton>
                   <Typography variant={ `button` } className={ classes.padLeft }>
-                    Your Fingerprint
+                    { title }
                   </Typography>                  
                 </Grid>
-
                 <Grid item>
                   <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
-
                     <Typography variant={ `body1` } gutterBottom>
-                      this is what we sent to our server
+                      { content }
                     </Typography>
-
-                    
                   </Collapse>
               </Grid>
             </Grid>
           </div>
-
 }
-

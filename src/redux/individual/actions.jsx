@@ -14,6 +14,7 @@ export const ting = createAction(`INDIVIDUAL/TING`)
 export const id = createAction(`INDIVIDUAL/ID`)
 export const individual = createAction(`INDIVIDUAL`)
 
+
 export const updateIndividual = ( attribute, value ) => {
 	const store = getStore()
 	const { id } = store.getState().individual

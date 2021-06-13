@@ -74,16 +74,16 @@ export default function App() {
                 <Grid container>
 
                   <Grid item xs={ 12 } sm={ 4 } >
-                      <Fingerprint />
-                    </Grid>
+                    <Device />
+                  </Grid>
 
-                    <Grid item xs={ 12 } sm={ 4 } >
-                      <Location />
-                    </Grid>
+                  <Grid item xs={ 12 } sm={ 4 } >
+                    <Fingerprint />
+                  </Grid>
 
-                    <Grid item xs={ 12 } sm={ 4 } >
-                      <Device />
-                    </Grid>
+                  <Grid item xs={ 12 } sm={ 4 } >
+                    <Location />
+                  </Grid>
 
                   </Grid>
                 </div>

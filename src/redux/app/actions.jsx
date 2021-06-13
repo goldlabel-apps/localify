@@ -12,6 +12,16 @@ export const config = createAction(`APP/CONFIG`)
 export const configLoading = createAction(`APP/CONFIG/LOADING`)
 export const configLoaded = createAction(`APP/CONFIG/LOADED`)
 
+export const getContent = slug => {
+	const pages = getStore().getState().app.config.pages
+	for ( let i = 0; i < pages.length; i ++ ){
+		if (pages[ i ].slug === slug ){
+			return pages[i]
+		}
+	}
+	return null
+}
+
 export const loadConfig = () => {
 	const store = getStore()
 	store.dispatch({type: `APP/CONFIG/LOADING`, configLoading: true })

@@ -8,10 +8,11 @@ import {
     Grid,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
+import { getContent } from '../redux/app/actions'
 
 const useStyles = makeStyles((theme) => ({
-  device: {
-     border: '1px solid pink',
+  panel: {
+     margin: theme.spacing(),
   },
   padLeft:{
     marginLeft: theme.spacing(),
@@ -28,46 +29,36 @@ export default function Location() {
   const {
     darkMode,
   } = appSlice
-
-  const [ expanded, setExpanded ] = React.useState( false )
-
-  let helpIconColor = `primary`
+  const [ expanded, setExpanded ] = React.useState( true )
+  let helpIconColor = `secondary`
   if ( darkMode ) helpIconColor = `secondary`
+  const contentObj = getContent( `location` )
+  const {
+    title,
+    content,
+  } = contentObj
 
-  
-  return <div className={ classes.individual }>
-            
-           <div className={ classes.fingerprint }>
-             <Grid container>
-                <Grid item>
-                  <IconButton
-                    color={ helpIconColor }
-                    onClick={ ( e ) => {
-                      e.preventDefault()
-                      setExpanded( !expanded )
-                    }}
-                  >
-                    <Icon icon={`help`} color={ helpIconColor } />
-                  </IconButton>
-                  <Typography variant={ `button` } className={ classes.padLeft }>
-                    Your Location
-                  </Typography>                  
-                </Grid>
-
-                <Grid item>
-                  <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
-
-                    <Typography variant={ `body1` } gutterBottom>
-                      this is what we know about your location are using:
-                    </Typography>
-
-                    
-                  </Collapse>
+  return <div className={ classes.panel }>
+            <Grid container>
+              <Grid item>
+                <IconButton
+                  color={ helpIconColor }
+                  onClick={ ( e ) => {
+                    e.preventDefault()
+                    setExpanded( !expanded )
+                  }}
+                >
+                  <Icon icon={`map`} color={ helpIconColor } />
+                </IconButton>
+                <Typography variant={ `button` } className={ classes.padLeft }>
+                  { title }
+                </Typography>                  
               </Grid>
             </Grid>
-          </div>
-
-
-          </div>
+          <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
+            <Typography variant={ `body1` } gutterBottom>
+              { content }
+            </Typography>
+          </Collapse>
+      </div>
 }
-

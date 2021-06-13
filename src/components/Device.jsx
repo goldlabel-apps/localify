@@ -8,10 +8,11 @@ import {
     Grid,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
+import { getContent } from '../redux/app/actions'
 
 const useStyles = makeStyles((theme) => ({
-  device: {
-     border: '1px solid pink',
+  panel: {
+    margin: theme.spacing(),
   },
   padLeft:{
     marginLeft: theme.spacing(),
@@ -24,20 +25,20 @@ const useStyles = makeStyles((theme) => ({
 export default function Device() {
   
   const classes = useStyles()
+  const [ expanded, setExpanded ] = React.useState( true )
   const appSlice = useSelector(state => state.app)
   const {
     darkMode,
   } = appSlice
-
-  const [ expanded, setExpanded ] = React.useState( false )
-
-  let helpIconColor = `primary`
+  const contentObj = getContent( `device` )
+  const {
+    content,
+    title,
+  } = contentObj
+  let helpIconColor = `secondary`
   if ( darkMode ) helpIconColor = `secondary`
 
-  
-  return <div className={ classes.individual }>
-            
-           <div className={ classes.fingerprint }>
+  return <div className={ classes.panel }>
              <Grid container>
                 <Grid item>
                   <IconButton
@@ -47,27 +48,17 @@ export default function Device() {
                       setExpanded( !expanded )
                     }}
                   >
-                    <Icon icon={`help`} color={ helpIconColor } />
+                    <Icon icon={`manager`} color={ helpIconColor } />
                   </IconButton>
                   <Typography variant={ `button` } className={ classes.padLeft }>
-                    Your Device
+                    { title }
                   </Typography>                  
                 </Grid>
-
-                <Grid item>
-                  <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
-
-                    <Typography variant={ `body1` } gutterBottom>
-                      this is what we know about the device you are using:
-                    </Typography>
-
-                    
-                  </Collapse>
-              </Grid>
             </Grid>
-          </div>
-
-
+            <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
+              <Typography variant={ `body1` } gutterBottom>
+                { content }
+              </Typography>
+            </Collapse>
           </div>
 }
-
