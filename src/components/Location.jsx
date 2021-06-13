@@ -17,6 +17,7 @@ import {
   getLocationStr,
   getFlagSrc,
  } from '../redux/app/actions'
+ import { Mapbox } from './'
 
 const useStyles = makeStyles((theme) => ({
   panel: {
@@ -61,35 +62,38 @@ export default function Location() {
 
   const locationStr = getLocationStr( individual )
   const flagSrc = getFlagSrc ( individual )
-  return <div className={ classes.panel }>
+  return <div className={ clsx( classes.panel ) }>
             <Grid container>
 
               <Grid item>
-                
-              </Grid>
 
-              <Grid item>
+              <Mapbox />
+
+              <CardHeader 
+                    disableTypography
+                    avatar={ <Avatar src={ flagSrc } /> }
+                    title={ <Typography>IP { ip }</Typography> }
+                    subheader={ <Typography>{ locationStr }</Typography> }
+                  />
+
+
                 <IconButton
                   color={ helpIconColor }
                   onClick={ ( e ) => {
                     e.preventDefault()
                     setExpanded( !expanded )
                   }}>
-                  <Icon icon={`map`} color={ helpIconColor } />
+                  <Icon icon={`help`} color={ helpIconColor } />
                 </IconButton>
 
                 <Typography variant={ `button` } className={ classes.padLeft }>
                   { title }
                 </Typography> 
 
-                <div className={ clsx( classes.none ) }>
-                  <CardHeader 
-                    disableTypography
-                    avatar={ <Avatar src={ flagSrc } /> }
-                    title={ <Typography>IP { ip }</Typography> }
-                    subheader={ <Typography>{ locationStr }</Typography> }
-                  />
-                </div>
+
+
+                
+                  
 
                 <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
                   <CardContent><Typography variant={ `body1` } gutterBottom>

@@ -61,16 +61,12 @@ export default function ThumbMenu() {
   
   const [ anchorEl, setAnchorEl ] = React.useState( null )
   const theme = useTheme()
-  
-
   const appSlice = useSelector(state => state.app)
   const {
     darkMode,
   } = appSlice
-
   let menuIconColor = `primary`
   let hexColor = theme.palette.primary.main
-
   if ( darkMode )  {
     hexColor = theme.palette.secondary.main
     menuIconColor = `secondary`
@@ -92,10 +88,8 @@ export default function ThumbMenu() {
               aria-controls={`thumb-menu`}
               aria-haspopup="true"
               onClick={ handleClick }>
-              <Icon icon={ `menu` } color={ menuIconColor } />
+              <Icon icon={ `link` } color={ menuIconColor } />
             </IconButton>
-
-
         
         <StyledMenu 
           style={{

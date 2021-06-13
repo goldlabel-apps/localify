@@ -52,6 +52,12 @@ export default function Device() {
   return <div className={ classes.panel }>
              <Grid container>
                 <Grid item>
+
+                <Typography variant={ `h3` }>
+                    { deviceStr }  
+                  </Typography>  
+
+
                   <IconButton
                     color={ helpIconColor }
                     onClick={ ( e ) => {
@@ -59,15 +65,13 @@ export default function Device() {
                       setExpanded( !expanded )
                     }}
                   >
-                    <Icon icon={`manager`} color={ helpIconColor } />
+                    <Icon icon={`help`} color={ helpIconColor } />
                   </IconButton>
                   <Typography variant={ `button` } className={ classes.padLeft }>
                     { title }
                   </Typography>   
 
-                  <Typography variant={ `body1` }>
-                    { deviceStr }  
-                  </Typography>    
+                    
 
                 </Grid>
             </Grid>

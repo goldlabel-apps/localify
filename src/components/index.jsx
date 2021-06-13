@@ -12,8 +12,10 @@ import DarkmodeSwitch from './DarkmodeSwitch'
 import Device from './Device'
 import Fingerprint from './Fingerprint'
 import Location from './Location'
+import Auth from './Auth'
 
 export {
+	Auth,
 	CollapsingMenu,
 	Overlay,
 	Mapbox,

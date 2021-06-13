@@ -10,9 +10,9 @@ import {
     CardHeader,
     Typography,
 } from '@material-ui/core/'
-
 import {
   ThumbMenu,
+  Auth,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
@@ -49,6 +49,10 @@ export default function Topbar() {
     description,
     icon,
   } = config
+
+
+
+
   
   return  <AppBar
               position={ `fixed` }
@@ -71,8 +75,10 @@ export default function Topbar() {
                             </Typography> 
                           }
               /> 
+
               <div className={ clsx( classes.grow ) } />
-              <ThumbMenu />               
+              <ThumbMenu />
+              <Auth />               
               </Toolbar>
             </AppBar>
 }

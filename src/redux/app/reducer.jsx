@@ -10,7 +10,7 @@ import {
 
 export const appSlice = {
   error: null,
-  darkMode: true,
+  darkMode: false,
   overlay: false,
   config: null,
   configLoading: false,
