@@ -23,10 +23,6 @@ const useStyles = makeStyles((theme) => ({
      margin: theme.spacing(),
   },
   flag:{
-    margin: theme.spacing(),
-    width: 32,
-    height: 32,
-
   },
   padLeft:{
     marginLeft: theme.spacing(),
@@ -44,7 +40,7 @@ export default function Location() {
     darkMode,
   } = appSlice
   const [ expanded, setExpanded ] = React.useState( false )
-  let helpIconColor = `secondary`
+  let helpIconColor = `primary`
   if ( darkMode ) helpIconColor = `secondary`
   const contentObj = getContent( `location` )
   const {
@@ -88,9 +84,10 @@ export default function Location() {
 
                 <div className={ clsx( classes.none ) }>
                   <CardHeader 
+                    disableTypography
                     avatar={ <Avatar src={ flagSrc } /> }
-                    title={ `IP ${ ip }` }
-                    subheader={ locationStr }
+                    title={ <Typography>IP { ip }</Typography> }
+                    subheader={ <Typography>{ locationStr }</Typography> }
                   />
                 </div>
 
