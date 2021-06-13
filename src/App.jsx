@@ -19,6 +19,9 @@ import {
 import {
   Topbar,
   Individual,
+  Device,
+  Fingerprint,
+  Location,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -62,15 +65,26 @@ export default function App() {
   
   return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
           <CssBaseline />
+          <Individual />
           { !config ? <LinearProgress color={ `secondary` } />
             : <div className={classes.localify}>
                 <Topbar /> 
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
                 <Grid container>
-                    <Grid item xs={ 12 } sm={ 6 } >
-                      <Individual />
+
+                  <Grid item xs={ 12 } sm={ 4 } >
+                      <Fingerprint />
                     </Grid>
+
+                    <Grid item xs={ 12 } sm={ 4 } >
+                      <Location />
+                    </Grid>
+
+                    <Grid item xs={ 12 } sm={ 4 } >
+                      <Device />
+                    </Grid>
+
                   </Grid>
                 </div>
               </div>

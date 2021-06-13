@@ -9,6 +9,9 @@ import ThumbMenu from './ThumbMenu'
 import Individual from './Individual'
 import Topbar from './Topbar'
 import DarkmodeSwitch from './DarkmodeSwitch'
+import Device from './Device'
+import Fingerprint from './Fingerprint'
+import Location from './Location'
 
 export {
 	CollapsingMenu,
@@ -22,4 +25,7 @@ export {
 	Individual,
 	Topbar,
 	DarkmodeSwitch,
+	Device,
+	Fingerprint,
+	Location,
 }

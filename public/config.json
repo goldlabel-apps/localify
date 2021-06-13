@@ -2,8 +2,8 @@
 	"title": "@localify",
 	"description": "Individual location",
 	"icon": {
-		"dark": "/logo192.png",
-		"light": "/logo192.png"
+		"dark": "/logo192_darkMode.png",
+		"light": "/logo192_lightMode.png"
 	},
 	"pages": [
 		{
