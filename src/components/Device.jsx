@@ -38,7 +38,7 @@ export default function Device() {
     content,
     title,
   } = contentObj
-  let helpIconColor = `secondary`
+  let helpIconColor = `primary`
   if ( darkMode ) helpIconColor = `secondary`
 
   const individualSlice = useSelector(state => state.individual) 

@@ -29,8 +29,8 @@ export default function Fingerprint() {
   const {
     darkMode,
   } = appSlice
-  const [ expanded, setExpanded ] = React.useState( true )
-  let helpIconColor = `secondary`
+  const [ expanded, setExpanded ] = React.useState( false )
+  let helpIconColor = `primary`
   if ( darkMode ) helpIconColor = `secondary`
   const contentObj = getContent( `fingerprint` )
   const {
@@ -42,6 +42,8 @@ export default function Fingerprint() {
     individual,
   } = individualSlice
   if ( !individual ) return null
+
+  const individualStr = individual.individual
 
   return <div className={ classes.panel }>
              <Grid container>
@@ -55,9 +57,12 @@ export default function Fingerprint() {
                   >
                     <Icon icon={`fingerprint`} color={ helpIconColor } />
                   </IconButton>
-                  <Typography variant={ `button` } className={ classes.padLeft }>
+                  <Typography variant={ `button` } gutterBottom>
                     { title }
-                  </Typography>                  
+                  </Typography>  
+                  <Typography variant={ `body2` }>
+                    { individualStr } 
+                  </Typography>               
                 </Grid>
                 <Grid item>
                   <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>

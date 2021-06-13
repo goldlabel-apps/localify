@@ -7,7 +7,7 @@
 	},
 	"pages": [
 		{
-			"title": "Your fingerprint",
+			"title": "Fingerprint",
 			"file": "md/fingerprint.md",
 			"slug": "fingerprint",
 			"icon" : "fingerprint",
@@ -15,7 +15,7 @@
 			"tags": ["GDPR", "privacy", "fingerprint"]
 		},
 		{
-			"title": "Your device",
+			"title": "Device",
 			"file": "md/device.md",
 			"slug": "device",
 			"icon" : "manager",
@@ -23,7 +23,7 @@
 			"content": "Your request to this app contained the following information about your device"
 		},
 		{
-			"title": "Your location",
+			"title": "Location",
 			"file": "md/location.md",
 			"slug": "location",
 			"icon" : "map",
