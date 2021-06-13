@@ -8,7 +8,10 @@ import {
     Grid,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
-import { getContent } from '../redux/app/actions'
+import { 
+  getContent,
+  getDeviceStr,
+ } from '../redux/app/actions'
 
 const useStyles = makeStyles((theme) => ({
   panel: {
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Device() {
   
   const classes = useStyles()
-  const [ expanded, setExpanded ] = React.useState( true )
+  const [ expanded, setExpanded ] = React.useState( false )
   const appSlice = useSelector(state => state.app)
   const {
     darkMode,
@@ -44,6 +47,8 @@ export default function Device() {
   } = individualSlice
   if ( !individual ) return null
 
+  const deviceStr = getDeviceStr( individual )
+
   return <div className={ classes.panel }>
              <Grid container>
                 <Grid item>
@@ -58,7 +63,12 @@ export default function Device() {
                   </IconButton>
                   <Typography variant={ `button` } className={ classes.padLeft }>
                     { title }
-                  </Typography>                  
+                  </Typography>   
+
+                  <Typography variant={ `body1` }>
+                    { deviceStr }  
+                  </Typography>    
+
                 </Grid>
             </Grid>
             <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
