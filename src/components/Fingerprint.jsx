@@ -29,7 +29,7 @@ export default function Fingerprint() {
   const {
     darkMode,
   } = appSlice
-  const [ expanded, setExpanded ] = React.useState( false )
+  const [ expanded, setExpanded ] = React.useState( true )
   let helpIconColor = `secondary`
   if ( darkMode ) helpIconColor = `secondary`
   const contentObj = getContent( `fingerprint` )

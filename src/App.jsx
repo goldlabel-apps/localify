@@ -73,13 +73,16 @@ export default function App() {
                 <div className={clsx( classes.content ) }>
                 <Grid container>
 
-                  <Grid item xs={ 12 } sm={ 4 } >
-                    <Fingerprint />
-                  </Grid>
+                  
 
                   <Grid item xs={ 12 } sm={ 8 } >
-                    <Location />
                     <Device />
+                    <Location />
+                    
+                  </Grid>
+
+                  <Grid item xs={ 12 } sm={ 4 } >
+                    <Fingerprint />
                   </Grid>
 
                   </Grid>
@@ -88,3 +91,6 @@ export default function App() {
           }
         </MuiThemeProvider> 
 }
+/*
+ 
+*/
