@@ -6,6 +6,7 @@ import {
     IconButton,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
+import { AuthForm } from './'
 
 const useStyles = makeStyles((theme) => ({
   panel: {
@@ -16,11 +17,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Auth() {
   
   const classes = useStyles()
+  const [showForm, setShowForm] = React.useState( false ) 
 
   const appSlice = useSelector(state => state.app)
   const authSlice = useSelector(state => state.auth)
   const {
+    authStateChanged,
     loggedin,
+    authed,
   } = authSlice  
   const {
     darkMode,
@@ -29,24 +33,28 @@ export default function Auth() {
   let menuIconColor = `primary`
   if ( darkMode )  {
     menuIconColor = `secondary`
-  }
+  }  
+
+  if ( !authStateChanged ) return null
 
   const handleClick = (e) => {
-    console.log ('loggedin', loggedin)
-    return false
+    setShowForm( true ) 
+    return true
+  }
+
+  if (authed){
+    return <div className={ clsx ( classes.panel ) }>
+                hello admin
+            </div>
   }
 
   return <div className={ clsx ( classes.panel ) }>
             <IconButton
               color={ menuIconColor }
-              onClick={ handleClick }
-            >
-
+              onClick={ handleClick } >
               { loggedin ? <Icon icon={ `loggedin` } color={ menuIconColor } /> 
               : <Icon icon={ `user` } color={ menuIconColor } /> }
-              
-              
-
               </IconButton>
+              { showForm ? <AuthForm /> : null }
           </div>
 }
