@@ -13,10 +13,12 @@ import Location from './Location'
 import Auth from './Auth'
 import AuthForm from './AuthForm'
 import Mapbox from './Mapbox'
+import TopRightMenu from './TopRightMenu'
 
 export {
 	Auth,
 	AuthForm,
+	TopRightMenu,
 	Mapbox,
 	CollapsingMenu,
 	Overlay,

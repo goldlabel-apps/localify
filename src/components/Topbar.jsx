@@ -1,23 +1,18 @@
 import React from 'react'
 import clsx from 'clsx'
 import { useSelector } from 'react-redux'
-
 import {
     makeStyles,
-    // Avatar,
     AppBar,
     Toolbar,
     CardHeader,
     Typography,
 } from '@material-ui/core/'
 import {
-  ThumbMenu,
-  Auth,
+  TopRightMenu,
 } from './'
 
 const useStyles = makeStyles((theme) => ({
-  topbar: {
-  },
   grow:{
     flexGrow: 1,
   },
@@ -63,20 +58,7 @@ export default function Topbar() {
                         }
                   /> 
                 <div className={ clsx( classes.grow ) } />
-                <ThumbMenu />
-                <Auth />               
+                <TopRightMenu />
               </Toolbar>
             </AppBar>
 }
-
-/*
-avatar={ <Avatar src={ darkMode ? icon.dark : icon.light } /> }
-
-subheader={ <Typography 
-                                variant={ `body2` }
-                                className={ clsx( darkMode ? classes.darkMode : null ) }>
-                                { description }
-                              </Typography> 
-                            }
-
-*/

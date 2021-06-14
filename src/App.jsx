@@ -75,16 +75,18 @@ export default function App() {
                 <div className={clsx( classes.content ) }>
                   <Grid container>
                     
-                    <Grid item xs={ 12 } sm={ 6 } >
-                      <Device /> 
-                    </Grid>
+                    
 
-                    <Grid item xs={ 12 } sm={ 6 } >
+                    <Grid item xs={ 12 } >
                       <Location />
                     </Grid>
                     
                     <Grid item xs={ 12 } >
                       <Mapbox />
+                    </Grid>
+
+                    <Grid item xs={ 12 } >
+                      <Device /> 
                     </Grid>
                     
                   </Grid>
