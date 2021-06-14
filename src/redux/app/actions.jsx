@@ -83,9 +83,10 @@ export const getLocationStr = individual => {
         countryName,
         city,
         district,
-        continentName,
+        // continentName,
     } = individual
-    return `${ district }, ${ city }, ${ countryName } ${ continentName }`
+    return `${ district }, ${ city }, ${ countryName }`
+    // ${ continentName }
 }
 
 export const getFlagSrc = individual => {

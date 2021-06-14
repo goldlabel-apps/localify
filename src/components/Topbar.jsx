@@ -56,7 +56,7 @@ export default function Topbar() {
                 <CardHeader 
                   disableTypography
                   title={ <Typography 
-                            variant={ `h6` }
+                            variant={ `h4` }
                             className={ clsx( darkMode ? classes.darkMode : null ) }>
                             { title }
                           </Typography>
