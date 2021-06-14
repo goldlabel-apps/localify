@@ -1,28 +1,50 @@
 import React, { useRef, useState } from 'react'
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax 
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { useSelector } from 'react-redux'
-import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax 
+import {
+    makeStyles,
+    FormControl,
+    InputLabel,
+    Select,
+} from '@material-ui/core/'
+import { 
+  changeMapboxStyle,
+  getMapboxUrl,
+  toggleUpdate,
+} from '../redux/mapbox/actions'
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX
 
-
-const mapboxStyle = {
-  lightMode: `mapbox://styles/listingslab/ck4uugpxf13y11cqp72z8snc4`,
-  darkMode: `mapbox://styles/listingslab/ck4c1er100to21co6sd5kl563`,
-}
-
+const useStyles = makeStyles((theme) => ({
+  panel: {
+  },
+  map:{
+    height: 400,
+  },
+  formControl:{
+    marginTop: theme.spacing(),
+    minWidth: '100%',
+  }
+}))
 
 export default function Mapbox() {
   
+  const classes = useStyles()
   const individualSlice = useSelector(state => state.individual) 
   const {
     individual,
   } = individualSlice
-
-  const appSlice = useSelector(state => state.app)
+  const mapboxSlice = useSelector(state => state.mapbox) 
   const {
-    darkMode,
-  } = appSlice
+    mapboxStyles,
+    mapboxStyleId,
+    updateNeeded,
+
+  } = mapboxSlice
+  const mapboxStyleUrl = getMapboxUrl(mapboxStyleId) 
+
+  console.log ('updateNeeded', updateNeeded)
 
   const mapContainer = useRef(null)
   const map = useRef(null)
@@ -33,16 +55,26 @@ export default function Mapbox() {
   if ( suppressor ) console.log (lat, lng)
 
   React.useEffect(() => {
+    const {
+      updateNeeded
+    } = mapboxSlice
+    if ( updateNeeded ){
+      console.log ('DO UPDATE')
+      toggleUpdate( false )
+    }
+    
+  }, [ mapboxSlice ])
+
+  React.useEffect(() => {
     if (map.current) return
     if ( individual ){
       const {
         lat,
         lng,
       } = individual
-      // console.log ('FLY TO', lat, lng)
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: darkMode ? mapboxStyle.darkMode : mapboxStyle.lightMode,
+        style: mapboxStyleUrl,
         center: [lng, lat],
         zoom: zoom
       })
@@ -54,14 +86,47 @@ export default function Mapbox() {
     map.current.on('move', () => {
       setLng( map.current.getCenter().lng.toFixed( 4 ))
       setLat( map.current.getCenter().lat.toFixed( 4 ))
-      setZoom( map.current.getZoom().toFixed( 2 ))
-    });
-  }); 
+      setZoom( map.current.getZoom().toFixed( 4 ))
+    })
+  })
 
-  return <div 
-            ref={ mapContainer  }
-            style={{
-              height: 300,
-            }}
-         />
+  return <div className={ classes.panel }>
+            
+            <div 
+              ref={ mapContainer  }
+              className={ classes.map }
+              style={{
+              }}
+            />
+
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="mapStyle">
+                Mapbox style
+              </InputLabel>
+              <Select
+                native
+                value={ mapboxStyleId }
+                onChange={ ( e ) => {  
+                  e.preventDefault()
+                  changeMapboxStyle( e.target.value )
+                }}
+                inputProps={{
+                  name: 'mapStyle',
+                  id: 'mapStyle',
+                }}>
+                { mapboxStyles.map( (item, i) => {
+                  const {
+                    id,
+                    name,
+                    // url,
+                  } = item
+                  return <option 
+                          value={ id }
+                          key={`mapStyle_${ i }`}>
+                          { name }
+                         </option>
+                })}
+              </Select>
+            </FormControl>
+          </div>
 }
