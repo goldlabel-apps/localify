@@ -74,15 +74,19 @@ export default function App() {
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
                   <Grid container>
+                    
                     <Grid item xs={ 12 } sm={ 6 } >
                       <Device /> 
                     </Grid>
+
                     <Grid item xs={ 12 } sm={ 6 } >
                       <Location />
                     </Grid>
+                    
                     <Grid item xs={ 12 } >
                       <Mapbox />
                     </Grid>
+                    
                   </Grid>
                 </div>
             </div>
