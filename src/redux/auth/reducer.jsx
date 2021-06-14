@@ -7,8 +7,7 @@ import {
 } from "./actions"
 
 export const authSlice = {
-  error: `not working?`,
-  loggedin: false,
+  error: null,
   authStateChanged: false,
   authed: false,
   isAuthing: false,

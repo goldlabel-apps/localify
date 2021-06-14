@@ -13,6 +13,7 @@ import IconLocalify from '@material-ui/icons/PersonPin'
 import IconMessage from '@material-ui/icons/QuestionAnswer'
 import Account from './jsx/Account'
 import IconMail from '@material-ui/icons/Mail'
+import IconLogout from '@material-ui/icons/ExitToApp'
 import IconBug from '@material-ui/icons/BugReport'
 import IconSection from '@material-ui/icons/MenuBook'
 import IconDownload from '@material-ui/icons/GetApp'
@@ -391,6 +392,9 @@ class Icon extends Component {
 
             case `section`:
                 return (<IconSection color={iconColor} />)
+
+            case `logout`:
+                return (<IconLogout color={iconColor} />)
 
             case `refresh`:
                 return (<IconRefresh color={iconColor} />)

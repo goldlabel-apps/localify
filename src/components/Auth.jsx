@@ -6,6 +6,7 @@ import {
     IconButton,
 } from '@material-ui/core/'
 import { Icon } from '../theme'
+import { signout } from '../redux/auth/actions'
 import { AuthForm } from './'
 
 const useStyles = makeStyles((theme) => ({
@@ -18,43 +19,44 @@ export default function Auth() {
   
   const classes = useStyles()
   const [showForm, setShowForm] = React.useState( false ) 
-
   const appSlice = useSelector(state => state.app)
   const authSlice = useSelector(state => state.auth)
   const {
     authStateChanged,
-    loggedin,
     authed,
   } = authSlice  
   const {
     darkMode,
   } = appSlice  
-
   let menuIconColor = `primary`
   if ( darkMode )  {
     menuIconColor = `secondary`
-  }  
-
-  if ( !authStateChanged ) return null
-
-  const handleClick = (e) => {
-    setShowForm( true ) 
-    return true
   }
 
   if (authed){
     return <div className={ clsx ( classes.panel ) }>
-                hello admin
+                <IconButton
+                  color={ menuIconColor }
+                  onClick={ (e) => {
+                    e.preventDefault()
+                    if (window.confirm( 'really really logout?')) signout()
+                  }}>
+                  <Icon icon={ `logout` } color={ menuIconColor } />
+                 </IconButton>
             </div>
   }
+
+  if (!authStateChanged) return null
 
   return <div className={ clsx ( classes.panel ) }>
             <IconButton
               color={ menuIconColor }
-              onClick={ handleClick } >
-              { loggedin ? <Icon icon={ `loggedin` } color={ menuIconColor } /> 
-              : <Icon icon={ `user` } color={ menuIconColor } /> }
-              </IconButton>
-              { showForm ? <AuthForm /> : null }
+              onClick={ (e) => {
+                    e.preventDefault()
+                    setShowForm( true ) 
+              }}>
+              <Icon icon={ `loggedin` } color={ menuIconColor } />
+            </IconButton>
+            { showForm ? <AuthForm setShowForm={ setShowForm } /> : null }
           </div>
 }

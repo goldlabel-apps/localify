@@ -109,6 +109,22 @@ export const getDeviceStr = individual => {
 }
 
 
+export const getDeviceSrc = individual => {
+    // const {
+    //     countryCode2
+    // } = individual
+    // if ( !countryCode2 ) return false
+    return `/svg/device/iphone.svg`
+}
+
+export const getBrowserSrc = individual => {
+    // const {
+    //     countryCode2
+    // } = individual
+    // if ( !countryCode2 ) return false
+    return `/svg/browsers/chrome.svg`
+}
+
 /*
 
 const example = {

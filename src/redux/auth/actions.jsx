@@ -11,7 +11,7 @@ export const authed = createAction(`AUTH/AUTHED`)
 export const isAuthing = createAction(`AUTH/AUTHING`)
 
 export const changeAuth = user => {
-	console.log ('changeAuth', user.email)
+	// console.log ('changeAuth', user.email)
 	const store = getStore()
 	store.dispatch({ type: `AUTH/AUTHSTATECHANGED`, authStateChanged: true })
 	if (user){
