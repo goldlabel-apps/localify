@@ -73,20 +73,17 @@ export default function App() {
                 <Topbar /> 
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
+
                   <Grid container>
-                    
-                    
-
-                    <Grid item xs={ 12 } >
+                  
+                    <Grid item xs={ 12 } sm={ 6 }>
                       <Location />
+                      <Device /> 
+                      
                     </Grid>
                     
-                    <Grid item xs={ 12 } >
+                    <Grid item xs={ 12 }  sm={ 6 }>
                       <Mapbox />
-                    </Grid>
-
-                    <Grid item xs={ 12 } >
-                      <Device /> 
                     </Grid>
                     
                   </Grid>

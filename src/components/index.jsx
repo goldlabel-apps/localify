@@ -12,8 +12,10 @@ import Location from './Location'
 import AuthForm from './AuthForm'
 import Mapbox from './Mapbox'
 import TopRightMenu from './TopRightMenu'
+import Feedback from './Feedback'
 
 export {
+	Feedback,
 	AuthForm,
 	TopRightMenu,
 	Mapbox,
