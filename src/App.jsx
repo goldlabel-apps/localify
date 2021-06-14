@@ -20,7 +20,7 @@ import {
   Topbar,
   Individual,
   Device,
-  Fingerprint,
+  Mapbox,
   Location,
 } from './components'
 
@@ -54,6 +54,8 @@ export default function App() {
     config,
   } = appSlice
   if ( darkMode ) theme = themeDark
+  let progressColor = `primary`
+  if ( darkMode ) progressColor = `secondary`
 
   React.useEffect(() => {
     const {
@@ -66,33 +68,33 @@ export default function App() {
   return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
           <CssBaseline />
           <Individual />
-          { !config ? <LinearProgress color={ `secondary` } />
+          { !config ? <LinearProgress color={ progressColor } />
             : <div className={classes.localify}>
                 <Topbar /> 
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
-
-
-                <Grid container>
-                  
-                  <Grid item xs={ 12 } sm={ 6 } >
-                    <Location />
+                  <Grid container>
+                    <Grid item xs={ 12 } sm={ 6 } >
+                      <Device /> 
+                    </Grid>
+                    <Grid item xs={ 12 } sm={ 6 } >
+                      <Location />
+                    </Grid>
+                    <Grid item xs={ 12 } >
+                      <Mapbox />
+                    </Grid>
                   </Grid>
-
-                  <Grid item xs={ 12 } sm={ 6 } >
-                    <Device /> 
-                  </Grid>
-
-                  <Grid item xs={ 12 } >
-                    <Fingerprint />
-                  </Grid>
-                  
-                </Grid>
-              </div>
+                </div>
             </div>
           }
         </MuiThemeProvider> 
 }
+
+
+
+
 /*
- 
+ <Grid item xs={ 12 } >
+                    <Fingerprint />
+                  </Grid>
 */

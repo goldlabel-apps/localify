@@ -12,10 +12,12 @@ import Fingerprint from './Fingerprint'
 import Location from './Location'
 import Auth from './Auth'
 import AuthForm from './AuthForm'
+import Mapbox from './Mapbox'
 
 export {
 	Auth,
 	AuthForm,
+	Mapbox,
 	CollapsingMenu,
 	Overlay,
 	ImageUpload,

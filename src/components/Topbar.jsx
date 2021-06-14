@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import {
     makeStyles,
-    Avatar,
+    // Avatar,
     AppBar,
     Toolbar,
     CardHeader,
@@ -46,39 +46,37 @@ export default function Topbar() {
   } = appSlice  
   const {
     title,
-    description,
-    icon,
   } = config
 
-
-
-
-  
   return  <AppBar
               position={ `fixed` }
               color={ `primary` }
               className={ clsx( classes.appBar )}>
               <Toolbar>
-              <CardHeader 
-                disableTypography
-                avatar={ <Avatar src={ darkMode ? icon.dark : icon.light } /> }
-                title={ <Typography 
-                          variant={ `body1` }
-                          className={ clsx( darkMode ? classes.darkMode : null ) }>
-                          { title }
-                        </Typography>
-                      }
-                subheader={ <Typography 
-                              variant={ `body2` }
-                              className={ clsx( darkMode ? classes.darkMode : null ) }>
-                              { description }
-                            </Typography> 
-                          }
-              /> 
-
-              <div className={ clsx( classes.grow ) } />
-              <ThumbMenu />
-              <Auth />               
+                <CardHeader 
+                  disableTypography
+                  title={ <Typography 
+                            variant={ `h6` }
+                            className={ clsx( darkMode ? classes.darkMode : null ) }>
+                            { title }
+                          </Typography>
+                        }
+                  /> 
+                <div className={ clsx( classes.grow ) } />
+                <ThumbMenu />
+                <Auth />               
               </Toolbar>
             </AppBar>
 }
+
+/*
+avatar={ <Avatar src={ darkMode ? icon.dark : icon.light } /> }
+
+subheader={ <Typography 
+                                variant={ `body2` }
+                                className={ clsx( darkMode ? classes.darkMode : null ) }>
+                                { description }
+                              </Typography> 
+                            }
+
+*/

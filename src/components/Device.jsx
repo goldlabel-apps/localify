@@ -1,24 +1,36 @@
 import React from 'react'
+import clsx from 'clsx'
 import { useSelector } from 'react-redux'
 import {
     makeStyles,
+    Avatar,
     Typography,
-    Collapse,
-    IconButton,
+    CardHeader,
     Grid,
 } from '@material-ui/core/'
-import { Icon } from '../theme'
+// import { Icon } from '../theme'
 import { 
-  getContent,
+  // getContent,
   getDeviceStr,
+  getDeviceSrc,
+  getBrowserSrc,
  } from '../redux/app/actions'
 
 const useStyles = makeStyles((theme) => ({
   panel: {
+  },
+  flex: {
+    display: 'flex',
+  },
+  avatar:{
+    background: 'white',
     margin: theme.spacing(),
   },
   padLeft:{
     marginLeft: theme.spacing(),
+  },
+  grow: {
+    flexGrow: 1,
   },
   secColText: {
     color: theme.palette.secondary.main,
@@ -28,18 +40,17 @@ const useStyles = makeStyles((theme) => ({
 export default function Device() {
   
   const classes = useStyles()
-  const [ expanded, setExpanded ] = React.useState( false )
-  const appSlice = useSelector(state => state.app)
-  const {
-    darkMode,
-  } = appSlice
-  const contentObj = getContent( `device` )
-  const {
-    content,
-    title,
-  } = contentObj
-  let helpIconColor = `primary`
-  if ( darkMode ) helpIconColor = `secondary`
+  // const [ expanded, setExpanded ] = React.useState( false )
+  // const appSlice = useSelector(state => state.app)
+  // const {
+  //   darkMode,
+  // } = appSlice
+  // const contentObj = getContent( `device` )
+  // const {
+  //   content,
+  // } = contentObj
+  // let helpIconColor = `primary`
+  // if ( darkMode ) helpIconColor = `secondary`
 
   const individualSlice = useSelector(state => state.individual) 
   const {
@@ -48,37 +59,30 @@ export default function Device() {
   if ( !individual ) return null
 
   const deviceStr = getDeviceStr( individual )
+  const deviceSrc = getDeviceSrc( individual )
+  const browserSrc = getBrowserSrc( individual )
 
   return <div className={ classes.panel }>
-             <Grid container>
-                <Grid item>
+             <Grid container> 
 
-                <Typography variant={ `body1` }>
-                    { deviceStr }  
-                  </Typography>  
-
-
-                  <IconButton
-                    color={ helpIconColor }
-                    onClick={ ( e ) => {
-                      e.preventDefault()
-                      setExpanded( !expanded )
-                    }}
-                  >
-                    <Icon icon={`help`} color={ helpIconColor } />
-                  </IconButton>
-                  <Typography variant={ `button` } className={ classes.padLeft }>
-                    { title }
-                  </Typography>   
-
-                    
-
-                </Grid>
+              <Grid item className={ clsx( classes.none )}>
+                  <CardHeader 
+                    disableTypography
+                    avatar={ <div className={ clsx( classes.flex )}>
+                                <Avatar src={ deviceSrc } className={ clsx( classes.avatar )} />
+                                <Avatar src={ browserSrc } className={ clsx( classes.avatar )} />
+                              </div>
+                            }
+                    title={ <Typography variant={ `h6` }>
+                              { deviceStr }
+                            </Typography> }
+                  />
+              </Grid>
             </Grid>
-            <Collapse in={ expanded } timeout={ `auto` } unmountOnExit>
-              <Typography variant={ `body1` } gutterBottom>
-                { content }
-              </Typography>
-            </Collapse>
           </div>
 }
+
+
+/*
+
+*/
