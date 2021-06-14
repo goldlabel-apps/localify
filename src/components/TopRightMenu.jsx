@@ -167,6 +167,16 @@ export default function TopRightMenu() {
                         <ListItemText primary={ darkMode ? `Light Mode` : `Dark Mode` } />
                       </StyledMenuItem>    
 
+                      <StyledMenuItem onClick={(e) => {
+                        e.preventDefault()
+                        navigateTo( `https://www.mapbox.com`, `_blank` )
+                        handleClose()
+                      }}>
+                        <ListItemIcon>
+                          <Icon icon={ `map` } color={ menuIconColor } />
+                        </ListItemIcon>
+                        <ListItemText primary={`Mapbox` } />
+                      </StyledMenuItem>
 
                       { !authed ? <StyledMenuItem onClick={(e) => {
                                         e.preventDefault()
@@ -200,16 +210,7 @@ export default function TopRightMenu() {
 
 
 /*
-<StyledMenuItem onClick={(e) => {
-                        e.preventDefault()
-                        navigateTo( `https://www.mapbox.com`, `_blank` )
-                        handleClose()
-                      }}>
-                        <ListItemIcon>
-                          <Icon icon={ `map` } color={ menuIconColor } />
-                        </ListItemIcon>
-                        <ListItemText primary={`Mapbox` } />
-                      </StyledMenuItem>
+
 
 
                       <StyledMenuItem onClick={(e) => {
