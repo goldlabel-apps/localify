@@ -76,13 +76,13 @@ export default function App() {
 
                   <Grid container>
                   
-                    <Grid item xs={ 12 } sm={ 6 }>
+                    <Grid item xs={ 12 } sm={ 5 }>
                       <Location />
                       <Device /> 
                       
                     </Grid>
                     
-                    <Grid item xs={ 12 }  sm={ 6 }>
+                    <Grid item xs={ 12 }  sm={ 7 }>
                       <Mapbox />
                     </Grid>
                     

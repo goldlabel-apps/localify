@@ -1,4 +1,4 @@
-const mapboxStyles = [
+export const mapboxStyles = [
 	{
 		id: `ckp80obpi08t717lfogdynhul`,
 		name: `Nice & Light`,
@@ -19,6 +19,9 @@ const mapboxStyles = [
 		name: `Grey`,
 		url: `mapbox://styles/listingslab/ck648rz7m0a1h1inroejkiyxu`,
 	},
+	{
+		id: `ck4c1er100to21co6sd5kl563`,
+		name: `Dark Yellow`,
+		url: `mapbox://styles/listingslab/ck4c1er100to21co6sd5kl563`,
+	},
 ]
-
-
