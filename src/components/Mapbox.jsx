@@ -39,14 +39,10 @@ export default function Mapbox() {
   const {
     mapboxStyles,
     mapboxStyleId,
-    updateNeeded,
-
   } = mapboxSlice
-  const mapboxStyleUrl = getMapboxUrl(mapboxStyleId) 
+  const mapboxStyleUrl = getMapboxUrl(mapboxStyleId)
 
-  console.log ('updateNeeded', updateNeeded)
-
-  const mapContainer = useRef(null)
+  let mapContainer = useRef( null )
   const map = useRef(null)
   const [lng, setLng] = useState( 0 )
   const [lat, setLat] = useState( 0 )
@@ -59,10 +55,9 @@ export default function Mapbox() {
       updateNeeded
     } = mapboxSlice
     if ( updateNeeded ){
-      console.log ('DO UPDATE')
+      map.current = null
       toggleUpdate( false )
     }
-    
   }, [ mapboxSlice ])
 
   React.useEffect(() => {
@@ -98,6 +93,7 @@ export default function Mapbox() {
               style={{
               }}
             />
+            
 
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="mapStyle">
