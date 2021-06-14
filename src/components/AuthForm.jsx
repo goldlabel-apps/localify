@@ -42,6 +42,7 @@ export default function AuthForm() {
     const {
     	error,
         isAuthing,
+        authed,
     } = authSlice
 
 	const validate = () => {
@@ -62,6 +63,8 @@ export default function AuthForm() {
         setCreds({ email: email.toLowerCase(), password })
         return result
     }
+
+    if ( authed ) return null
 	
 	return	<Dialog 
 				open
@@ -73,15 +76,12 @@ export default function AuthForm() {
   				<Typography variant={`h6`} className={classes.title}>
 					{process.env.REACT_APP_APP}
 				</Typography>
-  				
   				{ error ? <DialogContent>
     				<Alert severity="warning">
                         { error }
                     </Alert>
                 </DialogContent> : null }
-			  	
                 <div className={classes.vSpace} />
-
   				<DialogContent>
                     <TextField
                         fullWidth
@@ -108,11 +108,9 @@ export default function AuthForm() {
 	                { !isAuthing ? <React.Fragment>
 		                <Button
                             fullWidth
-                            variant={`contained`}
-                            color={`primary`}
+                            variant={`text`}
                             onClick={(e) => {
                                 e.preventDefault()
-                    
                                 if (validate().isValid) {
                                 	signin(creds)
                                 }

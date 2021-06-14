@@ -28,6 +28,7 @@ export default function DarkmodeSwitch() {
             <Switch
               checked={ darkMode }
               color={ `secondary` }
+              size={ `small` }
               onClick={ (e) => {
                 e.preventDefault()
                 toggleDarkMode( !darkMode )

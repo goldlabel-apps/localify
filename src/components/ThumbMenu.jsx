@@ -15,25 +15,7 @@ import {
 } from '../theme'
 import { DarkmodeSwitch } from './'
 
-const StyledMenu = withStyles({
-  paper: {
-    // border: '1px solid #d3d4d5',
-  },
-})(( props ) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={ null }
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'center',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
-    }}
-    {...props}
-  />
-))
+
 
 const StyledMenuItem = withStyles((theme) => ({
   root: { 
