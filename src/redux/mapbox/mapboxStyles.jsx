@@ -1,8 +1,8 @@
 export const mapboxStyles = [
 	{
-		id: `ckp80obpi08t717lfogdynhul`,
+		id: `ckpxgg3nw3unx17mv7ydukd5t`,
 		name: `Nice & Light`,
-		url: `mapbox://styles/listingslab/ckp80obpi08t717lfogdynhul`,
+		url: `mapbox://styles/listingslab/ckpxgg3nw3unx17mv7ydukd5t`,
 	},
 	{
 		id: `ckb5qq29d31yj1imdrvswbqq1`,

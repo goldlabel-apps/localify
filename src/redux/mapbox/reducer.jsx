@@ -11,7 +11,7 @@ export const mapboxSlice = {
   updateNeeded: false,
   mapboxStyles,
   // mapboxStyleId: `ck7picfb501sh1ipfwf7ab967`, // satellite
-  mapboxStyleId: `ckp80obpi08t717lfogdynhul`, // Nice & Light
+  mapboxStyleId: `ckpxgg3nw3unx17mv7ydukd5t`, // Nice & Light
 }
 
 const mapboxReducer = createReducer( mapboxSlice, {

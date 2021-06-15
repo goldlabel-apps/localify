@@ -15,7 +15,10 @@ import { Alert } from '@material-ui/lab/'
 import { 
 	Icon,
 } from '../theme'
-import { signin } from '../redux/auth/actions'
+import { 
+    signin,
+    toggleDialog,
+} from '../redux/auth/actions'
 
 const useStyles = makeStyles(theme => ({
     dialog:{
@@ -70,7 +73,10 @@ export default function AuthForm() {
 				open
                 className={classes.dialog}
 				fullWidth={ true }
-				maxWidth={`xs`}>
+				maxWidth={`xs`}
+                onClose={ ( e ) => {
+                    toggleDialog( false )
+                }}>
                 <div className={classes.vSpace} />
   				<div className={classes.vSpace} />
   				<Typography variant={`h6`} className={classes.title}>

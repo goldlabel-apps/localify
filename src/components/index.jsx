@@ -3,7 +3,6 @@ import Overlay from './Overlay'
 import ImageUpload from './ImageUpload'
 import Settings from './Settings'
 import Navigation from './Navigation'
-import Individual from './Individual'
 import Topbar from './Topbar'
 import DarkmodeSwitch from './DarkmodeSwitch'
 import Device from './Device'
@@ -25,7 +24,6 @@ export {
 	ImageUpload,
 	Settings,
 	Navigation,
-	Individual,
 	Topbar,
 	DarkmodeSwitch,
 	Device,

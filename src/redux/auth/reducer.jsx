@@ -4,16 +4,23 @@ import {
   authStateChanged,
   authed,
   isAuthing,
+  dialog,
 } from "./actions"
 
 export const authSlice = {
   error: null,
+  dialog: false,
   authStateChanged: false,
   authed: false,
   isAuthing: false,
 }
 
 const authReducer = createReducer(authSlice, {
+  
+  [dialog]: (state, action) => {
+    state.dialog = action.dialog
+    return state
+  }, 
   
   [authStateChanged]: (state, action) => {
     state.authStateChanged = action.authStateChanged

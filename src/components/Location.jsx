@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core/'
 import { 
   getLocationStr,
- } from '../features/Individual/actions'
+ } from '../features/Individuals/actions'
 
 const useStyles = makeStyles((theme) => ({
   panel: {

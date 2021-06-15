@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import { appReducer, appSlice } from './app/reducer'
-import { individualReducer, individualSlice } from './individual/reducer'
+import { individualReducer, individualSlice } from '../features/Individuals/reducer'
 import { authReducer, authSlice } from './auth/reducer'
 import { mapboxReducer, mapboxSlice } from './mapbox/reducer'
 

@@ -16,8 +16,15 @@ import {
   DarkmodeSwitch,
   AuthForm,
 } from './'
-import { navigateTo } from '../redux/app/actions'
-import { signout } from '../redux/auth/actions'
+import { 
+  navigateTo,
+  routeTo, 
+} from '../redux/app/actions'
+import { 
+  signout,
+  toggleDialog,
+  
+} from '../redux/auth/actions'
 
 const useStyles = makeStyles((theme) => ({
   topRightMenu: {
@@ -70,16 +77,13 @@ export default function TopRightMenu() {
   const classes = useStyles()
   const theme = useTheme()
   const [ anchorEl, setAnchorEl ] = React.useState( null )
-  const [showSignin, setShowSignin] = React.useState( false ) 
   const appSlice = useSelector(state => state.app)
   const authSlice = useSelector(state => state.auth)
 
-  
   const {
     authed,
+    dialog,
   } = authSlice
-
-  // console.log ( 'authed', authed)
 
   const {
     darkMode,
@@ -100,7 +104,7 @@ export default function TopRightMenu() {
 
   return <div className={ clsx( classes.topRightMenu )}>
 
-            { showSignin ? <AuthForm setShowSignin={ setShowSignin } /> : null }
+            { dialog ? <AuthForm /> : null }
 
             <IconButton
               checked={ darkMode }
@@ -124,7 +128,7 @@ export default function TopRightMenu() {
 
                       <StyledMenuItem onClick={(e) => {
                         e.preventDefault()
-                        navigateTo( `/`, `_self` )
+                        routeTo( `/` )
                         handleClose()
                       }}>
                         <ListItemIcon>
@@ -182,7 +186,7 @@ export default function TopRightMenu() {
 
                       { !authed ? <StyledMenuItem onClick={(e) => {
                                         e.preventDefault()
-                                        setShowSignin( true )
+                                        toggleDialog( true )
                                         handleClose()
                                       }}>
                                         <ListItemIcon>
@@ -193,17 +197,16 @@ export default function TopRightMenu() {
                                       : 
                                       <StyledMenuItem onClick={(e) => {
                                         e.preventDefault()
-                                        if (window.confirm( 'Signout?')) signout()
+                                        signout()
+                                        handleClose()
+                                        routeTo( '/' )
                                       }}>
                                         <ListItemIcon>
                                           <Icon icon={ `logout` } color={ menuIconColor } />
                                         </ListItemIcon>
-                                        <ListItemText primary={`Logout` } />
-                                      </StyledMenuItem> }
-
-                    
-          
-        </StyledMenu>
+                                        <ListItemText primary={`Sign out` } />
+                                      </StyledMenuItem> }          
+            </StyledMenu>
 
 
 

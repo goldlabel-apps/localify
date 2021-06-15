@@ -6,19 +6,26 @@ import {
   config,
   configLoading,
   configLoaded,
+  path,
 } from "./actions"
 
 export const appSlice = {
   error: null,
-  darkMode: true,
+  darkMode: false,
   overlay: false,
   config: null,
   configLoading: false,
   configLoaded: false,
+  path: `/`,
 }
 
 const appReducer = createReducer( appSlice, {
 
+  [path]: (state, action) => {
+    state.path = action.path
+    return state
+  },
+  
   [error]: (state, action) => {
     state.error = action.error
     return state

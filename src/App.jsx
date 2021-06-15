@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core/'
 import { 
   loadConfig,
+  setPath,
 } from './redux/app/actions'
 import {
   themeLight, 
@@ -18,12 +19,18 @@ import {
 } from './theme'
 import {
   Topbar,
-  Individual,
   Device,
-  Mapbox,
   Location,
   Avatars,
+  Mapbox,
 } from './components'
+import {
+  Individuals,
+} from './features/Individuals'
+import { 
+  initIndividual,
+} from './features/Individuals/actions'
+
 
 const useStyles = makeStyles((theme) => ({
   localify: {
@@ -49,18 +56,15 @@ export default function App() {
 
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
-  let theme = themeLight
-  const {
-    darkMode,
-  } = appSlice
-  if ( darkMode ) theme = themeDark
-  let progressColor = `primary`
-  if ( darkMode ) progressColor = `secondary`
-
   const individualSlice = useSelector(state => state.individual)
-  const {
-    individual,
-  } = individualSlice
+
+  React.useEffect(() => {
+    const {
+      initted,
+      initting,
+    } = individualSlice
+    if (!initted && !initting) initIndividual()
+  }, [ individualSlice ]) 
 
   React.useEffect(() => {
     const {
@@ -70,31 +74,50 @@ export default function App() {
     if (!configLoading && !configLoaded) loadConfig()
   }, [appSlice])
   
+
+  let theme = themeLight
+  const {
+    darkMode,
+    path,
+  } = appSlice
+  if ( darkMode ) theme = themeDark
+  let progressColor = `primary`
+  if ( darkMode ) progressColor = `secondary`
+  const {
+    id,
+  } = individualSlice
+  let showIndividuals = false
+  const actualPath = window.location.pathname
+  if ( actualPath !== path ) setPath (actualPath)
+  if ( path === `/individuals` ||  actualPath === `/individuals`) showIndividuals = true 
+
   return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
           <CssBaseline />
-          <Individual />
-          { !individual ? <LinearProgress color={ progressColor } />
+          { !id ? <React.Fragment>
+                    <LinearProgress color={ progressColor } />
+                    <Topbar /> 
+                  </React.Fragment>
             : <div className={classes.localify}>
                 <Topbar /> 
                 <div className={ clsx( classes.drawerHeader )} />
                 <div className={clsx( classes.content ) }>
-
-                  <Grid container>
-                  
+                  { showIndividuals ? <Individuals /> : <Grid container>
                     <Grid item xs={ 12 } sm={ 4 }>
                       <Avatars />
                       <Device />
                       <Location />
                     </Grid>
 
-                    
                     <Grid item xs={ 12 }  sm={ 8 }>
                       <Mapbox />
                     </Grid>
-                    
-                  </Grid>
+                  </Grid> }
                 </div>
             </div>
           }
         </MuiThemeProvider> 
 }
+
+/*
+
+*/

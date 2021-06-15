@@ -8,7 +8,7 @@ import {
 // import { Icon } from '../theme'
 import {
   getDeviceStr,
- } from '../features/Individual/actions'
+ } from '../features/Individuals/actions'
 
 const useStyles = makeStyles((theme) => ({
   panel: {

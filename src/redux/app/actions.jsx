@@ -11,6 +11,7 @@ export const darkMode = createAction(`APP/DARKMODE`)
 export const config = createAction(`APP/CONFIG`)
 export const configLoading = createAction(`APP/CONFIG/LOADING`)
 export const configLoaded = createAction(`APP/CONFIG/LOADED`)
+export const path = createAction(`APP/PATH`)
 
 export const getContent = slug => {
 	const pages = getStore().getState().app.config.pages
@@ -50,10 +51,17 @@ export const navigateTo = ( url, target ) => {
 	return true
 }
 
-export const routeTo = route => {
-	console.log ( 'routeTo', route )
+export const setPath = path => {
+	const store = getStore()
+	store.dispatch({type: `APP/PATH`, path })
+	return true
+}
+
+export const routeTo = path => {
+	const store = getStore()
+	store.dispatch({type: `APP/PATH`, path })
 	const history = getHistory()
-	history.push( route )
+	history.push( path )
 	return true
 }
 

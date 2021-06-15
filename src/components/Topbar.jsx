@@ -12,9 +12,10 @@ import {
 import {
   TopRightMenu,
 } from './'
+import { 
+  routeTo,
+} from '../redux/app/actions'
 import { Icon } from '../theme'
-
-
 
 const useStyles = makeStyles((theme) => ({
   grow:{
@@ -47,6 +48,7 @@ export default function Topbar() {
     config,
     darkMode,
   } = appSlice  
+  if (!config) return null
   const {
     title,
   } = config
@@ -72,7 +74,7 @@ export default function Topbar() {
                 { authed ? <IconButton
                               onClick={ ( e ) => {
                                 e.preventDefault()
-                                console.log ('Route to... /individuals')
+                                routeTo( `/individuals` )
                               }}>
                               <Icon icon={`agile`} color={ iconColor } />
                            </IconButton> : null }

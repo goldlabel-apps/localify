@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl:{
     marginTop: theme.spacing(),
-    // minWidth: '100%',
   }
 }))
 
@@ -41,8 +40,7 @@ export default function Mapbox() {
     mapboxStyleId,
   } = mapboxSlice
   const mapboxStyleUrl = getMapboxUrl(mapboxStyleId)
-
-  let mapContainer = useRef( null )
+  const mapContainer = useRef( null )
   const map = useRef(null)
   const [lng, setLng] = useState( 0 )
   const [lat, setLat] = useState( 0 )
@@ -55,7 +53,6 @@ export default function Mapbox() {
       updateNeeded
     } = mapboxSlice
     if ( updateNeeded ){
-      map.current = null
       toggleUpdate( false )
     }
   }, [ mapboxSlice ])
@@ -90,7 +87,7 @@ export default function Mapbox() {
   const showSelecta = false
 
   return <div className={ classes.panel }>
-            
+            {  }
             <div 
               ref={ mapContainer  }
               className={ classes.map }
@@ -126,7 +123,6 @@ export default function Mapbox() {
                          </option>
                 })}
               </Select>
-            </FormControl> : null }
-            
+            </FormControl> : null }            
           </div>
 }

@@ -10,7 +10,7 @@ import {
   getBrowserSrc,
   getFlagSrc,
   getDeviceSrc,
- } from '../features/Individual/actions'
+ } from '../features/Individuals/actions'
 
 const useStyles = makeStyles((theme) => ({
   panel: {
