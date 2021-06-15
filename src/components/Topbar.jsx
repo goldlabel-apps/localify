@@ -6,11 +6,15 @@ import {
     AppBar,
     Toolbar,
     CardHeader,
+    IconButton,
     Typography,
 } from '@material-ui/core/'
 import {
   TopRightMenu,
 } from './'
+import { Icon } from '../theme'
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow:{
@@ -35,6 +39,10 @@ export default function Topbar() {
   
   const classes = useStyles()
   const appSlice = useSelector(state => state.app)
+  const authSlice = useSelector(state => state.auth)
+  const {
+    authed,
+  } = authSlice 
   const {
     config,
     darkMode,
@@ -42,6 +50,9 @@ export default function Topbar() {
   const {
     title,
   } = config
+
+  let iconColor = `primary`
+  if ( darkMode ) iconColor = `secondary`
 
   return  <AppBar
               position={ `fixed` }
@@ -58,6 +69,13 @@ export default function Topbar() {
                         }
                   /> 
                 <div className={ clsx( classes.grow ) } />
+                { authed ? <IconButton
+                              onClick={ ( e ) => {
+                                e.preventDefault()
+                                console.log ('Route to... /individuals')
+                              }}>
+                              <Icon icon={`agile`} color={ iconColor } />
+                           </IconButton> : null }
                 <TopRightMenu />
               </Toolbar>
             </AppBar>
