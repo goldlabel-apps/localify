@@ -13,6 +13,7 @@ import AuthForm from './AuthForm'
 import Mapbox from './Mapbox'
 import TopRightMenu from './TopRightMenu'
 import Feedback from './Feedback'
+import Avatars from './Avatars'
 
 export {
 	Feedback,
@@ -30,4 +31,5 @@ export {
 	Device,
 	Fingerprint,
 	Location,
+	Avatars,
 }

@@ -46,7 +46,7 @@ export default function Mapbox() {
   const map = useRef(null)
   const [lng, setLng] = useState( 0 )
   const [lat, setLat] = useState( 0 )
-  const [zoom, setZoom] = useState( 9 )
+  const [zoom, setZoom] = useState( 5 )
   const suppressor = false
   if ( suppressor ) console.log (lat, lng)
 

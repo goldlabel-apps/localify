@@ -22,6 +22,7 @@ import {
   Device,
   Mapbox,
   Location,
+  Avatars,
 } from './components'
 
 const useStyles = makeStyles((theme) => ({
@@ -81,9 +82,11 @@ export default function App() {
                   <Grid container>
                   
                     <Grid item xs={ 12 } sm={ 4 }>
-                      <Location />
+                      <Avatars />
                       <Device />
+                      <Location />
                     </Grid>
+
                     
                     <Grid item xs={ 12 }  sm={ 8 }>
                       <Mapbox />
@@ -95,12 +98,3 @@ export default function App() {
           }
         </MuiThemeProvider> 
 }
-
-
-
-
-/*
- <Grid item xs={ 12 } >
-                    <Fingerprint />
-                  </Grid>
-*/
