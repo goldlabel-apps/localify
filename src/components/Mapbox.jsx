@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl:{
     marginTop: theme.spacing(),
-    minWidth: '100%',
+    // minWidth: '100%',
   }
 }))
 
@@ -84,6 +84,10 @@ export default function Mapbox() {
       setZoom( map.current.getZoom().toFixed( 4 ))
     })
   })
+  if ( !individual ) return null
+
+
+  const showSelecta = false
 
   return <div className={ classes.panel }>
             
@@ -94,8 +98,7 @@ export default function Mapbox() {
               }}
             />
             
-
-            <FormControl className={classes.formControl}>
+            { showSelecta ? <FormControl className={classes.formControl}>
               <InputLabel htmlFor="mapStyle">
                 Mapbox style
               </InputLabel>
@@ -123,6 +126,7 @@ export default function Mapbox() {
                          </option>
                 })}
               </Select>
-            </FormControl>
+            </FormControl> : null }
+            
           </div>
 }

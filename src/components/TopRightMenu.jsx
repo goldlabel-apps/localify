@@ -133,6 +133,15 @@ export default function TopRightMenu() {
                         <ListItemText primary={`Home` } />
                       </StyledMenuItem>
 
+                      <StyledMenuItem onClick={(e) => {
+                        e.preventDefault()
+                      }}>
+                        <ListItemIcon>
+                          <DarkmodeSwitch />
+                        </ListItemIcon>
+                        <ListItemText primary={ darkMode ? `Light Mode` : `Dark Mode` } />
+                      </StyledMenuItem> 
+
 
                       <StyledMenuItem onClick={(e) => {
                         e.preventDefault()
@@ -147,7 +156,9 @@ export default function TopRightMenu() {
 
                       <StyledMenuItem onClick={(e) => {
                         e.preventDefault()
-                        navigateTo( `https://github.com/listingslab-software/localify`, `_blank` )
+                        // https://github.com/orgs/listingslab-software/projects/14?fullscreen=true&card_filter_query=label%3A%40localify
+                        // https://github.com/listingslab-software/localify
+                        navigateTo( `https://github.com/orgs/listingslab-software/projects/14?fullscreen=true&card_filter_query=label%3A%40localify`, `_blank` )
                         handleClose()
                       }}>
                         <ListItemIcon>
@@ -156,16 +167,7 @@ export default function TopRightMenu() {
                         <ListItemText primary={`GitHub` } />
                       </StyledMenuItem>   
 
-                      <StyledMenuItem onClick={(e) => {
-                        e.preventDefault()
-                        // navigateTo( `https://github.com/listingslab-software/localify`, `_blank` )
-                        // handleClose()
-                      }}>
-                        <ListItemIcon>
-                          <DarkmodeSwitch />
-                        </ListItemIcon>
-                        <ListItemText primary={ darkMode ? `Light Mode` : `Dark Mode` } />
-                      </StyledMenuItem>    
+                         
 
                       <StyledMenuItem onClick={(e) => {
                         e.preventDefault()

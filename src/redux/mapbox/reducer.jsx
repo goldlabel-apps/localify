@@ -10,7 +10,8 @@ export const mapboxSlice = {
   error: null,
   updateNeeded: false,
   mapboxStyles,
-  mapboxStyleId: `ckp80obpi08t717lfogdynhul`, 
+  // mapboxStyleId: `ck7picfb501sh1ipfwf7ab967`, // satellite
+  mapboxStyleId: `ckp80obpi08t717lfogdynhul`, // Nice & Light
 }
 
 const mapboxReducer = createReducer( mapboxSlice, {

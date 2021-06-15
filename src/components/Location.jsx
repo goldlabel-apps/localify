@@ -51,7 +51,7 @@ export default function Location() {
                 <CardHeader 
                       disableTypography
                       avatar={ <Avatar src={ flagSrc } className={ clsx( classes.avatar )} /> }
-                      title={ <Typography variant={ `h6` }>
+                      title={ <Typography variant={ `button` }>
                               { locationStr }
                             </Typography> }
                 />

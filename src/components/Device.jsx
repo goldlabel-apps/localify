@@ -68,12 +68,12 @@ export default function Device() {
               <Grid item className={ clsx( classes.none )}>
                   <CardHeader 
                     disableTypography
-                    avatar={ <div className={ clsx( classes.flex )}>
+                    action={ <div className={ clsx( classes.flex )}>
                                 <Avatar src={ deviceSrc } className={ clsx( classes.avatar )} />
                                 <Avatar src={ browserSrc } className={ clsx( classes.avatar )} />
                               </div>
                             }
-                    title={ <Typography variant={ `h6` }>
+                    title={ <Typography variant={ `button` }>
                               { deviceStr }
                             </Typography> }
                   />

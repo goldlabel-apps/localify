@@ -51,11 +51,15 @@ export default function App() {
   let theme = themeLight
   const {
     darkMode,
-    config,
   } = appSlice
   if ( darkMode ) theme = themeDark
   let progressColor = `primary`
   if ( darkMode ) progressColor = `secondary`
+
+  const individualSlice = useSelector(state => state.individual)
+  const {
+    individual,
+  } = individualSlice
 
   React.useEffect(() => {
     const {
@@ -68,7 +72,7 @@ export default function App() {
   return <MuiThemeProvider theme={ createMuiTheme( theme ) }>
           <CssBaseline />
           <Individual />
-          { !config ? <LinearProgress color={ progressColor } />
+          { !individual ? <LinearProgress color={ progressColor } />
             : <div className={classes.localify}>
                 <Topbar /> 
                 <div className={ clsx( classes.drawerHeader )} />
